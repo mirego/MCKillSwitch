@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  MCKillSwitchExample
+
+  Created by Stéphanie Paquet on 2013-05-10.
+  Copyright (c) 2013 Mirego. All rights reserved.
+*/
+
+"BTN_CLEAR_INFO" = "Clear Saved Info";
+"BTN_ACTION_OK" = "OK";
+"BTN_ACTION_ALERT" = "Alert";
+"BTN_ACTION_KILL" = "Kill";
+
+"TEST_ACTIONS" = "Test Actions";
