@@ -27,7 +27,8 @@ extern NSString * const kMCKillSwitchInfoVersion;
 
 - (void)execute;
 - (void)prepareToShowInfo:(NSDictionary *)info;
-- (void)clearSavedInfo;
+
++ (void)clearSavedInfo;
 
 @end
 

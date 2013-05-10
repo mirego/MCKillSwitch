@@ -112,7 +112,7 @@ NSString * const kMCKillSwitchInfoVersion = @"com.mirego.killswitch.info.version
     }
 }
 
-- (void)clearSavedInfo
++ (void)clearSavedInfo
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults removeObjectForKey:kMCKillSwitchInfo];
@@ -126,7 +126,7 @@ NSString * const kMCKillSwitchInfoVersion = @"com.mirego.killswitch.info.version
 
 - (NSString *)applicationVersion
 {
-    NSString *version = [[NSBundle mainBundle] infoDictionary][@"CFBuildVersion"];
+    NSString *version = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
     return version;
 }
 
@@ -139,7 +139,7 @@ NSString * const kMCKillSwitchInfoVersion = @"com.mirego.killswitch.info.version
         [userDefaults synchronize];
     }
     else {
-        [self clearSavedInfo];
+        [MCKillSwitch clearSavedInfo];
     }
 }
 
@@ -154,7 +154,7 @@ NSString * const kMCKillSwitchInfoVersion = @"com.mirego.killswitch.info.version
         
         if (!versionMatchesCurrent) {
             info = nil;
-            [self clearSavedInfo];
+            [MCKillSwitch clearSavedInfo];
         }
     }
     
