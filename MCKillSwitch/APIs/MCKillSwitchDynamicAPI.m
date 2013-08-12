@@ -1,12 +1,12 @@
 //
-//  MCKillSwitchAPI.m
+//  MCKillSwitchDynamicAPI.m
 //  MCKillSwitch
 //
 //  Created by Stéphanie Paquet on 2013-04-24.
 //  Copyright (c) 2013 Mirego. All rights reserved.
 //
 
-#import "MCKillSwitchAPI.h"
+#import "MCKillSwitchDynamicAPI.h"
 
 NSString * const kMCKillSwitchAPIPath = @"killswitch";
 NSString * const kMCKillSwitchAPILanguage = @"Accept-Language";
@@ -18,7 +18,7 @@ NSString * const kMCKillSwitchAPIPlatform = @"ios";
 #pragma mark - Private interface
 //------------------------------------------------------------------------------
 
-@interface MCKillSwitchAPI ()
+@interface MCKillSwitchDynamicAPI ()
 
 @property (nonatomic) NSURL *baseURL;
 @property (nonatomic) NSURLConnection *connection;
@@ -30,7 +30,8 @@ NSString * const kMCKillSwitchAPIPlatform = @"ios";
 #pragma mark - Implementation
 //------------------------------------------------------------------------------
 
-@implementation MCKillSwitchAPI
+@implementation MCKillSwitchDynamicAPI
+@synthesize delegate;
 
 - (id)initWithBaseURL:(NSURL *)baseURL
 {
@@ -59,23 +60,49 @@ NSString * const kMCKillSwitchAPIPlatform = @"ios";
 
 - (void)startWithParameters:(NSDictionary *)parameters
 {
+    NSMutableURLRequest *request= [self killSwitchRequestWithParameters:parameters];
+
+    // URL connection
+    [self cancel];
+    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
+- (NSMutableURLRequest *)killSwitchRequestWithParameters:(NSDictionary *)parameters
+{
+    if (self.URLIsStatic) {
+        return [self requestForStaticURLWithParameters:parameters];
+    }
+    else {
+        return [self requestForDynamicURL:parameters];
+
+    }
+}
+
+- (NSMutableURLRequest *)requestForStaticURLWithParameters:(NSDictionary *)parameters
+{
+    NSString *appVersion = parameters[kMCKillSwitchAPIAppVersion];
+    NSURL *url = [NSURL URLWithString:[appVersion stringByAppendingPathExtension:@"json"] relativeToURL:self.baseURL];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    return request;
+}
+
+- (NSMutableURLRequest *)requestForDynamicURL:(NSDictionary *)parameters
+{
     NSURL *url = [NSURL URLWithString:kMCKillSwitchAPIPath relativeToURL:self.baseURL];
-    
+
     // Parameters
     NSString *queryParams = [self queryStringForParameters:parameters];
     if (queryParams) {
-        url = [NSURL URLWithString:[url.absoluteString stringByAppendingFormat:@"?%@", queryParams]];
-    }
-    
+            url = [NSURL URLWithString:[url.absoluteString stringByAppendingFormat:@"?%@", queryParams]];
+        }
+
     // Request contruction
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
     [request setValue:[self language] forHTTPHeaderField:kMCKillSwitchAPILanguage];
     [request setValue:[self userAgent] forHTTPHeaderField:kMCKillSwitchAPIUserAgent];
-    
-    // URL connection
-    [self cancel];
-    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    return request;
 }
 
 - (void)cancel

@@ -1,5 +1,5 @@
 //
-//  MCKillSwitchAPI.h
+//  MCKillSwitchDynamicAPI.h
 //  MCKillSwitch
 //
 //  Created by Stéphanie Paquet on 2013-04-24.
@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MCKillSwitchAPI.h"
 
 extern NSString * const kMCKillSwitchAPIPath;
 extern NSString * const kMCKillSwitchAPILanguage;
@@ -16,30 +17,9 @@ extern NSString * const kMCKillSwitchAPIPlatform;
 
 @protocol MCKillSwitchAPIDelegate;
 
-@interface MCKillSwitchAPI : NSObject <NSURLConnectionDataDelegate>
-
-@property (nonatomic, weak) id <MCKillSwitchAPIDelegate> delegate;
-
+@interface MCKillSwitchDynamicAPI : NSObject <MCKillSwitchAPI, NSURLConnectionDataDelegate>
 - (id)initWithBaseURL:(NSURL *)baseURL;
-
 - (id)initWithBaseURL:(NSURL *)url URLIsStatic:(BOOL)staticURL;
-
-- (void)start;
-
-
-
-- (void)startWithParameters:(NSDictionary *)parameters;
-- (void)cancel;
-
 - (void)successWithInfoDictionary:(NSDictionary *)infoDictionary;
 - (void)failWithError:(NSError *)error;
-
-@end
-
-
-@protocol MCKillSwitchAPIDelegate <NSObject>
-
-- (void)killSwitchAPI:(MCKillSwitchAPI *)killSwitchAPI didLoadInfoDictionary:(NSDictionary *)infoDictionary;
-- (void)killSwitchAPI:(MCKillSwitchAPI *)killSwitchAPI didFailWithError:(NSError *)error;
-
 @end

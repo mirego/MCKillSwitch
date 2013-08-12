@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MCKillSwitchAPI.h"
+#import "MCKillSwitchDynamicAPI.h"
 #import "MCKillSwitchInfo.h"
 
 extern NSString * const kMCKillSwitchInfo;
@@ -23,7 +23,7 @@ extern NSString * const kMCKillSwitchInfoVersion;
 @property (nonatomic, readonly, getter = isExecuting) BOOL executing;
 
 - (id)initWithBaseURL:(NSURL *)baseURL;
-- (id)initWithAPI:(MCKillSwitchAPI *)killSwitchAPI;
+- (id)initWithAPI:(id<MCKillSwitchAPI>)killSwitchAPI;
 
 - (void)execute;
 
@@ -31,6 +31,7 @@ extern NSString * const kMCKillSwitchInfoVersion;
 
 + (void)clearSavedInfo;
 
++ (void)configureStaticKillSwitchWithURL:(NSString *)urlString;
 @end
 
 

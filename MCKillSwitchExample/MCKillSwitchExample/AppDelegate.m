@@ -17,7 +17,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[MCKillSwitchExampleRootViewController alloc] init];
     [self.window makeKeyAndVisible];
-    
+
     return YES;
 }
 

@@ -12,6 +12,7 @@
 #import "MCMockKillSwitchAPIAlert.h"
 #import "MCMockKillSwitchAPIKill.h"
 #import "MCMockKillSwitchAPINoInternet.h"
+#import "MCMockKillSwitchAPIDisk.h"
 
 @interface MCKillSwitchExampleTests () <MCKillSwitchDelegate>
 
@@ -89,6 +90,15 @@
     [ksNoInternet execute];
 }
 
+- (void)testKillSwitchDiskAPI 
+{
+    MCKillSwitch *killSwitch = [self killSwitchDisk];
+
+    [killSwitch execute];
+
+    [self basesTestsForKillSwitch:killSwitch];
+}
+
 //------------------------------------------------------------------------------
 #pragma mark - Helper methods
 //------------------------------------------------------------------------------
@@ -96,7 +106,7 @@
 - (MCKillSwitch *)killSwitchWithAPIClass:(Class)apiClass
 {
     MCKillSwitch *killSwitch = nil;
-    BOOL isAPIKillSwitchClass = [apiClass isSubclassOfClass:[MCKillSwitchAPI class]];
+    BOOL isAPIKillSwitchClass = [apiClass isSubclassOfClass:[MCKillSwitchDynamicAPI class]];
     
     if (isAPIKillSwitchClass) {
         killSwitch = [[MCKillSwitch alloc] initWithAPI:[[apiClass alloc] init]];
@@ -127,6 +137,11 @@
 - (MCKillSwitch *)killSwitchNoInternet
 {
     return [self killSwitchWithAPIClass:[MCMockKillSwitchAPINoInternet class]];
+}
+
+- (MCKillSwitch *)killSwitchDisk
+{
+    return [self killSwitchWithAPIClass:[MCMockKillSwitchAPIDisk class]];
 }
 
 - (void)basesTestsForKillSwitch:(MCKillSwitch *)killSwitch

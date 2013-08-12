@@ -14,6 +14,7 @@
 //------------------------------------------------------------------------------
 @interface MCMockKillSwitchAPIDisk ()
 
+@property(nonatomic) NSDictionary *parameters;
 @end
 
 @implementation MCMockKillSwitchAPIDisk
@@ -22,6 +23,7 @@
 }
 - (void)startWithParameters:(NSDictionary *)parameters
 {
+    self.parameters = [parameters copy];
     [self successWithInfoDictionary:[self expectedDictionary]];
 }
 
@@ -31,7 +33,7 @@
 
 - (NSDictionary *)expectedDictionary
 {
-    NSString *pathJSON = [[NSBundle mainBundle] pathForResource:@"action_kill" ofType:@"json"];
+    NSString *pathJSON = [[NSBundle mainBundle] pathForResource:self.parameters[kMCKillSwitchAPIAppVersion] ofType:@"json"];
     NSData *dataJSON = [NSData dataWithContentsOfFile:pathJSON];
     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:dataJSON options:NSJSONReadingMutableContainers error:NULL];
     return dictionary;

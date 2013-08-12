@@ -7,6 +7,8 @@
 //
 
 #import "MCKillSwitch.h"
+#import "MCKillSwitchStaticAPI.h"
+#import "MCKillSwitchAlert.h"
 
 NSString * const kMCKillSwitchInfo = @"com.mirego.killswitch.info";
 NSString * const kMCKillSwitchInfoVersion = @"com.mirego.killswitch.info.version";
@@ -17,7 +19,7 @@ NSString * const kMCKillSwitchInfoVersion = @"com.mirego.killswitch.info.version
 
 @interface MCKillSwitch ()
 
-@property (nonatomic, strong) MCKillSwitchAPI *killSwitchAPI;
+@property (nonatomic, strong) id<MCKillSwitchAPI> killSwitchAPI;
 
 @end
 
@@ -37,15 +39,15 @@ NSString * const kMCKillSwitchInfoVersion = @"com.mirego.killswitch.info.version
     return [self initWithBaseURL:baseURL orAPI:nil];
 }
 
-- (id)initWithAPI:(MCKillSwitchAPI *)killSwitchAPI
+- (id)initWithAPI:(id<MCKillSwitchAPI>)killSwitchAPI
 {
     return [self initWithBaseURL:nil orAPI:killSwitchAPI];
 }
 
-- (id)initWithBaseURL:(NSURL *)baseURL  orAPI:(MCKillSwitchAPI *)killSwitchAPI {
+- (id)initWithBaseURL:(NSURL *)baseURL  orAPI:(id<MCKillSwitchAPI>)killSwitchAPI {
     self = [super init];
     if (self) {
-        _killSwitchAPI = killSwitchAPI ? killSwitchAPI : [[MCKillSwitchAPI alloc] initWithBaseURL:baseURL];
+        _killSwitchAPI = killSwitchAPI ? killSwitchAPI : [[MCKillSwitchDynamicAPI alloc] initWithBaseURL:baseURL];
         _killSwitchAPI.delegate = self;
     }
     return self;
@@ -132,6 +134,16 @@ NSString * const kMCKillSwitchInfoVersion = @"com.mirego.killswitch.info.version
     return version;
 }
 
++ (void)configureStaticKillSwitchWithURL:(NSString *)urlString
+{
+    static MCKillSwitchAlert *killSwitchAlert;
+    killSwitchAlert = [[MCKillSwitchAlert alloc] init];
+    static MCKillSwitch *killSwitch;
+    killSwitch = [[MCKillSwitch alloc] initWithAPI:[[MCKillSwitchStaticAPI alloc] initWithBaseURL:[NSURL URLWithString:urlString]]];
+    killSwitch.executeOnAppDidBecomeActive = YES;
+    killSwitch.delegate = killSwitchAlert;
+}
+
 - (void)saveInfo:(NSDictionary *)info
 {
     if (info) {
@@ -167,15 +179,15 @@ NSString * const kMCKillSwitchInfoVersion = @"com.mirego.killswitch.info.version
 #pragma mark - MCKillSwitchAPIDelegate
 //------------------------------------------------------------------------------
 
-- (void)killSwitchAPI:(MCKillSwitchAPI *)killSwitchAPI didLoadInfoDictionary:(NSDictionary *)infoDictionary
+- (void)killSwitchAPI:(MCKillSwitchDynamicAPI *)killSwitchAPI didLoadInfoDictionary:(NSDictionary *)infoDictionary
 {
-    NSLog(@"MCKillSwitch: Success loading info");
+    NSLog(@"MCKillSwitch: Success loading info: %@", infoDictionary);
     
     [self saveInfo:infoDictionary];
     [self prepareToShowInfo:infoDictionary];
 }
 
-- (void)killSwitchAPI:(MCKillSwitchAPI *)killSwitchAPI didFailWithError:(NSError *)error
+- (void)killSwitchAPI:(MCKillSwitchDynamicAPI *)killSwitchAPI didFailWithError:(NSError *)error
 {
     NSLog(@"MCKillSwitch: Error loading info\n%@", error);
     

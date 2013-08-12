@@ -38,7 +38,7 @@
     [rootView.buttonTestActionOK addTarget:self action:@selector(selectedTestActionOkButton:) forControlEvents:UIControlEventTouchUpInside];
     [rootView.buttonTestActionAlert addTarget:self action:@selector(selectedTestActionAlertButton:) forControlEvents:UIControlEventTouchUpInside];
     [rootView.buttonTestActionKill addTarget:self action:@selector(selectedTestActionKillButton:) forControlEvents:UIControlEventTouchUpInside];
-    
+    [rootView.buttonTestUseStaticKillSwitch addTarget:self action:@selector(useTestStaticKillSwitch) forControlEvents:UIControlEventTouchUpInside];
     self.view = rootView;
 }
 
@@ -79,6 +79,11 @@
     [killSwitch execute];
 }
 
+- (void)useTestStaticKillSwitch
+{
+    [MCKillSwitch configureStaticKillSwitchWithURL:@"http://lefrancois-test.s3.amazonaws.com/1.0.0.json"];
+}
+
 //------------------------------------------------------------------------------
 #pragma mark - Private methods
 //------------------------------------------------------------------------------
@@ -86,7 +91,7 @@
 - (MCKillSwitch *)killSwitchWithAPIClass:(Class)apiClass
 {
     MCKillSwitch *killSwitch = nil;
-    BOOL isAPIKillSwitchClass = [apiClass isSubclassOfClass:[MCKillSwitchAPI class]];
+    BOOL isAPIKillSwitchClass = [apiClass isSubclassOfClass:[MCKillSwitchDynamicAPI class]];
     
     if (isAPIKillSwitchClass) {
         killSwitch = [[MCKillSwitch alloc] initWithAPI:[[apiClass alloc] init]]; // Tests with local JSON.

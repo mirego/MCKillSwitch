@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Mirego. All rights reserved.
 //
 
-#import "MCKillSwitchAPI.h"
+#import "MCKillSwitchDynamicAPI.h"
 
-@interface MCMockKillSwitchAPIOK : MCKillSwitchAPI
+@interface MCMockKillSwitchAPIOK : MCKillSwitchDynamicAPI
 
 @end

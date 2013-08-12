@@ -14,5 +14,6 @@
 @property (nonatomic, readonly) UIButton *buttonTestActionOK;
 @property (nonatomic, readonly) UIButton *buttonTestActionAlert;
 @property (nonatomic, readonly) UIButton *buttonTestActionKill;
+@property (nonatomic, readonly) UIButton *buttonTestUseStaticKillSwitch;
 
 @end
