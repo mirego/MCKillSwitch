@@ -99,7 +99,7 @@
     BOOL isAPIKillSwitchClass = [apiClass isSubclassOfClass:[MCKillSwitchAPI class]];
     
     if (isAPIKillSwitchClass) {
-        killSwitch = [[MCKillSwitch alloc] initWithBaseURL:nil andAPI:[[apiClass alloc] init]];
+        killSwitch = [[MCKillSwitch alloc] initWithAPI:[[apiClass alloc] init]];
         killSwitch.delegate = self;
     }
     else {

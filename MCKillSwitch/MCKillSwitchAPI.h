@@ -22,7 +22,12 @@ extern NSString * const kMCKillSwitchAPIPlatform;
 
 - (id)initWithBaseURL:(NSURL *)baseURL;
 
+- (id)initWithBaseURL:(NSURL *)url URLIsStatic:(BOOL)staticURL;
+
 - (void)start;
+
+
+
 - (void)startWithParameters:(NSDictionary *)parameters;
 - (void)cancel;
 

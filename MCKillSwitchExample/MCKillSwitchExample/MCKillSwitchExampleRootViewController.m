@@ -89,7 +89,7 @@
     BOOL isAPIKillSwitchClass = [apiClass isSubclassOfClass:[MCKillSwitchAPI class]];
     
     if (isAPIKillSwitchClass) {
-        killSwitch = [[MCKillSwitch alloc] initWithBaseURL:nil andAPI:[[apiClass alloc] init]]; // Tests with local JSON.
+        killSwitch = [[MCKillSwitch alloc] initWithAPI:[[apiClass alloc] init]]; // Tests with local JSON.
         killSwitch.delegate = _killSwitchAlert;
     }
     

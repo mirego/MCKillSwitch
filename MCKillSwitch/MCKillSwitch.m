@@ -34,17 +34,17 @@ NSString * const kMCKillSwitchInfoVersion = @"com.mirego.killswitch.info.version
 
 - (id)initWithBaseURL:(NSURL *)baseURL
 {
-    return [self initWithBaseURL:baseURL andAPI:nil];
+    return [self initWithBaseURL:baseURL orAPI:nil];
 }
 
-- (id)initWithBaseURL:(NSURL *)baseURL andAPI:(MCKillSwitchAPI *)killSwitchAPI
+- (id)initWithAPI:(MCKillSwitchAPI *)killSwitchAPI
 {
+    return [self initWithBaseURL:nil orAPI:killSwitchAPI];
+}
+
+- (id)initWithBaseURL:(NSURL *)baseURL  orAPI:(MCKillSwitchAPI *)killSwitchAPI {
     self = [super init];
     if (self) {
-        if (!baseURL) {
-            NSLog(@"MCKillSwitch: Base URL not set");
-        }
-        
         _killSwitchAPI = killSwitchAPI ? killSwitchAPI : [[MCKillSwitchAPI alloc] initWithBaseURL:baseURL];
         _killSwitchAPI.delegate = self;
     }
@@ -123,10 +123,12 @@ NSString * const kMCKillSwitchInfoVersion = @"com.mirego.killswitch.info.version
 //------------------------------------------------------------------------------
 #pragma mark - Private methods
 //------------------------------------------------------------------------------
-
 - (NSString *)applicationVersion
 {
-    NSString *version = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
+    NSString *version = @"1.0";
+    if ([[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"]) {
+        version = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
+    }
     return version;
 }
 

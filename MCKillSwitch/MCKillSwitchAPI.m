@@ -20,10 +20,10 @@ NSString * const kMCKillSwitchAPIPlatform = @"ios";
 
 @interface MCKillSwitchAPI ()
 
-@property (nonatomic, strong) NSURL *baseURL;
-@property (nonatomic, strong) NSURLConnection *connection;
-@property (nonatomic, strong) NSMutableData *responseData;
-
+@property (nonatomic) NSURL *baseURL;
+@property (nonatomic) NSURLConnection *connection;
+@property (nonatomic) NSMutableData *responseData;
+@property (nonatomic) BOOL URLIsStatic;
 @end
 
 //------------------------------------------------------------------------------
@@ -34,9 +34,16 @@ NSString * const kMCKillSwitchAPIPlatform = @"ios";
 
 - (id)initWithBaseURL:(NSURL *)baseURL
 {
+    return [self initWithBaseURL:baseURL URLIsStatic:NO];
+}
+
+
+- (id)initWithBaseURL:(NSURL *)url URLIsStatic:(BOOL)staticURL
+{
     self = [super init];
     if (self) {
-        _baseURL = baseURL;
+        _baseURL = url;
+        _URLIsStatic = staticURL;
     }
     return self;
 }
@@ -52,7 +59,7 @@ NSString * const kMCKillSwitchAPIPlatform = @"ios";
 
 - (void)startWithParameters:(NSDictionary *)parameters
 {
-    NSURL *url = [NSURL URLWithString:kMCKillSwitchAPIPath relativeToURL:_baseURL];
+    NSURL *url = [NSURL URLWithString:kMCKillSwitchAPIPath relativeToURL:self.baseURL];
     
     // Parameters
     NSString *queryParams = [self queryStringForParameters:parameters];
@@ -68,14 +75,14 @@ NSString * const kMCKillSwitchAPIPlatform = @"ios";
     
     // URL connection
     [self cancel];
-    _connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 - (void)cancel
 {
-    if (_connection) {
-        [_connection cancel];
-        _connection = nil;
+    if (self.connection) {
+        [self.connection cancel];
+        self.connection = nil;
     }
 }
 
@@ -113,15 +120,15 @@ NSString * const kMCKillSwitchAPIPlatform = @"ios";
 
 - (void)successWithInfoDictionary:(NSDictionary *)infoDictionary
 {
-    if ([_delegate respondsToSelector:@selector(killSwitchAPI:didLoadInfoDictionary:)]) {
-        [_delegate killSwitchAPI:self didLoadInfoDictionary:infoDictionary];
+    if ([self.delegate respondsToSelector:@selector(killSwitchAPI:didLoadInfoDictionary:)]) {
+        [self.delegate killSwitchAPI:self didLoadInfoDictionary:infoDictionary];
     }
 }
 
 - (void)failWithError:(NSError *)error
 {
-    if ([_delegate respondsToSelector:@selector(killSwitchAPI:didFailWithError:)]) {
-        [_delegate killSwitchAPI:self didFailWithError:error];
+    if ([self.delegate respondsToSelector:@selector(killSwitchAPI:didFailWithError:)]) {
+        [self.delegate killSwitchAPI:self didFailWithError:error];
     }
 }
 

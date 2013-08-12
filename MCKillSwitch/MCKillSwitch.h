@@ -23,9 +23,10 @@ extern NSString * const kMCKillSwitchInfoVersion;
 @property (nonatomic, readonly, getter = isExecuting) BOOL executing;
 
 - (id)initWithBaseURL:(NSURL *)baseURL;
-- (id)initWithBaseURL:(NSURL *)baseURL andAPI:(MCKillSwitchAPI *)killSwitchAPI;
+- (id)initWithAPI:(MCKillSwitchAPI *)killSwitchAPI;
 
 - (void)execute;
+
 - (void)prepareToShowInfo:(NSDictionary *)info;
 
 + (void)clearSavedInfo;
