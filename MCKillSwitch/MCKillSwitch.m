@@ -12,6 +12,7 @@
 
 NSString * const kMCKillSwitchInfo = @"com.mirego.killswitch.info";
 NSString * const kMCKillSwitchInfoVersion = @"com.mirego.killswitch.info.version";
+NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
 
 //------------------------------------------------------------------------------
 #pragma mark - Private interface
@@ -134,14 +135,36 @@ NSString * const kMCKillSwitchInfoVersion = @"com.mirego.killswitch.info.version
     return version;
 }
 
-+ (void)configureStaticKillSwitchWithURL:(NSString *)urlString
++ (void)configureStaticJSONFileKillSwitchWithURL:(NSURL *)url
 {
     static MCKillSwitchAlert *killSwitchAlert;
     killSwitchAlert = [[MCKillSwitchAlert alloc] init];
     static MCKillSwitch *killSwitch;
-    killSwitch = [[MCKillSwitch alloc] initWithAPI:[[MCKillSwitchStaticAPI alloc] initWithBaseURL:[NSURL URLWithString:urlString]]];
+    killSwitch = [[MCKillSwitch alloc] initWithAPI:[MCKillSwitchStaticAPI staticJSONFileKillSwitchDynamicAPIWithURL:url]];
     killSwitch.executeOnAppDidBecomeActive = YES;
     killSwitch.delegate = killSwitchAlert;
+}
+
++ (void)configureDefaultKillSwitchWithAPIKey:(NSString *)APIkey
+{
+    static MCKillSwitchAlert *killSwitchAlert;
+    killSwitchAlert = [[MCKillSwitchAlert alloc] init];
+    static MCKillSwitch *killSwitch;
+    killSwitch = [[MCKillSwitch alloc] initWithAPI:[MCKillSwitchDynamicAPI defaultURLKillSwitchDynamicAPI]];
+    killSwitch.executeOnAppDidBecomeActive = YES;
+    killSwitch.delegate = killSwitchAlert;
+    killSwitch.parameters = @{ kMCKillDefaultAPIKeyParameterName: APIkey };
+}
+
++ (void)configureKillSwitchWithCustomURL:(NSURL *)url parameters:(NSDictionary *)parameters
+{
+    static MCKillSwitchAlert *killSwitchAlert;
+    killSwitchAlert = [[MCKillSwitchAlert alloc] init];
+    static MCKillSwitch *killSwitch;
+    killSwitch = [[MCKillSwitch alloc] initWithAPI:[MCKillSwitchDynamicAPI killSwitchDynamicAPIWithCustomURL:url]];
+    killSwitch.executeOnAppDidBecomeActive = YES;
+    killSwitch.delegate = killSwitchAlert;
+    killSwitch.parameters = parameters;
 }
 
 - (void)saveInfo:(NSDictionary *)info

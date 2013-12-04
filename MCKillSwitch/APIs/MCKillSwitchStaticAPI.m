@@ -24,14 +24,17 @@
 //------------------------------------------------------------------------------
 #pragma mark constructors and destructor
 //------------------------------------------------------------------------------
+
++ (MCKillSwitchStaticAPI *)staticJSONFileKillSwitchDynamicAPIWithURL:(NSURL *)url
+{
+    MCKillSwitchStaticAPI *killSwitchStaticAPI = [[MCKillSwitchStaticAPI alloc] initWithBaseURL:url];
+    return killSwitchStaticAPI;
+}
+
 - (id)initWithBaseURL:(NSURL *)baseURL
 {
     return [super initWithBaseURL:baseURL URLIsStatic:YES];
 }
-
-//- (void)dealloc
-//{
-//}
 
 //------------------------------------------------------------------------------
 #pragma mark public methods

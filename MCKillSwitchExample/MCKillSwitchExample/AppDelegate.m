@@ -7,7 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "MCKillSwitch.h"
 #import "MCKillSwitchExampleRootViewController.h"
+
+static BOOL const TestDefaultKillSwitch = YES;
+static BOOL const TestCustomKillSwitch = NO;
+static BOOL const TestStaticJSONFileKillSwitch = NO;
 
 @implementation AppDelegate
 
@@ -17,7 +22,17 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[MCKillSwitchExampleRootViewController alloc] init];
     [self.window makeKeyAndVisible];
-
+    
+    if (TestDefaultKillSwitch) {
+        [MCKillSwitch configureDefaultKillSwitchWithAPIKey:@"f146acb80b791e17a201e845137e9fc49b55bce02ab4e1e9e0c33216fc56f9fe"];
+    }
+    if (TestCustomKillSwitch) {
+        [MCKillSwitch configureKillSwitchWithCustomURL:[NSURL URLWithString:@"__YOUR_BASE_URL__"] parameters:nil];
+    }
+    if (TestStaticJSONFileKillSwitch) {
+        [MCKillSwitch configureStaticJSONFileKillSwitchWithURL:[NSURL URLWithString:@"http://lefrancois-test.s3.amazonaws.com/1.0.0.json"]];
+    }
+    
     return YES;
 }
 

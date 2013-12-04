@@ -18,6 +18,9 @@ extern NSString * const kMCKillSwitchAPIPlatform;
 @protocol MCKillSwitchAPIDelegate;
 
 @interface MCKillSwitchDynamicAPI : NSObject <MCKillSwitchAPI, NSURLConnectionDataDelegate>
++ (MCKillSwitchDynamicAPI *)defaultURLKillSwitchDynamicAPI;
++ (MCKillSwitchDynamicAPI *)killSwitchDynamicAPIWithCustomURL:(NSURL *)url;
+
 - (id)initWithBaseURL:(NSURL *)baseURL;
 - (id)initWithBaseURL:(NSURL *)url URLIsStatic:(BOOL)staticURL;
 - (void)successWithInfoDictionary:(NSDictionary *)infoDictionary;

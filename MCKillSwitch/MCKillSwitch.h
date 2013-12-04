@@ -31,7 +31,10 @@ extern NSString * const kMCKillSwitchInfoVersion;
 
 + (void)clearSavedInfo;
 
-+ (void)configureStaticKillSwitchWithURL:(NSString *)urlString;
++ (void)configureStaticJSONFileKillSwitchWithURL:(NSURL *)url;
++ (void)configureDefaultKillSwitchWithAPIKey:(NSString *)APIkey;
++ (void)configureKillSwitchWithCustomURL:(NSURL *)url parameters:(NSDictionary *)parameters;
+
 @end
 
 

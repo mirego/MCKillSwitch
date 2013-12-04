@@ -13,6 +13,7 @@ NSString * const kMCKillSwitchAPILanguage = @"Accept-Language";
 NSString * const kMCKillSwitchAPIUserAgent = @"User-Agent";
 NSString * const kMCKillSwitchAPIAppVersion = @"version";
 NSString * const kMCKillSwitchAPIPlatform = @"ios";
+NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"http://killswitch.mirego.com/killswitch";
 
 //------------------------------------------------------------------------------
 #pragma mark - Private interface
@@ -23,7 +24,7 @@ NSString * const kMCKillSwitchAPIPlatform = @"ios";
 @property (nonatomic) NSURL *baseURL;
 @property (nonatomic) NSURLConnection *connection;
 @property (nonatomic) NSMutableData *responseData;
-@property (nonatomic) BOOL URLIsStatic;
+@property (nonatomic) BOOL isStaticJSONFileURL;
 @end
 
 //------------------------------------------------------------------------------
@@ -33,18 +34,29 @@ NSString * const kMCKillSwitchAPIPlatform = @"ios";
 @implementation MCKillSwitchDynamicAPI
 @synthesize delegate;
 
++ (MCKillSwitchDynamicAPI *)defaultURLKillSwitchDynamicAPI
+{
+    MCKillSwitchDynamicAPI *killSwitchDynamicAPI = [[MCKillSwitchDynamicAPI alloc] initWithBaseURL:[NSURL URLWithString:kMCKillSwitchAPIDefaultAPIBaseURL]];
+    return killSwitchDynamicAPI;
+}
+
++ (MCKillSwitchDynamicAPI *)killSwitchDynamicAPIWithCustomURL:(NSURL *)url
+{
+    MCKillSwitchDynamicAPI *killSwitchDynamicAPI = [[MCKillSwitchDynamicAPI alloc] initWithBaseURL:url];
+    return killSwitchDynamicAPI;
+}
+
 - (id)initWithBaseURL:(NSURL *)baseURL
 {
     return [self initWithBaseURL:baseURL URLIsStatic:NO];
 }
-
 
 - (id)initWithBaseURL:(NSURL *)url URLIsStatic:(BOOL)staticURL
 {
     self = [super init];
     if (self) {
         _baseURL = url;
-        _URLIsStatic = staticURL;
+        _isStaticJSONFileURL = staticURL;
     }
     return self;
 }
@@ -69,19 +81,39 @@ NSString * const kMCKillSwitchAPIPlatform = @"ios";
 
 - (NSMutableURLRequest *)killSwitchRequestWithParameters:(NSDictionary *)parameters
 {
-    if (self.URLIsStatic) {
+    if (self.isStaticJSONFileURL) {
         return [self requestForStaticURLWithParameters:parameters];
     }
     else {
+        if ([self isDefaultURL]) {
+            return [self requestForDefaultURLWithParameters:parameters];
+        }
         return [self requestForDynamicURL:parameters];
-
     }
+}
+
+- (BOOL)isDefaultURL
+{
+    return [self.baseURL.absoluteString isEqualToString:kMCKillSwitchAPIDefaultAPIBaseURL];
 }
 
 - (NSMutableURLRequest *)requestForStaticURLWithParameters:(NSDictionary *)parameters
 {
     NSString *appVersion = parameters[kMCKillSwitchAPIAppVersion];
     NSURL *url = [NSURL URLWithString:[appVersion stringByAppendingPathExtension:@"json"] relativeToURL:self.baseURL];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    return request;
+}
+
+- (NSMutableURLRequest *)requestForDefaultURLWithParameters:(NSDictionary *)parameters
+{
+    NSURL *url = [self.baseURL copy];
+    NSString *queryParams = [self queryStringForParameters:parameters];
+    if (queryParams) {
+        url = [NSURL URLWithString:[url.absoluteString stringByAppendingFormat:@"?%@", queryParams]];
+    }
+    
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
     return request;
@@ -94,8 +126,8 @@ NSString * const kMCKillSwitchAPIPlatform = @"ios";
     // Parameters
     NSString *queryParams = [self queryStringForParameters:parameters];
     if (queryParams) {
-            url = [NSURL URLWithString:[url.absoluteString stringByAppendingFormat:@"?%@", queryParams]];
-        }
+        url = [NSURL URLWithString:[url.absoluteString stringByAppendingFormat:@"?%@", queryParams]];
+    }
 
     // Request contruction
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
