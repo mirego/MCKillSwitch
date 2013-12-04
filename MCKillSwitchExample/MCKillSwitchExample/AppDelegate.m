@@ -24,10 +24,10 @@ static BOOL const TestStaticJSONFileKillSwitch = NO;
     [self.window makeKeyAndVisible];
     
     if (TestDefaultKillSwitch) {
-        [MCKillSwitch configureDefaultKillSwitchWithAPIKey:@"f202951e3e1a77511895dcdea34ff46331c9aa25f5d8cddf75d3a8b1bb7605c5"];
+        [MCKillSwitch configureDefaultKillSwitchWithAPIKey:@"f146acb80b791e17a201e845137e9fc49b55bce02ab4e1e9e0c33216fc56f9fe"];
     }
     if (TestCustomKillSwitch) {
-        [MCKillSwitch configureKillSwitchWithCustomURL:[NSURL URLWithString:@"http://mirego-killswitch-ci.herokuapp.com/killswitch"] parameters:@{@"key": @"f202951e3e1a77511895dcdea34ff46331c9aa25f5d8cddf75d3a8b1bb7605c5"}];
+        [MCKillSwitch configureKillSwitchWithCustomURL:[NSURL URLWithString:@"__YOUR_BASE_URL__"] parameters:nil];
     }
     if (TestStaticJSONFileKillSwitch) {
         [MCKillSwitch configureStaticJSONFileKillSwitchWithURL:[NSURL URLWithString:@"http://lefrancois-test.s3.amazonaws.com/1.0.0.json"]];
