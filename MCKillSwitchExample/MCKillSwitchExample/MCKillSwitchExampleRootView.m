@@ -60,7 +60,6 @@
         _buttonTestUseStaticKillSwitch.frame = CGRectIntegral(CGRectMake([self originXForView:_buttonTestUseStaticKillSwitch], CGRectGetMaxY(_buttonTestActionKill.frame) + margin, _buttonTestUseStaticKillSwitch.frame.size.width, _buttonTestUseStaticKillSwitch.frame.size.height));
         [container addSubview:_buttonTestUseStaticKillSwitch];
 
-        
         CGFloat heightContainer = CGRectGetMaxY(_buttonTestUseStaticKillSwitch.frame);
         container.frame = CGRectIntegral(CGRectMake(0.0, (frame.size.height - heightContainer)/2, frame.size.width, heightContainer));
         [self addSubview:container];

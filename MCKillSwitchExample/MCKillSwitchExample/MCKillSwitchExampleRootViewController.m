@@ -81,7 +81,7 @@
 
 - (void)useTestStaticKillSwitch
 {
-    [MCKillSwitch configureStaticKillSwitchWithURL:@"http://lefrancois-test.s3.amazonaws.com/1.0.0.json"];
+    [MCKillSwitch configureStaticJSONFileKillSwitchWithURL:[NSURL URLWithString:@"http://lefrancois-test.s3.amazonaws.com/1.0.0.json"]];
 }
 
 //------------------------------------------------------------------------------

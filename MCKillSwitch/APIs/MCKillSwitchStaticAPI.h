@@ -11,5 +11,5 @@
 #import "MCKillSwitchDynamicAPI.h"
 
 @interface MCKillSwitchStaticAPI : MCKillSwitchDynamicAPI
-- (id)initWithBaseURL:(NSURL *)baseURL;
++ (MCKillSwitchStaticAPI *)staticJSONFileKillSwitchDynamicAPIWithURL:(NSURL *)url;
 @end
