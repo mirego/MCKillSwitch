@@ -13,7 +13,7 @@ NSString * const kMCKillSwitchAPILanguage = @"Accept-Language";
 NSString * const kMCKillSwitchAPIUserAgent = @"User-Agent";
 NSString * const kMCKillSwitchAPIAppVersion = @"version";
 NSString * const kMCKillSwitchAPIPlatform = @"ios";
-NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"http://mirego-killswitch-ci.herokuapp.com/killswitch";
+NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"http://killswitch.mirego.com/";
 
 //------------------------------------------------------------------------------
 #pragma mark - Private interface
