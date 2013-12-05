@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MCKillSwitch'
-  s.version  = '0.1.0'
+  s.version  = '0.2.0'
   s.license  = 'BSD 3-Clause'
   s.summary  = 'Stop a version of your app from working, promping user to upgrade.'
   s.homepage = 'https://github.com/mirego/MCKillswitch'
