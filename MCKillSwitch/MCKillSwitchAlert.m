@@ -45,7 +45,7 @@
     
     [self hideAlert]; // If an alert is currently displayed, hide it.
     
-    _alertView = [[UIAlertView alloc] initWithTitle:nil
+    _alertView = [[UIAlertView alloc] initWithTitle:@""
                                             message:_killSwitchInfo.message
                                            delegate:self
                                   cancelButtonTitle:cancelButton.title
