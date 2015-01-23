@@ -1,17 +1,18 @@
-#MCKillSwitch.iOS
+#MCKillSwitch
+
 MCKillSwitch is the official kill switch to use with Mirego’s backend implementation (see API Specs).
 
 ##Using
 
 Keep a strong instance of `MCKillSwitchAlert` in your class. The alert will be the delegate of the kill switch.
 
-```
-@property (nonatomic, strong) MCKillSwitchAlert *killSwitchAlert;
+```objc
+@property (nonatomic) MCKillSwitchAlert *killSwitchAlert;
 ```
 
 Then execute the kill switch when needed.
 
-``` 
+```objc
 NSURL *baseURL = [NSURL URLWithString:@"http://api.project.com"];
 
 MCKillSwitch *killSwitch = [[MCKillSwitch alloc] initWithBaseURL:baseURL];
@@ -32,7 +33,7 @@ pod 'MCKillSwitch', :git => 'https://github.com/mirego/MCKillswitch.git'
 
 ## License
 
-MCKillSwitch is © 2013 [Mirego](http://www.mirego.com) and may be freely
+MCKillSwitch is © 2013-2015 [Mirego](http://www.mirego.com) and may be freely
 distributed under the [New BSD license](http://opensource.org/licenses/BSD-3-Clause).
 See the [`LICENSE.md`](https://github.com/mirego/MCKillSwitch/blob/master/LICENSE.md) file.
 
