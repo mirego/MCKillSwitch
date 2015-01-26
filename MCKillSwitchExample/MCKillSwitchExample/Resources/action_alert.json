@@ -1,15 +1,15 @@
 {
-	"action": "alert",
-	"message": "New version available",
-	"buttons": [
-		{
-			"label": "Update",
-			"url": "https://itunes.apple.com/app_name",
-			"type": "url"
-		},
-		{
-			"label": "Close",
-			"type": "cancel"
-		}
-	]
+    "action": "alert",
+    "message": "New version available",
+    "buttons": [
+        {
+            "label": "Update",
+            "url": "https://itunes.apple.com/app_name",
+            "type": "url"
+        },
+        {
+            "label": "Close",
+            "type": "cancel"
+        }
+    ]
 }

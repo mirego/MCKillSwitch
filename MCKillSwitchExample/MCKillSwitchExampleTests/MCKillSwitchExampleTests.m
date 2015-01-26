@@ -1,12 +1,34 @@
 //
-//  MCKillSwitchExampleTests.m
-//  MCKillSwitchExampleTests
+// Copyright (c) 2015, Mirego
+// All rights reserved.
 //
-//  Created by Stéphanie Paquet on 2013-05-10.
-//  Copyright (c) 2013 Mirego. All rights reserved.
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are met:
 //
+// - Redistributions of source code must retain the above copyright notice,
+//   this list of conditions and the following disclaimer.
+// - Redistributions in binary form must reproduce the above copyright notice,
+//   this list of conditions and the following disclaimer in the documentation
+//   and/or other materials provided with the distribution.
+// - Neither the name of the Mirego nor the names of its contributors may
+//   be used to endorse or promote products derived from this software without
+//   specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+// POSSIBILITY OF SUCH DAMAGE.
 
-#import "MCKillSwitchExampleTests.h"
+#import <UIKit/UIKit.h>
+#import <XCTest/XCTest.h>
+
 #import "MCKillSwitch.h"
 #import "MCMockKillSwitchAPIOK.h"
 #import "MCMockKillSwitchAPIAlert.h"
@@ -14,7 +36,7 @@
 #import "MCMockKillSwitchAPINoInternet.h"
 #import "MCMockKillSwitchAPIDisk.h"
 
-@interface MCKillSwitchExampleTests () <MCKillSwitchDelegate>
+@interface MCKillSwitchExampleTests : XCTestCase <MCKillSwitchDelegate>
 
 @end
 
@@ -23,7 +45,7 @@
 - (void)setUp
 {
     MCKillSwitch *killSwitch = [[MCKillSwitch alloc] init];
-    STAssertNotNil(killSwitch, @"Could not create test subject.");
+    XCTAssertNotNil(killSwitch, @"Could not create test subject.");
 }
 
 - (void)tearDown
@@ -90,12 +112,12 @@
     [ksNoInternet execute];
 }
 
-- (void)testKillSwitchDiskAPI 
+- (void)testKillSwitchDiskAPI
 {
     MCKillSwitch *killSwitch = [self killSwitchDisk];
-
+    
     [killSwitch execute];
-
+    
     [self basesTestsForKillSwitch:killSwitch];
 }
 
@@ -106,14 +128,14 @@
 - (MCKillSwitch *)killSwitchWithAPIClass:(Class)apiClass
 {
     MCKillSwitch *killSwitch = nil;
-    BOOL isAPIKillSwitchClass = [apiClass isSubclassOfClass:[MCKillSwitchDynamicAPI class]];
     
-    if (isAPIKillSwitchClass) {
+    BOOL conformsToMCKillSwitchAPIProtocol = [apiClass conformsToProtocol:@protocol(MCKillSwitchAPI)];
+    if (conformsToMCKillSwitchAPIProtocol) {
         killSwitch = [[MCKillSwitch alloc] initWithAPI:[[apiClass alloc] init]];
         killSwitch.delegate = self;
-    }
-    else {
-        STAssertTrue(isAPIKillSwitchClass, @"Attempt to create a kill switch with a non MCKillSwithAPI class.");
+        
+    } else {
+        XCTFail(@"Attempt to create a kill switch with a non class not conforming to the MCKillSwithAPI protocol.");
     }
     
     return killSwitch;
@@ -149,9 +171,9 @@
     NSString *versionParam = killSwitch.parameters[kMCKillSwitchAPIAppVersion];
     BOOL versionIsString = [versionParam isKindOfClass:[NSString class]];
     
-    STAssertNotNil(killSwitch, @"Could not create kill switch object.");
-    STAssertNotNil(versionParam, @"Version parameter not set.");
-    STAssertTrue(versionIsString, @"Version parameter not a string.");
+    XCTAssertNotNil(killSwitch, @"Could not create kill switch object.");
+    XCTAssertNotNil(versionParam, @"Version parameter not set.");
+    XCTAssertTrue(versionIsString, @"Version parameter not a string.");
 }
 
 //------------------------------------------------------------------------------
@@ -168,11 +190,11 @@
     NSString *versionParam = killSwitch.parameters[kMCKillSwitchAPIAppVersion];
     BOOL versionMatches = [savedInfoVersion isEqualToString:versionParam];
     
-    STAssertNotNil(killSwitchInfo, @"Could not get kill switch info.");
-    STAssertTrue(validDisplayDirective, @"The kill switch info should not be shown.");
-    STAssertNotNil(savedInfoDictionary, @"Did not saved info in the user defaults.");
-    STAssertNotNil(savedInfoVersion, @"Did not saved the version related to the info in the user defaults.");
-    STAssertTrue(versionMatches, @"Version saved in the user defaults doesn’t match the version in the parameters.");
+    XCTAssertNotNil(killSwitchInfo, @"Could not get kill switch info.");
+    XCTAssertTrue(validDisplayDirective, @"The kill switch info should not be shown.");
+    XCTAssertNotNil(savedInfoDictionary, @"Did not saved info in the user defaults.");
+    XCTAssertNotNil(savedInfoVersion, @"Did not saved the version related to the info in the user defaults.");
+    XCTAssertTrue(versionMatches, @"Version saved in the user defaults doesn’t match the version in the parameters.");
 }
 
 - (void)killSwitch:(MCKillSwitch *)killSwitch didNotNeedToShowKillSwitchInfo:(MCKillSwitchInfo *)killSwitchInfo
@@ -181,8 +203,7 @@
     
     BOOL validDisplayDirective = killSwitchInfo.action == MCKillSwitchActionOK || !killSwitchInfo.message || killSwitchInfo.message.length == 0;
     
-    STAssertTrue(validDisplayDirective, @"The kill switch info should have been shown.");
+    XCTAssertTrue(validDisplayDirective, @"The kill switch info should have been shown.");
 }
-
 
 @end

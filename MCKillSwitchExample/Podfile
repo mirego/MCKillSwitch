@@ -1,0 +1,12 @@
+platform :ios, 7.0
+
+source 'https://github.com/CocoaPods/Specs.git'
+source 'git@github.com:mirego/MCPodSpecs.git'
+
+target 'MCKillSwitchExample', :exclusive => true do
+  pod 'MCKillSwitch', :path => '../'
+end
+
+target 'MCKillSwitchExampleTests', :exclusive => true do
+  pod 'MCKillSwitch', :path => '../'
+end

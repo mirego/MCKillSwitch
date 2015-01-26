@@ -7,283 +7,224 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		764E0ABB173D74D500321E5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 764E0ABA173D74D500321E5C /* Localizable.strings */; };
-		764E0AC4173D77DF00321E5C /* MCMockKillSwitchAPIAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 764E0ABD173D77DF00321E5C /* MCMockKillSwitchAPIAlert.m */; };
-		764E0AC5173D77DF00321E5C /* MCMockKillSwitchAPIKill.m in Sources */ = {isa = PBXBuildFile; fileRef = 764E0ABF173D77DF00321E5C /* MCMockKillSwitchAPIKill.m */; };
-		764E0AC6173D77DF00321E5C /* MCMockKillSwitchAPINoInternet.m in Sources */ = {isa = PBXBuildFile; fileRef = 764E0AC1173D77DF00321E5C /* MCMockKillSwitchAPINoInternet.m */; };
-		764E0AC7173D77DF00321E5C /* MCMockKillSwitchAPIOK.m in Sources */ = {isa = PBXBuildFile; fileRef = 764E0AC3173D77DF00321E5C /* MCMockKillSwitchAPIOK.m */; };
-		764E0ACB173D7BC200321E5C /* MCKillSwitchExampleRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 764E0ACA173D7BC200321E5C /* MCKillSwitchExampleRootView.m */; };
-		76F457BC173D3A26004D7839 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F457BB173D3A26004D7839 /* UIKit.framework */; };
-		76F457BE173D3A26004D7839 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F457BD173D3A26004D7839 /* Foundation.framework */; };
-		76F457C0173D3A26004D7839 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F457BF173D3A26004D7839 /* CoreGraphics.framework */; };
-		76F457C6173D3A26004D7839 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76F457C4173D3A26004D7839 /* InfoPlist.strings */; };
-		76F457C8173D3A26004D7839 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F457C7173D3A26004D7839 /* main.m */; };
-		76F457CC173D3A27004D7839 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F457CB173D3A27004D7839 /* AppDelegate.m */; };
-		76F457CE173D3A27004D7839 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 76F457CD173D3A27004D7839 /* Default.png */; };
-		76F457D0173D3A27004D7839 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76F457CF173D3A27004D7839 /* Default@2x.png */; };
-		76F457D2173D3A27004D7839 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76F457D1173D3A27004D7839 /* Default-568h@2x.png */; };
-		76F457E4173D3B9E004D7839 /* MCKillSwitchAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F457DC173D3B9E004D7839 /* MCKillSwitchAlert.m */; };
-		76F457E6173D3B9E004D7839 /* MCKillSwitchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F457E0173D3B9E004D7839 /* MCKillSwitchInfo.m */; };
-		76F457E7173D3B9E004D7839 /* MCKillSwitchInfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F457E2173D3B9E004D7839 /* MCKillSwitchInfoButton.m */; };
-		76F457EA173D4026004D7839 /* MCKillSwitchExampleRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F457E9173D4026004D7839 /* MCKillSwitchExampleRootViewController.m */; };
-		76F457EF173D432F004D7839 /* action_alert.json in Resources */ = {isa = PBXBuildFile; fileRef = 76F457EC173D432F004D7839 /* action_alert.json */; };
-		76F457F0173D432F004D7839 /* action_kill.json in Resources */ = {isa = PBXBuildFile; fileRef = 76F457ED173D432F004D7839 /* action_kill.json */; };
-		76F457F1173D432F004D7839 /* action_ok.json in Resources */ = {isa = PBXBuildFile; fileRef = 76F457EE173D432F004D7839 /* action_ok.json */; };
-		915CC05DF1B4A1881271EB08 /* MCKillSwitchStaticAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CCFC2FC38ED7095DDCCCA /* MCKillSwitchStaticAPI.m */; };
-		915CC70FDBC00A96C694383D /* MCKillSwitchDynamicAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC73F0EC3A941867FD90F /* MCKillSwitchDynamicAPI.m */; };
-		915CCDF20CBFE7914FBB842B /* MCMockKillSwitchAPIDisk.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CCE7BD3DB2CE066BBD143 /* MCMockKillSwitchAPIDisk.m */; };
-		915CCF39B873DD2E81E01102 /* 1.0.0.json in Resources */ = {isa = PBXBuildFile; fileRef = 915CC036FE1835AB43B0652E /* 1.0.0.json */; };
-		FADDE56317B52C4200337DB1 /* MCKillSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F457DA173D3B9E004D7839 /* MCKillSwitch.m */; };
-		FADDE56A17B52CF400337DB1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F457F8173D480D004D7839 /* SenTestingKit.framework */; };
-		FADDE56B17B52CF400337DB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F457BB173D3A26004D7839 /* UIKit.framework */; };
-		FADDE56C17B52CF400337DB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F457BD173D3A26004D7839 /* Foundation.framework */; };
-		FADDE57217B52CF400337DB1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FADDE57017B52CF400337DB1 /* InfoPlist.strings */; };
-		FADDE57F17B531FF00337DB1 /* MCKillSwitchExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FADDE57D17B531FF00337DB1 /* MCKillSwitchExampleTests.m */; };
-		FADDE58017B5322000337DB1 /* action_alert.json in Resources */ = {isa = PBXBuildFile; fileRef = 76F457EC173D432F004D7839 /* action_alert.json */; };
-		FADDE58117B5322000337DB1 /* action_kill.json in Resources */ = {isa = PBXBuildFile; fileRef = 76F457ED173D432F004D7839 /* action_kill.json */; };
-		FADDE58217B5322000337DB1 /* action_ok.json in Resources */ = {isa = PBXBuildFile; fileRef = 76F457EE173D432F004D7839 /* action_ok.json */; };
-		FADDE58317B5322000337DB1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 764E0ABA173D74D500321E5C /* Localizable.strings */; };
-		FADDE58417B5322000337DB1 /* 1.0.0.json in Resources */ = {isa = PBXBuildFile; fileRef = 915CC036FE1835AB43B0652E /* 1.0.0.json */; };
+		60D37B7B3D025D952318957B /* libPods-MCKillSwitchExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA957D9594E3E18F1D283633 /* libPods-MCKillSwitchExampleTests.a */; };
+		96D92E8961446CE150F9DA10 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A736F8BCEA99C1EEE64DDD /* libPods.a */; };
+		A60B9A6D1A76D80800C1C9CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B9A6C1A76D80800C1C9CE /* main.m */; };
+		A60B9A701A76D80800C1C9CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B9A6F1A76D80800C1C9CE /* AppDelegate.m */; };
+		A60B9A781A76D80800C1C9CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60B9A771A76D80800C1C9CE /* Images.xcassets */; };
+		A60B9AA51A76D95800C1C9CE /* MCKillSwitchExampleRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B9A921A76D95800C1C9CE /* MCKillSwitchExampleRootView.m */; };
+		A60B9AA61A76D95800C1C9CE /* MCKillSwitchExampleRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B9A941A76D95800C1C9CE /* MCKillSwitchExampleRootViewController.m */; };
+		A60B9AA71A76D95800C1C9CE /* MCMockKillSwitchAPIAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B9A961A76D95800C1C9CE /* MCMockKillSwitchAPIAlert.m */; };
+		A60B9AA81A76D95800C1C9CE /* MCMockKillSwitchAPIDisk.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B9A981A76D95800C1C9CE /* MCMockKillSwitchAPIDisk.m */; };
+		A60B9AA91A76D95800C1C9CE /* MCMockKillSwitchAPIKill.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B9A9A1A76D95800C1C9CE /* MCMockKillSwitchAPIKill.m */; };
+		A60B9AAA1A76D95800C1C9CE /* MCMockKillSwitchAPINoInternet.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B9A9C1A76D95800C1C9CE /* MCMockKillSwitchAPINoInternet.m */; };
+		A60B9AAB1A76D95800C1C9CE /* MCMockKillSwitchAPIOK.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B9A9E1A76D95800C1C9CE /* MCMockKillSwitchAPIOK.m */; };
+		A60B9AAC1A76D95800C1C9CE /* 1.0.0.json in Resources */ = {isa = PBXBuildFile; fileRef = A60B9AA01A76D95800C1C9CE /* 1.0.0.json */; };
+		A60B9AAD1A76D95800C1C9CE /* action_alert.json in Resources */ = {isa = PBXBuildFile; fileRef = A60B9AA11A76D95800C1C9CE /* action_alert.json */; };
+		A60B9AAE1A76D95800C1C9CE /* action_kill.json in Resources */ = {isa = PBXBuildFile; fileRef = A60B9AA21A76D95800C1C9CE /* action_kill.json */; };
+		A60B9AAF1A76D95800C1C9CE /* action_ok.json in Resources */ = {isa = PBXBuildFile; fileRef = A60B9AA31A76D95800C1C9CE /* action_ok.json */; };
+		A60B9AB91A76DB1A00C1C9CE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B9AB81A76DB1A00C1C9CE /* Default-568h@2x.png */; };
+		A60B9ABF1A76DB8D00C1C9CE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A60B9ABE1A76DB8D00C1C9CE /* Localizable.strings */; };
+		A60B9AC51A76DCB700C1C9CE /* MCKillSwitchExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B9AC41A76DCB700C1C9CE /* MCKillSwitchExampleTests.m */; };
+		E7053704D8D1FB5D830D525D /* libPods-MCKillSwitchExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D603C506C6BE3E29813F86E8 /* libPods-MCKillSwitchExample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FAAB1E8B17B93B3B00956FE6 /* PBXContainerItemProxy */ = {
+		A60B9A811A76D80800C1C9CE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 76F457B0173D3A26004D7839 /* Project object */;
+			containerPortal = A60B9A5F1A76D80800C1C9CE /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 76F457B7173D3A26004D7839;
+			remoteGlobalIDString = A60B9A661A76D80800C1C9CE;
 			remoteInfo = MCKillSwitchExample;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		764E0ABA173D74D500321E5C /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		764E0ABC173D77DF00321E5C /* MCMockKillSwitchAPIAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMockKillSwitchAPIAlert.h; sourceTree = "<group>"; };
-		764E0ABD173D77DF00321E5C /* MCMockKillSwitchAPIAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMockKillSwitchAPIAlert.m; sourceTree = "<group>"; };
-		764E0ABE173D77DF00321E5C /* MCMockKillSwitchAPIKill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMockKillSwitchAPIKill.h; sourceTree = "<group>"; };
-		764E0ABF173D77DF00321E5C /* MCMockKillSwitchAPIKill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMockKillSwitchAPIKill.m; sourceTree = "<group>"; };
-		764E0AC0173D77DF00321E5C /* MCMockKillSwitchAPINoInternet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMockKillSwitchAPINoInternet.h; sourceTree = "<group>"; };
-		764E0AC1173D77DF00321E5C /* MCMockKillSwitchAPINoInternet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMockKillSwitchAPINoInternet.m; sourceTree = "<group>"; };
-		764E0AC2173D77DF00321E5C /* MCMockKillSwitchAPIOK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMockKillSwitchAPIOK.h; sourceTree = "<group>"; };
-		764E0AC3173D77DF00321E5C /* MCMockKillSwitchAPIOK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMockKillSwitchAPIOK.m; sourceTree = "<group>"; };
-		764E0AC9173D7BC200321E5C /* MCKillSwitchExampleRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKillSwitchExampleRootView.h; sourceTree = "<group>"; };
-		764E0ACA173D7BC200321E5C /* MCKillSwitchExampleRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKillSwitchExampleRootView.m; sourceTree = "<group>"; };
-		76F457B8173D3A26004D7839 /* MCKillSwitchExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCKillSwitchExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		76F457BB173D3A26004D7839 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		76F457BD173D3A26004D7839 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		76F457BF173D3A26004D7839 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		76F457C3173D3A26004D7839 /* MCKillSwitchExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MCKillSwitchExample-Info.plist"; sourceTree = "<group>"; };
-		76F457C5173D3A26004D7839 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		76F457C7173D3A26004D7839 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		76F457C9173D3A26004D7839 /* MCKillSwitchExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCKillSwitchExample-Prefix.pch"; sourceTree = "<group>"; };
-		76F457CA173D3A26004D7839 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		76F457CB173D3A27004D7839 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		76F457CD173D3A27004D7839 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		76F457CF173D3A27004D7839 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		76F457D1173D3A27004D7839 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		76F457D9173D3B9E004D7839 /* MCKillSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKillSwitch.h; sourceTree = "<group>"; };
-		76F457DA173D3B9E004D7839 /* MCKillSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKillSwitch.m; sourceTree = "<group>"; };
-		76F457DB173D3B9E004D7839 /* MCKillSwitchAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKillSwitchAlert.h; sourceTree = "<group>"; };
-		76F457DC173D3B9E004D7839 /* MCKillSwitchAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKillSwitchAlert.m; sourceTree = "<group>"; };
-		76F457DF173D3B9E004D7839 /* MCKillSwitchInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKillSwitchInfo.h; sourceTree = "<group>"; };
-		76F457E0173D3B9E004D7839 /* MCKillSwitchInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKillSwitchInfo.m; sourceTree = "<group>"; };
-		76F457E1173D3B9E004D7839 /* MCKillSwitchInfoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKillSwitchInfoButton.h; sourceTree = "<group>"; };
-		76F457E2173D3B9E004D7839 /* MCKillSwitchInfoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKillSwitchInfoButton.m; sourceTree = "<group>"; };
-		76F457E8173D4026004D7839 /* MCKillSwitchExampleRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKillSwitchExampleRootViewController.h; sourceTree = "<group>"; };
-		76F457E9173D4026004D7839 /* MCKillSwitchExampleRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKillSwitchExampleRootViewController.m; sourceTree = "<group>"; };
-		76F457EC173D432F004D7839 /* action_alert.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = action_alert.json; sourceTree = "<group>"; };
-		76F457ED173D432F004D7839 /* action_kill.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = action_kill.json; sourceTree = "<group>"; };
-		76F457EE173D432F004D7839 /* action_ok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = action_ok.json; sourceTree = "<group>"; };
-		76F457F8173D480D004D7839 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		915CC036FE1835AB43B0652E /* 1.0.0.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = 1.0.0.json; sourceTree = "<group>"; };
-		915CC486AE0EE4F10CAA5030 /* MCKillSwitchDynamicAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKillSwitchDynamicAPI.h; sourceTree = "<group>"; };
-		915CC73F0EC3A941867FD90F /* MCKillSwitchDynamicAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKillSwitchDynamicAPI.m; sourceTree = "<group>"; };
-		915CCA02511D92EEAC2E84FE /* MCKillSwitchAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKillSwitchAPI.h; sourceTree = "<group>"; };
-		915CCA70130D8764F19B7E51 /* MCKillSwitchStaticAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKillSwitchStaticAPI.h; sourceTree = "<group>"; };
-		915CCBA900BB250B2C113C6E /* MCMockKillSwitchAPIDisk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMockKillSwitchAPIDisk.h; sourceTree = "<group>"; };
-		915CCE7BD3DB2CE066BBD143 /* MCMockKillSwitchAPIDisk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMockKillSwitchAPIDisk.m; sourceTree = "<group>"; };
-		915CCFC2FC38ED7095DDCCCA /* MCKillSwitchStaticAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKillSwitchStaticAPI.m; sourceTree = "<group>"; };
-		FADDE56917B52CF400337DB1 /* MCKillSwitchExampleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCKillSwitchExampleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FADDE56F17B52CF400337DB1 /* MCKillSwitchExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MCKillSwitchExampleTests-Info.plist"; sourceTree = "<group>"; };
-		FADDE57117B52CF400337DB1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FADDE57617B52CF400337DB1 /* MCKillSwitchExampleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCKillSwitchExampleTests-Prefix.pch"; sourceTree = "<group>"; };
-		FADDE57C17B531FF00337DB1 /* MCKillSwitchExampleTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKillSwitchExampleTests.h; sourceTree = "<group>"; };
-		FADDE57D17B531FF00337DB1 /* MCKillSwitchExampleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKillSwitchExampleTests.m; sourceTree = "<group>"; };
+		41D882C9EFFD6970B33984A2 /* Pods-MCKillSwitchExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCKillSwitchExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCKillSwitchExampleTests/Pods-MCKillSwitchExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		88A736F8BCEA99C1EEE64DDD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C6494224CFEF9637ED575FF /* Pods-MCKillSwitchExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCKillSwitchExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCKillSwitchExampleTests/Pods-MCKillSwitchExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A60B9A671A76D80800C1C9CE /* MCKillSwitchExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCKillSwitchExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A60B9A6C1A76D80800C1C9CE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A60B9A6E1A76D80800C1C9CE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A60B9A6F1A76D80800C1C9CE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A60B9A771A76D80800C1C9CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A60B9A801A76D80800C1C9CE /* MCKillSwitchExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCKillSwitchExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A60B9A911A76D95800C1C9CE /* MCKillSwitchExampleRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKillSwitchExampleRootView.h; sourceTree = "<group>"; };
+		A60B9A921A76D95800C1C9CE /* MCKillSwitchExampleRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKillSwitchExampleRootView.m; sourceTree = "<group>"; };
+		A60B9A931A76D95800C1C9CE /* MCKillSwitchExampleRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKillSwitchExampleRootViewController.h; sourceTree = "<group>"; };
+		A60B9A941A76D95800C1C9CE /* MCKillSwitchExampleRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKillSwitchExampleRootViewController.m; sourceTree = "<group>"; };
+		A60B9A951A76D95800C1C9CE /* MCMockKillSwitchAPIAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMockKillSwitchAPIAlert.h; sourceTree = "<group>"; };
+		A60B9A961A76D95800C1C9CE /* MCMockKillSwitchAPIAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMockKillSwitchAPIAlert.m; sourceTree = "<group>"; };
+		A60B9A971A76D95800C1C9CE /* MCMockKillSwitchAPIDisk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMockKillSwitchAPIDisk.h; sourceTree = "<group>"; };
+		A60B9A981A76D95800C1C9CE /* MCMockKillSwitchAPIDisk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMockKillSwitchAPIDisk.m; sourceTree = "<group>"; };
+		A60B9A991A76D95800C1C9CE /* MCMockKillSwitchAPIKill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMockKillSwitchAPIKill.h; sourceTree = "<group>"; };
+		A60B9A9A1A76D95800C1C9CE /* MCMockKillSwitchAPIKill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMockKillSwitchAPIKill.m; sourceTree = "<group>"; };
+		A60B9A9B1A76D95800C1C9CE /* MCMockKillSwitchAPINoInternet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMockKillSwitchAPINoInternet.h; sourceTree = "<group>"; };
+		A60B9A9C1A76D95800C1C9CE /* MCMockKillSwitchAPINoInternet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMockKillSwitchAPINoInternet.m; sourceTree = "<group>"; };
+		A60B9A9D1A76D95800C1C9CE /* MCMockKillSwitchAPIOK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMockKillSwitchAPIOK.h; sourceTree = "<group>"; };
+		A60B9A9E1A76D95800C1C9CE /* MCMockKillSwitchAPIOK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMockKillSwitchAPIOK.m; sourceTree = "<group>"; };
+		A60B9AA01A76D95800C1C9CE /* 1.0.0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1.0.0.json; sourceTree = "<group>"; };
+		A60B9AA11A76D95800C1C9CE /* action_alert.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = action_alert.json; sourceTree = "<group>"; };
+		A60B9AA21A76D95800C1C9CE /* action_kill.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = action_kill.json; sourceTree = "<group>"; };
+		A60B9AA31A76D95800C1C9CE /* action_ok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = action_ok.json; sourceTree = "<group>"; };
+		A60B9AB81A76DB1A00C1C9CE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A60B9ABE1A76DB8D00C1C9CE /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		A60B9AC01A76DB9500C1C9CE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A60B9AC21A76DBA000C1C9CE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A60B9AC41A76DCB700C1C9CE /* MCKillSwitchExampleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKillSwitchExampleTests.m; sourceTree = "<group>"; };
+		CA957D9594E3E18F1D283633 /* libPods-MCKillSwitchExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCKillSwitchExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D603C506C6BE3E29813F86E8 /* libPods-MCKillSwitchExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCKillSwitchExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D60E1FD56B538A214D31DB3D /* Pods-MCKillSwitchExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCKillSwitchExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCKillSwitchExample/Pods-MCKillSwitchExample.debug.xcconfig"; sourceTree = "<group>"; };
+		E33BD05399CA25FD1041485A /* Pods-MCKillSwitchExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCKillSwitchExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCKillSwitchExample/Pods-MCKillSwitchExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		76F457B5173D3A26004D7839 /* Frameworks */ = {
+		A60B9A641A76D80800C1C9CE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76F457BC173D3A26004D7839 /* UIKit.framework in Frameworks */,
-				76F457BE173D3A26004D7839 /* Foundation.framework in Frameworks */,
-				76F457C0173D3A26004D7839 /* CoreGraphics.framework in Frameworks */,
+				E7053704D8D1FB5D830D525D /* libPods-MCKillSwitchExample.a in Frameworks */,
+				96D92E8961446CE150F9DA10 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FADDE56517B52CF400337DB1 /* Frameworks */ = {
+		A60B9A7D1A76D80800C1C9CE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADDE56A17B52CF400337DB1 /* SenTestingKit.framework in Frameworks */,
-				FADDE56B17B52CF400337DB1 /* UIKit.framework in Frameworks */,
-				FADDE56C17B52CF400337DB1 /* Foundation.framework in Frameworks */,
+				60D37B7B3D025D952318957B /* libPods-MCKillSwitchExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		764E0AC8173D77F200321E5C /* APIMocks */ = {
+		61740FD4155E8DE03E6ACE29 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				764E0ABC173D77DF00321E5C /* MCMockKillSwitchAPIAlert.h */,
-				764E0ABD173D77DF00321E5C /* MCMockKillSwitchAPIAlert.m */,
-				764E0ABE173D77DF00321E5C /* MCMockKillSwitchAPIKill.h */,
-				764E0ABF173D77DF00321E5C /* MCMockKillSwitchAPIKill.m */,
-				764E0AC0173D77DF00321E5C /* MCMockKillSwitchAPINoInternet.h */,
-				764E0AC1173D77DF00321E5C /* MCMockKillSwitchAPINoInternet.m */,
-				764E0AC2173D77DF00321E5C /* MCMockKillSwitchAPIOK.h */,
-				764E0AC3173D77DF00321E5C /* MCMockKillSwitchAPIOK.m */,
-				915CCBA900BB250B2C113C6E /* MCMockKillSwitchAPIDisk.h */,
-				915CCE7BD3DB2CE066BBD143 /* MCMockKillSwitchAPIDisk.m */,
+				D60E1FD56B538A214D31DB3D /* Pods-MCKillSwitchExample.debug.xcconfig */,
+				E33BD05399CA25FD1041485A /* Pods-MCKillSwitchExample.release.xcconfig */,
+				9C6494224CFEF9637ED575FF /* Pods-MCKillSwitchExampleTests.debug.xcconfig */,
+				41D882C9EFFD6970B33984A2 /* Pods-MCKillSwitchExampleTests.release.xcconfig */,
 			);
-			name = APIMocks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		76F457AF173D3A26004D7839 = {
+		A60B9A5E1A76D80800C1C9CE = {
 			isa = PBXGroup;
 			children = (
-				76F457D8173D3B9E004D7839 /* MCKillSwitch */,
-				76F457C1173D3A26004D7839 /* MCKillSwitchExample */,
-				FADDE56D17B52CF400337DB1 /* MCKillSwitchExampleTests */,
-				76F457BA173D3A26004D7839 /* Frameworks */,
-				76F457B9173D3A26004D7839 /* Products */,
+				A60B9AB81A76DB1A00C1C9CE /* Default-568h@2x.png */,
+				A60B9A691A76D80800C1C9CE /* MCKillSwitchExample */,
+				A60B9A831A76D80800C1C9CE /* MCKillSwitchExampleTests */,
+				FD9BDAC1AE4C577EB4E94DB4 /* Frameworks */,
+				A60B9A681A76D80800C1C9CE /* Products */,
+				61740FD4155E8DE03E6ACE29 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
-		76F457B9173D3A26004D7839 /* Products */ = {
+		A60B9A681A76D80800C1C9CE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				76F457B8173D3A26004D7839 /* MCKillSwitchExample.app */,
-				FADDE56917B52CF400337DB1 /* MCKillSwitchExampleTests.octest */,
+				A60B9A671A76D80800C1C9CE /* MCKillSwitchExample.app */,
+				A60B9A801A76D80800C1C9CE /* MCKillSwitchExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		76F457BA173D3A26004D7839 /* Frameworks */ = {
+		A60B9A691A76D80800C1C9CE /* MCKillSwitchExample */ = {
 			isa = PBXGroup;
 			children = (
-				76F457BB173D3A26004D7839 /* UIKit.framework */,
-				76F457BD173D3A26004D7839 /* Foundation.framework */,
-				76F457BF173D3A26004D7839 /* CoreGraphics.framework */,
-				76F457F8173D480D004D7839 /* SenTestingKit.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		76F457C1173D3A26004D7839 /* MCKillSwitchExample */ = {
-			isa = PBXGroup;
-			children = (
-				76F457CA173D3A26004D7839 /* AppDelegate.h */,
-				76F457CB173D3A27004D7839 /* AppDelegate.m */,
-				76F457E8173D4026004D7839 /* MCKillSwitchExampleRootViewController.h */,
-				76F457E9173D4026004D7839 /* MCKillSwitchExampleRootViewController.m */,
-				764E0AC9173D7BC200321E5C /* MCKillSwitchExampleRootView.h */,
-				764E0ACA173D7BC200321E5C /* MCKillSwitchExampleRootView.m */,
-				764E0AC8173D77F200321E5C /* APIMocks */,
-				76F457EB173D432F004D7839 /* Resources */,
-				76F457C2173D3A26004D7839 /* Supporting Files */,
+				A60B9A6E1A76D80800C1C9CE /* AppDelegate.h */,
+				A60B9A6F1A76D80800C1C9CE /* AppDelegate.m */,
+				A60B9A771A76D80800C1C9CE /* Images.xcassets */,
+				A60B9A901A76D95800C1C9CE /* Classes */,
+				A60B9A9F1A76D95800C1C9CE /* Resources */,
+				A60B9A6A1A76D80800C1C9CE /* Supporting Files */,
 			);
 			path = MCKillSwitchExample;
 			sourceTree = "<group>";
 		};
-		76F457C2173D3A26004D7839 /* Supporting Files */ = {
+		A60B9A6A1A76D80800C1C9CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				76F457C3173D3A26004D7839 /* MCKillSwitchExample-Info.plist */,
-				76F457C4173D3A26004D7839 /* InfoPlist.strings */,
-				76F457C7173D3A26004D7839 /* main.m */,
-				76F457C9173D3A26004D7839 /* MCKillSwitchExample-Prefix.pch */,
-				76F457CD173D3A27004D7839 /* Default.png */,
-				76F457CF173D3A27004D7839 /* Default@2x.png */,
-				76F457D1173D3A27004D7839 /* Default-568h@2x.png */,
+				A60B9AC01A76DB9500C1C9CE /* Info.plist */,
+				A60B9A6C1A76D80800C1C9CE /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		76F457D8173D3B9E004D7839 /* MCKillSwitch */ = {
+		A60B9A831A76D80800C1C9CE /* MCKillSwitchExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				76F457D9173D3B9E004D7839 /* MCKillSwitch.h */,
-				76F457DA173D3B9E004D7839 /* MCKillSwitch.m */,
-				76F457DB173D3B9E004D7839 /* MCKillSwitchAlert.h */,
-				76F457DC173D3B9E004D7839 /* MCKillSwitchAlert.m */,
-				76F457DF173D3B9E004D7839 /* MCKillSwitchInfo.h */,
-				76F457E0173D3B9E004D7839 /* MCKillSwitchInfo.m */,
-				76F457E1173D3B9E004D7839 /* MCKillSwitchInfoButton.h */,
-				76F457E2173D3B9E004D7839 /* MCKillSwitchInfoButton.m */,
-				915CC15D3D301D7C8CBFD30E /* APIs */,
-			);
-			name = MCKillSwitch;
-			path = ../MCKillSwitch;
-			sourceTree = "<group>";
-		};
-		76F457EB173D432F004D7839 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				76F457EC173D432F004D7839 /* action_alert.json */,
-				76F457ED173D432F004D7839 /* action_kill.json */,
-				76F457EE173D432F004D7839 /* action_ok.json */,
-				764E0ABA173D74D500321E5C /* Localizable.strings */,
-				915CC036FE1835AB43B0652E /* 1.0.0.json */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		915CC15D3D301D7C8CBFD30E /* APIs */ = {
-			isa = PBXGroup;
-			children = (
-				915CC486AE0EE4F10CAA5030 /* MCKillSwitchDynamicAPI.h */,
-				915CC73F0EC3A941867FD90F /* MCKillSwitchDynamicAPI.m */,
-				915CCA70130D8764F19B7E51 /* MCKillSwitchStaticAPI.h */,
-				915CCFC2FC38ED7095DDCCCA /* MCKillSwitchStaticAPI.m */,
-				915CCA02511D92EEAC2E84FE /* MCKillSwitchAPI.h */,
-			);
-			path = APIs;
-			sourceTree = "<group>";
-		};
-		FADDE56D17B52CF400337DB1 /* MCKillSwitchExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				FADDE57C17B531FF00337DB1 /* MCKillSwitchExampleTests.h */,
-				FADDE57D17B531FF00337DB1 /* MCKillSwitchExampleTests.m */,
-				FADDE56E17B52CF400337DB1 /* Supporting Files */,
+				A60B9AC41A76DCB700C1C9CE /* MCKillSwitchExampleTests.m */,
+				A60B9A841A76D80800C1C9CE /* Supporting Files */,
 			);
 			path = MCKillSwitchExampleTests;
 			sourceTree = "<group>";
 		};
-		FADDE56E17B52CF400337DB1 /* Supporting Files */ = {
+		A60B9A841A76D80800C1C9CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FADDE56F17B52CF400337DB1 /* MCKillSwitchExampleTests-Info.plist */,
-				FADDE57017B52CF400337DB1 /* InfoPlist.strings */,
-				FADDE57617B52CF400337DB1 /* MCKillSwitchExampleTests-Prefix.pch */,
+				A60B9AC21A76DBA000C1C9CE /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A60B9A901A76D95800C1C9CE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A60B9A911A76D95800C1C9CE /* MCKillSwitchExampleRootView.h */,
+				A60B9A921A76D95800C1C9CE /* MCKillSwitchExampleRootView.m */,
+				A60B9A931A76D95800C1C9CE /* MCKillSwitchExampleRootViewController.h */,
+				A60B9A941A76D95800C1C9CE /* MCKillSwitchExampleRootViewController.m */,
+				A60B9A951A76D95800C1C9CE /* MCMockKillSwitchAPIAlert.h */,
+				A60B9A961A76D95800C1C9CE /* MCMockKillSwitchAPIAlert.m */,
+				A60B9A971A76D95800C1C9CE /* MCMockKillSwitchAPIDisk.h */,
+				A60B9A981A76D95800C1C9CE /* MCMockKillSwitchAPIDisk.m */,
+				A60B9A991A76D95800C1C9CE /* MCMockKillSwitchAPIKill.h */,
+				A60B9A9A1A76D95800C1C9CE /* MCMockKillSwitchAPIKill.m */,
+				A60B9A9B1A76D95800C1C9CE /* MCMockKillSwitchAPINoInternet.h */,
+				A60B9A9C1A76D95800C1C9CE /* MCMockKillSwitchAPINoInternet.m */,
+				A60B9A9D1A76D95800C1C9CE /* MCMockKillSwitchAPIOK.h */,
+				A60B9A9E1A76D95800C1C9CE /* MCMockKillSwitchAPIOK.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A60B9A9F1A76D95800C1C9CE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A60B9AA01A76D95800C1C9CE /* 1.0.0.json */,
+				A60B9AA11A76D95800C1C9CE /* action_alert.json */,
+				A60B9AA21A76D95800C1C9CE /* action_kill.json */,
+				A60B9AA31A76D95800C1C9CE /* action_ok.json */,
+				A60B9ABE1A76DB8D00C1C9CE /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FD9BDAC1AE4C577EB4E94DB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D603C506C6BE3E29813F86E8 /* libPods-MCKillSwitchExample.a */,
+				88A736F8BCEA99C1EEE64DDD /* libPods.a */,
+				CA957D9594E3E18F1D283633 /* libPods-MCKillSwitchExampleTests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		76F457B7173D3A26004D7839 /* MCKillSwitchExample */ = {
+		A60B9A661A76D80800C1C9CE /* MCKillSwitchExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 76F457D5173D3A27004D7839 /* Build configuration list for PBXNativeTarget "MCKillSwitchExample" */;
+			buildConfigurationList = A60B9A8A1A76D80800C1C9CE /* Build configuration list for PBXNativeTarget "MCKillSwitchExample" */;
 			buildPhases = (
-				76F457B4173D3A26004D7839 /* Sources */,
-				76F457B5173D3A26004D7839 /* Frameworks */,
-				76F457B6173D3A26004D7839 /* Resources */,
+				DAADB7BC9F08D79C5B985ED8 /* Check Pods Manifest.lock */,
+				A60B9A631A76D80800C1C9CE /* Sources */,
+				A60B9A641A76D80800C1C9CE /* Frameworks */,
+				A60B9A651A76D80800C1C9CE /* Resources */,
+				7C1FE9F4FFF07A2168E8D5C4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -291,179 +232,210 @@
 			);
 			name = MCKillSwitchExample;
 			productName = MCKillSwitchExample;
-			productReference = 76F457B8173D3A26004D7839 /* MCKillSwitchExample.app */;
+			productReference = A60B9A671A76D80800C1C9CE /* MCKillSwitchExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FADDE56817B52CF400337DB1 /* MCKillSwitchExampleTests */ = {
+		A60B9A7F1A76D80800C1C9CE /* MCKillSwitchExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FADDE57717B52CF400337DB1 /* Build configuration list for PBXNativeTarget "MCKillSwitchExampleTests" */;
+			buildConfigurationList = A60B9A8D1A76D80800C1C9CE /* Build configuration list for PBXNativeTarget "MCKillSwitchExampleTests" */;
 			buildPhases = (
-				FADDE56417B52CF400337DB1 /* Sources */,
-				FADDE56517B52CF400337DB1 /* Frameworks */,
-				FADDE56617B52CF400337DB1 /* Resources */,
-				FADDE56717B52CF400337DB1 /* ShellScript */,
+				24DCED57F7CD5DF87F4104D7 /* Check Pods Manifest.lock */,
+				A60B9A7C1A76D80800C1C9CE /* Sources */,
+				A60B9A7D1A76D80800C1C9CE /* Frameworks */,
+				A60B9A7E1A76D80800C1C9CE /* Resources */,
+				C880FE1DA6980AE4B5A1EF54 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FAAB1E8C17B93B3B00956FE6 /* PBXTargetDependency */,
+				A60B9A821A76D80800C1C9CE /* PBXTargetDependency */,
 			);
 			name = MCKillSwitchExampleTests;
 			productName = MCKillSwitchExampleTests;
-			productReference = FADDE56917B52CF400337DB1 /* MCKillSwitchExampleTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = A60B9A801A76D80800C1C9CE /* MCKillSwitchExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		76F457B0173D3A26004D7839 /* Project object */ = {
+		A60B9A5F1A76D80800C1C9CE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = "";
-				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = Mirego;
+				CLASSPREFIX = MC;
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Mirego Inc.";
+				TargetAttributes = {
+					A60B9A661A76D80800C1C9CE = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					A60B9A7F1A76D80800C1C9CE = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = A60B9A661A76D80800C1C9CE;
+					};
+				};
 			};
-			buildConfigurationList = 76F457B3173D3A26004D7839 /* Build configuration list for PBXProject "MCKillSwitchExample" */;
+			buildConfigurationList = A60B9A621A76D80800C1C9CE /* Build configuration list for PBXProject "MCKillSwitchExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
-			mainGroup = 76F457AF173D3A26004D7839;
-			productRefGroup = 76F457B9173D3A26004D7839 /* Products */;
+			mainGroup = A60B9A5E1A76D80800C1C9CE;
+			productRefGroup = A60B9A681A76D80800C1C9CE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				76F457B7173D3A26004D7839 /* MCKillSwitchExample */,
-				FADDE56817B52CF400337DB1 /* MCKillSwitchExampleTests */,
+				A60B9A661A76D80800C1C9CE /* MCKillSwitchExample */,
+				A60B9A7F1A76D80800C1C9CE /* MCKillSwitchExampleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		76F457B6173D3A26004D7839 /* Resources */ = {
+		A60B9A651A76D80800C1C9CE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76F457C6173D3A26004D7839 /* InfoPlist.strings in Resources */,
-				76F457CE173D3A27004D7839 /* Default.png in Resources */,
-				76F457D0173D3A27004D7839 /* Default@2x.png in Resources */,
-				76F457D2173D3A27004D7839 /* Default-568h@2x.png in Resources */,
-				76F457EF173D432F004D7839 /* action_alert.json in Resources */,
-				76F457F0173D432F004D7839 /* action_kill.json in Resources */,
-				76F457F1173D432F004D7839 /* action_ok.json in Resources */,
-				764E0ABB173D74D500321E5C /* Localizable.strings in Resources */,
-				915CCF39B873DD2E81E01102 /* 1.0.0.json in Resources */,
+				A60B9A781A76D80800C1C9CE /* Images.xcassets in Resources */,
+				A60B9AAE1A76D95800C1C9CE /* action_kill.json in Resources */,
+				A60B9AAD1A76D95800C1C9CE /* action_alert.json in Resources */,
+				A60B9ABF1A76DB8D00C1C9CE /* Localizable.strings in Resources */,
+				A60B9AAF1A76D95800C1C9CE /* action_ok.json in Resources */,
+				A60B9AB91A76DB1A00C1C9CE /* Default-568h@2x.png in Resources */,
+				A60B9AAC1A76D95800C1C9CE /* 1.0.0.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FADDE56617B52CF400337DB1 /* Resources */ = {
+		A60B9A7E1A76D80800C1C9CE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADDE57217B52CF400337DB1 /* InfoPlist.strings in Resources */,
-				FADDE58017B5322000337DB1 /* action_alert.json in Resources */,
-				FADDE58117B5322000337DB1 /* action_kill.json in Resources */,
-				FADDE58217B5322000337DB1 /* action_ok.json in Resources */,
-				FADDE58317B5322000337DB1 /* Localizable.strings in Resources */,
-				FADDE58417B5322000337DB1 /* 1.0.0.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		FADDE56717B52CF400337DB1 /* ShellScript */ = {
+		24DCED57F7CD5DF87F4104D7 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7C1FE9F4FFF07A2168E8D5C4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCKillSwitchExample/Pods-MCKillSwitchExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C880FE1DA6980AE4B5A1EF54 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCKillSwitchExampleTests/Pods-MCKillSwitchExampleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAADB7BC9F08D79C5B985ED8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		76F457B4173D3A26004D7839 /* Sources */ = {
+		A60B9A631A76D80800C1C9CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76F457C8173D3A26004D7839 /* main.m in Sources */,
-				76F457CC173D3A27004D7839 /* AppDelegate.m in Sources */,
-				76F457E4173D3B9E004D7839 /* MCKillSwitchAlert.m in Sources */,
-				76F457E6173D3B9E004D7839 /* MCKillSwitchInfo.m in Sources */,
-				76F457E7173D3B9E004D7839 /* MCKillSwitchInfoButton.m in Sources */,
-				76F457EA173D4026004D7839 /* MCKillSwitchExampleRootViewController.m in Sources */,
-				764E0AC4173D77DF00321E5C /* MCMockKillSwitchAPIAlert.m in Sources */,
-				764E0AC5173D77DF00321E5C /* MCMockKillSwitchAPIKill.m in Sources */,
-				764E0AC6173D77DF00321E5C /* MCMockKillSwitchAPINoInternet.m in Sources */,
-				764E0AC7173D77DF00321E5C /* MCMockKillSwitchAPIOK.m in Sources */,
-				764E0ACB173D7BC200321E5C /* MCKillSwitchExampleRootView.m in Sources */,
-				915CCDF20CBFE7914FBB842B /* MCMockKillSwitchAPIDisk.m in Sources */,
-				FADDE56317B52C4200337DB1 /* MCKillSwitch.m in Sources */,
-				915CC70FDBC00A96C694383D /* MCKillSwitchDynamicAPI.m in Sources */,
-				915CC05DF1B4A1881271EB08 /* MCKillSwitchStaticAPI.m in Sources */,
+				A60B9A701A76D80800C1C9CE /* AppDelegate.m in Sources */,
+				A60B9AA91A76D95800C1C9CE /* MCMockKillSwitchAPIKill.m in Sources */,
+				A60B9AAA1A76D95800C1C9CE /* MCMockKillSwitchAPINoInternet.m in Sources */,
+				A60B9AA81A76D95800C1C9CE /* MCMockKillSwitchAPIDisk.m in Sources */,
+				A60B9A6D1A76D80800C1C9CE /* main.m in Sources */,
+				A60B9AAB1A76D95800C1C9CE /* MCMockKillSwitchAPIOK.m in Sources */,
+				A60B9AA51A76D95800C1C9CE /* MCKillSwitchExampleRootView.m in Sources */,
+				A60B9AA61A76D95800C1C9CE /* MCKillSwitchExampleRootViewController.m in Sources */,
+				A60B9AA71A76D95800C1C9CE /* MCMockKillSwitchAPIAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FADDE56417B52CF400337DB1 /* Sources */ = {
+		A60B9A7C1A76D80800C1C9CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADDE57F17B531FF00337DB1 /* MCKillSwitchExampleTests.m in Sources */,
+				A60B9AC51A76DCB700C1C9CE /* MCKillSwitchExampleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FAAB1E8C17B93B3B00956FE6 /* PBXTargetDependency */ = {
+		A60B9A821A76D80800C1C9CE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 76F457B7173D3A26004D7839 /* MCKillSwitchExample */;
-			targetProxy = FAAB1E8B17B93B3B00956FE6 /* PBXContainerItemProxy */;
+			target = A60B9A661A76D80800C1C9CE /* MCKillSwitchExample */;
+			targetProxy = A60B9A811A76D80800C1C9CE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		76F457C4173D3A26004D7839 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				76F457C5173D3A26004D7839 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		FADDE57017B52CF400337DB1 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FADDE57117B52CF400337DB1 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		76F457D3173D3A27004D7839 /* Debug */ = {
+		A60B9A881A76D80800C1C9CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -472,129 +444,145 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		76F457D4173D3A27004D7839 /* Release */ = {
+		A60B9A891A76D80800C1C9CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		76F457D6173D3A27004D7839 /* Debug */ = {
+		A60B9A8B1A76D80800C1C9CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D60E1FD56B538A214D31DB3D /* Pods-MCKillSwitchExample.debug.xcconfig */;
 			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MCKillSwitchExample/MCKillSwitchExample-Prefix.pch";
-				INFOPLIST_FILE = "MCKillSwitchExample/MCKillSwitchExample-Info.plist";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MCKillSwitchExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		76F457D7173D3A27004D7839 /* Release */ = {
+		A60B9A8C1A76D80800C1C9CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E33BD05399CA25FD1041485A /* Pods-MCKillSwitchExample.release.xcconfig */;
 			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MCKillSwitchExample/MCKillSwitchExample-Prefix.pch";
-				INFOPLIST_FILE = "MCKillSwitchExample/MCKillSwitchExample-Info.plist";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MCKillSwitchExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
-		FADDE57817B52CF400337DB1 /* Debug */ = {
+		A60B9A8E1A76D80800C1C9CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C6494224CFEF9637ED575FF /* Pods-MCKillSwitchExampleTests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MCKillSwitchExample.app/MCKillSwitchExample";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MCKillSwitchExampleTests/MCKillSwitchExampleTests-Prefix.pch";
-				INFOPLIST_FILE = "MCKillSwitchExampleTests/MCKillSwitchExampleTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MCKillSwitchExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MCKillSwitchExample.app/MCKillSwitchExample";
 			};
 			name = Debug;
 		};
-		FADDE57917B52CF400337DB1 /* Release */ = {
+		A60B9A8F1A76D80800C1C9CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41D882C9EFFD6970B33984A2 /* Pods-MCKillSwitchExampleTests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MCKillSwitchExample.app/MCKillSwitchExample";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MCKillSwitchExampleTests/MCKillSwitchExampleTests-Prefix.pch";
-				INFOPLIST_FILE = "MCKillSwitchExampleTests/MCKillSwitchExampleTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				INFOPLIST_FILE = MCKillSwitchExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MCKillSwitchExample.app/MCKillSwitchExample";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		76F457B3173D3A26004D7839 /* Build configuration list for PBXProject "MCKillSwitchExample" */ = {
+		A60B9A621A76D80800C1C9CE /* Build configuration list for PBXProject "MCKillSwitchExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				76F457D3173D3A27004D7839 /* Debug */,
-				76F457D4173D3A27004D7839 /* Release */,
+				A60B9A881A76D80800C1C9CE /* Debug */,
+				A60B9A891A76D80800C1C9CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76F457D5173D3A27004D7839 /* Build configuration list for PBXNativeTarget "MCKillSwitchExample" */ = {
+		A60B9A8A1A76D80800C1C9CE /* Build configuration list for PBXNativeTarget "MCKillSwitchExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				76F457D6173D3A27004D7839 /* Debug */,
-				76F457D7173D3A27004D7839 /* Release */,
+				A60B9A8B1A76D80800C1C9CE /* Debug */,
+				A60B9A8C1A76D80800C1C9CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FADDE57717B52CF400337DB1 /* Build configuration list for PBXNativeTarget "MCKillSwitchExampleTests" */ = {
+		A60B9A8D1A76D80800C1C9CE /* Build configuration list for PBXNativeTarget "MCKillSwitchExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FADDE57817B52CF400337DB1 /* Debug */,
-				FADDE57917B52CF400337DB1 /* Release */,
+				A60B9A8E1A76D80800C1C9CE /* Debug */,
+				A60B9A8F1A76D80800C1C9CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 76F457B0173D3A26004D7839 /* Project object */;
+	rootObject = A60B9A5F1A76D80800C1C9CE /* Project object */;
 }
