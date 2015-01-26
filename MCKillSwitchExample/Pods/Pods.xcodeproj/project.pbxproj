@@ -7,458 +7,305 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		110AF873E460D32C9302A9B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E541DBAF763CB6537F0B2AF9 /* Foundation.framework */; };
-		11FA8EF71D6DE4AE1828A7E1 /* Pods-MCKillSwitchExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F04E117FD8F0A624F897257C /* Pods-MCKillSwitchExample-dummy.m */; };
-		222284931EF1BFEB0B489CE5 /* MCKillSwitchInfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D9E94A00F6DACCCFC3ABBB /* MCKillSwitchInfoButton.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		29F4ECB1685167C0D8BB8238 /* MCKillSwitchDynamicAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 1345C642FFE9307E3D82B7E3 /* MCKillSwitchDynamicAPI.h */; };
-		34A199D79C9764D199CC1FD7 /* MCKillSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 74763D882A30C8C764DA2234 /* MCKillSwitch.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		3674CD8A529E214E9BBFA47E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E541DBAF763CB6537F0B2AF9 /* Foundation.framework */; };
-		3B193EAA487DED7967131B0C /* MCKillSwitchInfoButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 498AB3C4AC4D5C3F8C6DD2D7 /* MCKillSwitchInfoButton.h */; };
-		3C3491FD50E569B8C937234C /* MCKillSwitchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CC9FBE76037A42C06C5BF1 /* MCKillSwitchInfo.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		40AD3B39E9390C79D4C3D0AC /* MCKillSwitchDynamicAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 1345C642FFE9307E3D82B7E3 /* MCKillSwitchDynamicAPI.h */; };
-		41698C353189CBDC8FC8C82A /* MCKillSwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FFDAC757DF029259FC66B4A /* MCKillSwitch.h */; };
-		4530EBCA256D43F550903C8E /* MCKillSwitchStaticAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B46D8AB6D32EEA7DBF78E81 /* MCKillSwitchStaticAPI.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		4A40186D14BDCDDAC93EDB60 /* MCKillSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 74763D882A30C8C764DA2234 /* MCKillSwitch.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		4EAEB6FDC0AF1908D73082D3 /* MCKillSwitchInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D1129C14BC451717C5DFC55 /* MCKillSwitchInfo.h */; };
-		5AF943AD925A60D63C7C7BEE /* MCKillSwitchAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = C8948FADCA1FA88AD8309172 /* MCKillSwitchAlert.h */; };
-		6D8F9FB611DB420F5BA66B72 /* MCKillSwitchInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D1129C14BC451717C5DFC55 /* MCKillSwitchInfo.h */; };
-		6E86E7CA56D33B77E7B78151 /* MCKillSwitchStaticAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B189D97A00BE38EC28D544 /* MCKillSwitchStaticAPI.h */; };
-		716DA6F98EED7BACDA1F504B /* MCKillSwitchAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = C8948FADCA1FA88AD8309172 /* MCKillSwitchAlert.h */; };
-		7745FF92BD86ABBC64D60A17 /* MCKillSwitchAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A1568BAC1AF79D83BE54507 /* MCKillSwitchAPI.h */; };
-		8325DF27BEA59527950B716B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E541DBAF763CB6537F0B2AF9 /* Foundation.framework */; };
-		89F35F962AB04CCD0F21793F /* MCKillSwitchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CC9FBE76037A42C06C5BF1 /* MCKillSwitchInfo.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		8FC4806A0DDA03B3770C8B24 /* MCKillSwitchInfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D9E94A00F6DACCCFC3ABBB /* MCKillSwitchInfoButton.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		916DD917D45120A6FE69532A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E541DBAF763CB6537F0B2AF9 /* Foundation.framework */; };
-		93AC6D743D861AE07C473C3D /* Pods-MCKillSwitchExample-MCKillSwitch-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EBE0D7E89F7C3A8D559BDD /* Pods-MCKillSwitchExample-MCKillSwitch-dummy.m */; };
-		9FF83F9B66C2CF0E557D97AF /* Pods-MCKillSwitchExampleTests-MCKillSwitch-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABFBE3D34A57D845F55399F /* Pods-MCKillSwitchExampleTests-MCKillSwitch-dummy.m */; };
-		A07F7F377ACF9503C8BA3E00 /* MCKillSwitchAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A1568BAC1AF79D83BE54507 /* MCKillSwitchAPI.h */; };
-		A0A2D7298820D339D9AB4B97 /* MCKillSwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FFDAC757DF029259FC66B4A /* MCKillSwitch.h */; };
-		AA44FACCA71FB56B2F78BA0D /* MCKillSwitchAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = D93189190BBF6E4EF5351527 /* MCKillSwitchAlert.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		B31E8EEC239F3E4ECC9141A6 /* MCKillSwitchDynamicAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7E9E52AFE466A2C9576614 /* MCKillSwitchDynamicAPI.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		C4B338AB852BDC348733A859 /* MCKillSwitchStaticAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B189D97A00BE38EC28D544 /* MCKillSwitchStaticAPI.h */; };
-		D3DD36C4C2184F15BB2078F4 /* MCKillSwitchDynamicAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7E9E52AFE466A2C9576614 /* MCKillSwitchDynamicAPI.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		D5C58A3C5450E9B1BF90D8F0 /* Pods-MCKillSwitchExampleTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C504C02D4D51FB1EF632FDF7 /* Pods-MCKillSwitchExampleTests-dummy.m */; };
-		DC042E20F0E91AC095A2FD02 /* MCKillSwitchStaticAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B46D8AB6D32EEA7DBF78E81 /* MCKillSwitchStaticAPI.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E7C57194E0B0CC7E2ED32DB4 /* MCKillSwitchAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = D93189190BBF6E4EF5351527 /* MCKillSwitchAlert.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		FAEF990495AD7B8258D29809 /* MCKillSwitchInfoButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 498AB3C4AC4D5C3F8C6DD2D7 /* MCKillSwitchInfoButton.h */; };
+		1F165813080AEEFC0CC65A91 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3248818409FB67CF33084C1E /* Pods-dummy.m */; };
+		2F15CC61E2C41F7DF1A95FDB /* MCKillSwitchStaticAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 242AC1582412232E732189C3 /* MCKillSwitchStaticAPI.h */; };
+		38A8A5C518457CA97E587FF8 /* MCKillSwitchAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = 33ED21EFB9E14FF84140DD53 /* MCKillSwitchAlert.h */; };
+		40B174C8A544A1DF9B3729CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF6DF2F7E46D8B1613C5188 /* Foundation.framework */; };
+		41FD48338B998FA39BDC0F2B /* MCKillSwitchAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 03754F1B0E0D6D2704C70C3F /* MCKillSwitchAlert.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4750C14581D9DA9071973CE9 /* MCKillSwitchStaticAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E791DDBF0E78A987D5BC25 /* MCKillSwitchStaticAPI.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		55F018D77D4AB3AF8C7631EC /* MCKillSwitchDynamicAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E2BEDE59EE4414AC85C9A /* MCKillSwitchDynamicAPI.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		68BFD5AD5B71C479169632A1 /* MCKillSwitchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A90AF58235D973AB5C4EE46 /* MCKillSwitchInfo.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6C43FC3B2CB2D6003B31BF01 /* MCKillSwitchInfoButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 66E1AA4F28D8A95EA58598B0 /* MCKillSwitchInfoButton.h */; };
+		786E7C824A9E762C68283CC9 /* MCKillSwitchInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 22BCB0A2924CB176BA11A534 /* MCKillSwitchInfo.h */; };
+		78B9C19DC8F15B52321EE795 /* MCKillSwitchInfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C69CC7830C4A3EA922ECF8E9 /* MCKillSwitchInfoButton.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A790144011B5BF77EF6526F9 /* MCKillSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E6E3F97699179008C43BC4 /* MCKillSwitch.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		AB4BDEA04804D031D27EF8A9 /* MCKillSwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D0155526358619E193CDD3 /* MCKillSwitch.h */; };
+		C191AFE1DA2FE52D838680EB /* MCKillSwitchDynamicAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = FA0A7FF0726C0071A6192774 /* MCKillSwitchDynamicAPI.h */; };
+		D4826F1BE214A1A277F511E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF6DF2F7E46D8B1613C5188 /* Foundation.framework */; };
+		D67C996A36890E76F6870AED /* MCKillSwitchAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = BC51AFD3CA55BDB636500E07 /* MCKillSwitchAPI.h */; };
+		D6C59D602A8D062B4356F496 /* Pods-MCKillSwitch-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 031634E6AACCE418899B7398 /* Pods-MCKillSwitch-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		900ADD2C5C15DAF4940520BD /* PBXContainerItemProxy */ = {
+		E12F0DF709D091F6959A233D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AF7E869B2A9345111937E26A /* Project object */;
+			containerPortal = 2D410D3EA55E8993A62D765F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 676E9DFB496F7874B7F278EA;
-			remoteInfo = "Pods-MCKillSwitchExampleTests-MCKillSwitch";
-		};
-		F5345AF3DD4D2F4C30B73C72 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AF7E869B2A9345111937E26A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 44FF9607B9FF5FAAA35030A9;
-			remoteInfo = "Pods-MCKillSwitchExample-MCKillSwitch";
+			remoteGlobalIDString = 0B9E4E2B8A1042FC56540822;
+			remoteInfo = "Pods-MCKillSwitch";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0215F520A600678A34497E55 /* Pods-MCKillSwitchExampleTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MCKillSwitchExampleTests-resources.sh"; sourceTree = "<group>"; };
-		03EA35CE1377F48D020469BD /* Pods-MCKillSwitchExampleTests-MCKillSwitch.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCKillSwitchExampleTests-MCKillSwitch.xcconfig"; path = "../Pods-MCKillSwitchExampleTests-MCKillSwitch/Pods-MCKillSwitchExampleTests-MCKillSwitch.xcconfig"; sourceTree = "<group>"; };
-		0D1129C14BC451717C5DFC55 /* MCKillSwitchInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCKillSwitchInfo.h; path = MCKillSwitch/MCKillSwitchInfo.h; sourceTree = "<group>"; };
-		1345C642FFE9307E3D82B7E3 /* MCKillSwitchDynamicAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCKillSwitchDynamicAPI.h; path = MCKillSwitch/APIs/MCKillSwitchDynamicAPI.h; sourceTree = "<group>"; };
-		31AC52934EF5FDDB8751DE24 /* Pods-MCKillSwitchExample-MCKillSwitch-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MCKillSwitchExample-MCKillSwitch-Private.xcconfig"; sourceTree = "<group>"; };
-		31D9E94A00F6DACCCFC3ABBB /* MCKillSwitchInfoButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCKillSwitchInfoButton.m; path = MCKillSwitch/MCKillSwitchInfoButton.m; sourceTree = "<group>"; };
-		4143CB07AF2E94A29B22266F /* Pods-MCKillSwitchExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MCKillSwitchExample-acknowledgements.plist"; sourceTree = "<group>"; };
-		491CA1BAA5859738472AD28E /* Pods-MCKillSwitchExampleTests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MCKillSwitchExampleTests-environment.h"; sourceTree = "<group>"; };
-		498AB3C4AC4D5C3F8C6DD2D7 /* MCKillSwitchInfoButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCKillSwitchInfoButton.h; path = MCKillSwitch/MCKillSwitchInfoButton.h; sourceTree = "<group>"; };
-		4CD018ACF2DD855C0E9195F6 /* libPods-MCKillSwitchExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCKillSwitchExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CF08C3766BA2764680E23C8 /* Pods-MCKillSwitchExampleTests-MCKillSwitch-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCKillSwitchExampleTests-MCKillSwitch-Private.xcconfig"; path = "../Pods-MCKillSwitchExampleTests-MCKillSwitch/Pods-MCKillSwitchExampleTests-MCKillSwitch-Private.xcconfig"; sourceTree = "<group>"; };
-		5FFDAC757DF029259FC66B4A /* MCKillSwitch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCKillSwitch.h; path = MCKillSwitch/MCKillSwitch.h; sourceTree = "<group>"; };
-		641EB9A520E0D55264B86C0E /* Pods-MCKillSwitchExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MCKillSwitchExample-resources.sh"; sourceTree = "<group>"; };
-		6A1568BAC1AF79D83BE54507 /* MCKillSwitchAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCKillSwitchAPI.h; path = MCKillSwitch/APIs/MCKillSwitchAPI.h; sourceTree = "<group>"; };
-		6B46D8AB6D32EEA7DBF78E81 /* MCKillSwitchStaticAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCKillSwitchStaticAPI.m; path = MCKillSwitch/APIs/MCKillSwitchStaticAPI.m; sourceTree = "<group>"; };
-		6F7E9E52AFE466A2C9576614 /* MCKillSwitchDynamicAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCKillSwitchDynamicAPI.m; path = MCKillSwitch/APIs/MCKillSwitchDynamicAPI.m; sourceTree = "<group>"; };
-		74763D882A30C8C764DA2234 /* MCKillSwitch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCKillSwitch.m; path = MCKillSwitch/MCKillSwitch.m; sourceTree = "<group>"; };
-		75F94D9264AEE97FBCC196C5 /* Pods-MCKillSwitchExampleTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MCKillSwitchExampleTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		788B4CA213D45AA2CFE99C94 /* Pods-MCKillSwitchExampleTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MCKillSwitchExampleTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		7ABFBE3D34A57D845F55399F /* Pods-MCKillSwitchExampleTests-MCKillSwitch-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-MCKillSwitchExampleTests-MCKillSwitch-dummy.m"; path = "../Pods-MCKillSwitchExampleTests-MCKillSwitch/Pods-MCKillSwitchExampleTests-MCKillSwitch-dummy.m"; sourceTree = "<group>"; };
-		80B189D97A00BE38EC28D544 /* MCKillSwitchStaticAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCKillSwitchStaticAPI.h; path = MCKillSwitch/APIs/MCKillSwitchStaticAPI.h; sourceTree = "<group>"; };
-		8903352673C29896EA389B4F /* Pods-MCKillSwitchExample-MCKillSwitch.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MCKillSwitchExample-MCKillSwitch.xcconfig"; sourceTree = "<group>"; };
-		8AF6D7C2B194376A9639A714 /* Pods-MCKillSwitchExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MCKillSwitchExample-acknowledgements.markdown"; sourceTree = "<group>"; };
-		91251D383485854EA78169E4 /* Pods-MCKillSwitchExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MCKillSwitchExampleTests.release.xcconfig"; sourceTree = "<group>"; };
-		A325E988A0329F50780113CB /* Pods-MCKillSwitchExampleTests-MCKillSwitch-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-MCKillSwitchExampleTests-MCKillSwitch-prefix.pch"; path = "../Pods-MCKillSwitchExampleTests-MCKillSwitch/Pods-MCKillSwitchExampleTests-MCKillSwitch-prefix.pch"; sourceTree = "<group>"; };
-		A5EEA06A87949203C750E217 /* Pods-MCKillSwitchExample-MCKillSwitch-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MCKillSwitchExample-MCKillSwitch-prefix.pch"; sourceTree = "<group>"; };
-		B54CA9EEB7898DB15022E551 /* Pods-MCKillSwitchExample-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MCKillSwitchExample-environment.h"; sourceTree = "<group>"; };
-		C43CC7C5A692A1009633AE11 /* libPods-MCKillSwitchExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCKillSwitchExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C504C02D4D51FB1EF632FDF7 /* Pods-MCKillSwitchExampleTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MCKillSwitchExampleTests-dummy.m"; sourceTree = "<group>"; };
-		C63E0AB952C6BE04489FDECD /* Pods-MCKillSwitchExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MCKillSwitchExample.release.xcconfig"; sourceTree = "<group>"; };
-		C6CC9FBE76037A42C06C5BF1 /* MCKillSwitchInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCKillSwitchInfo.m; path = MCKillSwitch/MCKillSwitchInfo.m; sourceTree = "<group>"; };
-		C8773ABE1A09F395EB6DCE41 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C8948FADCA1FA88AD8309172 /* MCKillSwitchAlert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCKillSwitchAlert.h; path = MCKillSwitch/MCKillSwitchAlert.h; sourceTree = "<group>"; };
-		CFF666389CBCED936E212887 /* Pods-MCKillSwitchExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MCKillSwitchExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D57A2D1270F8F3CD303443D4 /* libPods-MCKillSwitchExample-MCKillSwitch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCKillSwitchExample-MCKillSwitch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D93189190BBF6E4EF5351527 /* MCKillSwitchAlert.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCKillSwitchAlert.m; path = MCKillSwitch/MCKillSwitchAlert.m; sourceTree = "<group>"; };
-		E541DBAF763CB6537F0B2AF9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		EE31CDED06558E95AF671AB3 /* Pods-MCKillSwitchExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MCKillSwitchExample.debug.xcconfig"; sourceTree = "<group>"; };
-		F04E117FD8F0A624F897257C /* Pods-MCKillSwitchExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MCKillSwitchExample-dummy.m"; sourceTree = "<group>"; };
-		F56C165F026B95C10BB19E7E /* libPods-MCKillSwitchExampleTests-MCKillSwitch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCKillSwitchExampleTests-MCKillSwitch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8EBE0D7E89F7C3A8D559BDD /* Pods-MCKillSwitchExample-MCKillSwitch-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MCKillSwitchExample-MCKillSwitch-dummy.m"; sourceTree = "<group>"; };
+		00B0C6256D15BC41FB021984 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		031634E6AACCE418899B7398 /* Pods-MCKillSwitch-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MCKillSwitch-dummy.m"; sourceTree = "<group>"; };
+		03754F1B0E0D6D2704C70C3F /* MCKillSwitchAlert.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCKillSwitchAlert.m; path = MCKillSwitch/MCKillSwitchAlert.m; sourceTree = "<group>"; };
+		1FEA4B7ED887CC1AF7F98C24 /* Pods-MCKillSwitch.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MCKillSwitch.xcconfig"; sourceTree = "<group>"; };
+		22BCB0A2924CB176BA11A534 /* MCKillSwitchInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCKillSwitchInfo.h; path = MCKillSwitch/MCKillSwitchInfo.h; sourceTree = "<group>"; };
+		242AC1582412232E732189C3 /* MCKillSwitchStaticAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCKillSwitchStaticAPI.h; path = MCKillSwitch/APIs/MCKillSwitchStaticAPI.h; sourceTree = "<group>"; };
+		2A90AF58235D973AB5C4EE46 /* MCKillSwitchInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCKillSwitchInfo.m; path = MCKillSwitch/MCKillSwitchInfo.m; sourceTree = "<group>"; };
+		3248818409FB67CF33084C1E /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		33ED21EFB9E14FF84140DD53 /* MCKillSwitchAlert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCKillSwitchAlert.h; path = MCKillSwitch/MCKillSwitchAlert.h; sourceTree = "<group>"; };
+		66E1AA4F28D8A95EA58598B0 /* MCKillSwitchInfoButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCKillSwitchInfoButton.h; path = MCKillSwitch/MCKillSwitchInfoButton.h; sourceTree = "<group>"; };
+		67D0155526358619E193CDD3 /* MCKillSwitch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCKillSwitch.h; path = MCKillSwitch/MCKillSwitch.h; sourceTree = "<group>"; };
+		68C1B58C53960D2919A9891B /* Pods-MCKillSwitch-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MCKillSwitch-Private.xcconfig"; sourceTree = "<group>"; };
+		70E6E3F97699179008C43BC4 /* MCKillSwitch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCKillSwitch.m; path = MCKillSwitch/MCKillSwitch.m; sourceTree = "<group>"; };
+		7639BCE29E2917E80BFB4669 /* Pods-MCKillSwitch-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MCKillSwitch-prefix.pch"; sourceTree = "<group>"; };
+		8FA217842BD78A577B78E828 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		94E791DDBF0E78A987D5BC25 /* MCKillSwitchStaticAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCKillSwitchStaticAPI.m; path = MCKillSwitch/APIs/MCKillSwitchStaticAPI.m; sourceTree = "<group>"; };
+		A9F0928C2915D033AA327247 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		AF730339DE3AA50B3023C17D /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BBDEEE06B8199D12DEC84C6A /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		BC51AFD3CA55BDB636500E07 /* MCKillSwitchAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCKillSwitchAPI.h; path = MCKillSwitch/APIs/MCKillSwitchAPI.h; sourceTree = "<group>"; };
+		BFF6DF2F7E46D8B1613C5188 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C4E144EF6E7319237B2B2FB1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		C69CC7830C4A3EA922ECF8E9 /* MCKillSwitchInfoButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCKillSwitchInfoButton.m; path = MCKillSwitch/MCKillSwitchInfoButton.m; sourceTree = "<group>"; };
+		D1B1882679BE80FEEB94BA70 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		DDE0041EFE49A32596725809 /* libPods-MCKillSwitch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCKillSwitch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F413E70239CBB1436DAED5D2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		FA0A7FF0726C0071A6192774 /* MCKillSwitchDynamicAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCKillSwitchDynamicAPI.h; path = MCKillSwitch/APIs/MCKillSwitchDynamicAPI.h; sourceTree = "<group>"; };
+		FD9E2BEDE59EE4414AC85C9A /* MCKillSwitchDynamicAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCKillSwitchDynamicAPI.m; path = MCKillSwitch/APIs/MCKillSwitchDynamicAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0CEAE723AFB7FC158DE31EBF /* Frameworks */ = {
+		1CE8F2E043ABECD41BFA0554 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3674CD8A529E214E9BBFA47E /* Foundation.framework in Frameworks */,
+				D4826F1BE214A1A277F511E6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		473A17DFE456E54D005FAF2D /* Frameworks */ = {
+		C6DAE21AD0BF17DC89712DC8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				110AF873E460D32C9302A9B4 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		56E1FE6E47D340D036D0C2F7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				916DD917D45120A6FE69532A /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EF11C3B31FA1439F6194770D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8325DF27BEA59527950B716B /* Foundation.framework in Frameworks */,
+				40B174C8A544A1DF9B3729CA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		011D71E7FE165B90FA10DE33 /* Targets Support Files */ = {
+		3094C81DE48E84AF145E38C3 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				1D4DD0693059894BA9E74001 /* Pods-MCKillSwitchExample */,
-				77EBC6712C54A6668CEA8FD3 /* Pods-MCKillSwitchExampleTests */,
+				1FEA4B7ED887CC1AF7F98C24 /* Pods-MCKillSwitch.xcconfig */,
+				68C1B58C53960D2919A9891B /* Pods-MCKillSwitch-Private.xcconfig */,
+				031634E6AACCE418899B7398 /* Pods-MCKillSwitch-dummy.m */,
+				7639BCE29E2917E80BFB4669 /* Pods-MCKillSwitch-prefix.pch */,
 			);
-			name = "Targets Support Files";
+			name = "Support Files";
+			path = "MCKillSwitchExample/Pods/Target Support Files/Pods-MCKillSwitch";
 			sourceTree = "<group>";
 		};
-		1D4DD0693059894BA9E74001 /* Pods-MCKillSwitchExample */ = {
+		3992D2B1167D0751D49DD742 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8AF6D7C2B194376A9639A714 /* Pods-MCKillSwitchExample-acknowledgements.markdown */,
-				4143CB07AF2E94A29B22266F /* Pods-MCKillSwitchExample-acknowledgements.plist */,
-				F04E117FD8F0A624F897257C /* Pods-MCKillSwitchExample-dummy.m */,
-				B54CA9EEB7898DB15022E551 /* Pods-MCKillSwitchExample-environment.h */,
-				641EB9A520E0D55264B86C0E /* Pods-MCKillSwitchExample-resources.sh */,
-				EE31CDED06558E95AF671AB3 /* Pods-MCKillSwitchExample.debug.xcconfig */,
-				C63E0AB952C6BE04489FDECD /* Pods-MCKillSwitchExample.release.xcconfig */,
-			);
-			name = "Pods-MCKillSwitchExample";
-			path = "Target Support Files/Pods-MCKillSwitchExample";
-			sourceTree = "<group>";
-		};
-		29713E497D446CBD9D33C7E8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C43CC7C5A692A1009633AE11 /* libPods-MCKillSwitchExample.a */,
-				D57A2D1270F8F3CD303443D4 /* libPods-MCKillSwitchExample-MCKillSwitch.a */,
-				4CD018ACF2DD855C0E9195F6 /* libPods-MCKillSwitchExampleTests.a */,
-				F56C165F026B95C10BB19E7E /* libPods-MCKillSwitchExampleTests-MCKillSwitch.a */,
+				00B0C6256D15BC41FB021984 /* libPods.a */,
+				DDE0041EFE49A32596725809 /* libPods-MCKillSwitch.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2D51AB143F03164D2EBCFBF0 /* iOS */ = {
+		41AB512229B905DD47048F06 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E541DBAF763CB6537F0B2AF9 /* Foundation.framework */,
+				EFF4FA8CBA71360219B6F7B7 /* MCKillSwitch */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		889C65ECE1369E12DD766231 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B6F0A85C0351E1EE496D146 /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		9B6F0A85C0351E1EE496D146 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D1B1882679BE80FEEB94BA70 /* Pods-acknowledgements.markdown */,
+				8FA217842BD78A577B78E828 /* Pods-acknowledgements.plist */,
+				3248818409FB67CF33084C1E /* Pods-dummy.m */,
+				A9F0928C2915D033AA327247 /* Pods-environment.h */,
+				BBDEEE06B8199D12DEC84C6A /* Pods-resources.sh */,
+				F413E70239CBB1436DAED5D2 /* Pods.debug.xcconfig */,
+				C4E144EF6E7319237B2B2FB1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = "Target Support Files/Pods";
+			sourceTree = "<group>";
+		};
+		AEB9EE70843D3771713EF6E0 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				BFF6DF2F7E46D8B1613C5188 /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		4B3A62D344FAD7B1DDADFC41 /* Frameworks */ = {
+		CFDE19C66F1B49DF7C89607A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2D51AB143F03164D2EBCFBF0 /* iOS */,
+				AEB9EE70843D3771713EF6E0 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5DEADEC5BC93929F17D919B8 /* MCKillSwitch */ = {
+		DE9105CB2ADA47D38BECF078 = {
 			isa = PBXGroup;
 			children = (
-				5FFDAC757DF029259FC66B4A /* MCKillSwitch.h */,
-				74763D882A30C8C764DA2234 /* MCKillSwitch.m */,
-				6A1568BAC1AF79D83BE54507 /* MCKillSwitchAPI.h */,
-				C8948FADCA1FA88AD8309172 /* MCKillSwitchAlert.h */,
-				D93189190BBF6E4EF5351527 /* MCKillSwitchAlert.m */,
-				1345C642FFE9307E3D82B7E3 /* MCKillSwitchDynamicAPI.h */,
-				6F7E9E52AFE466A2C9576614 /* MCKillSwitchDynamicAPI.m */,
-				0D1129C14BC451717C5DFC55 /* MCKillSwitchInfo.h */,
-				C6CC9FBE76037A42C06C5BF1 /* MCKillSwitchInfo.m */,
-				498AB3C4AC4D5C3F8C6DD2D7 /* MCKillSwitchInfoButton.h */,
-				31D9E94A00F6DACCCFC3ABBB /* MCKillSwitchInfoButton.m */,
-				80B189D97A00BE38EC28D544 /* MCKillSwitchStaticAPI.h */,
-				6B46D8AB6D32EEA7DBF78E81 /* MCKillSwitchStaticAPI.m */,
-				D63F9212D50EDC10CB89E196 /* Support Files */,
+				AF730339DE3AA50B3023C17D /* Podfile */,
+				41AB512229B905DD47048F06 /* Development Pods */,
+				CFDE19C66F1B49DF7C89607A /* Frameworks */,
+				3992D2B1167D0751D49DD742 /* Products */,
+				889C65ECE1369E12DD766231 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		EFF4FA8CBA71360219B6F7B7 /* MCKillSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				67D0155526358619E193CDD3 /* MCKillSwitch.h */,
+				70E6E3F97699179008C43BC4 /* MCKillSwitch.m */,
+				BC51AFD3CA55BDB636500E07 /* MCKillSwitchAPI.h */,
+				33ED21EFB9E14FF84140DD53 /* MCKillSwitchAlert.h */,
+				03754F1B0E0D6D2704C70C3F /* MCKillSwitchAlert.m */,
+				FA0A7FF0726C0071A6192774 /* MCKillSwitchDynamicAPI.h */,
+				FD9E2BEDE59EE4414AC85C9A /* MCKillSwitchDynamicAPI.m */,
+				22BCB0A2924CB176BA11A534 /* MCKillSwitchInfo.h */,
+				2A90AF58235D973AB5C4EE46 /* MCKillSwitchInfo.m */,
+				66E1AA4F28D8A95EA58598B0 /* MCKillSwitchInfoButton.h */,
+				C69CC7830C4A3EA922ECF8E9 /* MCKillSwitchInfoButton.m */,
+				242AC1582412232E732189C3 /* MCKillSwitchStaticAPI.h */,
+				94E791DDBF0E78A987D5BC25 /* MCKillSwitchStaticAPI.m */,
+				3094C81DE48E84AF145E38C3 /* Support Files */,
 			);
 			name = MCKillSwitch;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		77EBC6712C54A6668CEA8FD3 /* Pods-MCKillSwitchExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				75F94D9264AEE97FBCC196C5 /* Pods-MCKillSwitchExampleTests-acknowledgements.markdown */,
-				788B4CA213D45AA2CFE99C94 /* Pods-MCKillSwitchExampleTests-acknowledgements.plist */,
-				C504C02D4D51FB1EF632FDF7 /* Pods-MCKillSwitchExampleTests-dummy.m */,
-				491CA1BAA5859738472AD28E /* Pods-MCKillSwitchExampleTests-environment.h */,
-				0215F520A600678A34497E55 /* Pods-MCKillSwitchExampleTests-resources.sh */,
-				CFF666389CBCED936E212887 /* Pods-MCKillSwitchExampleTests.debug.xcconfig */,
-				91251D383485854EA78169E4 /* Pods-MCKillSwitchExampleTests.release.xcconfig */,
-			);
-			name = "Pods-MCKillSwitchExampleTests";
-			path = "Target Support Files/Pods-MCKillSwitchExampleTests";
-			sourceTree = "<group>";
-		};
-		9489EBDFD02133135B15576E /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5DEADEC5BC93929F17D919B8 /* MCKillSwitch */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		C9C80FB20716611A4CAB8D82 = {
-			isa = PBXGroup;
-			children = (
-				C8773ABE1A09F395EB6DCE41 /* Podfile */,
-				9489EBDFD02133135B15576E /* Development Pods */,
-				4B3A62D344FAD7B1DDADFC41 /* Frameworks */,
-				29713E497D446CBD9D33C7E8 /* Products */,
-				011D71E7FE165B90FA10DE33 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		D63F9212D50EDC10CB89E196 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				8903352673C29896EA389B4F /* Pods-MCKillSwitchExample-MCKillSwitch.xcconfig */,
-				31AC52934EF5FDDB8751DE24 /* Pods-MCKillSwitchExample-MCKillSwitch-Private.xcconfig */,
-				F8EBE0D7E89F7C3A8D559BDD /* Pods-MCKillSwitchExample-MCKillSwitch-dummy.m */,
-				A5EEA06A87949203C750E217 /* Pods-MCKillSwitchExample-MCKillSwitch-prefix.pch */,
-				03EA35CE1377F48D020469BD /* Pods-MCKillSwitchExampleTests-MCKillSwitch.xcconfig */,
-				5CF08C3766BA2764680E23C8 /* Pods-MCKillSwitchExampleTests-MCKillSwitch-Private.xcconfig */,
-				7ABFBE3D34A57D845F55399F /* Pods-MCKillSwitchExampleTests-MCKillSwitch-dummy.m */,
-				A325E988A0329F50780113CB /* Pods-MCKillSwitchExampleTests-MCKillSwitch-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "MCKillSwitchExample/Pods/Target Support Files/Pods-MCKillSwitchExample-MCKillSwitch";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		44E32EDE468A243D05B9722E /* Headers */ = {
+		2FDF908C90165906E5C307D7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41698C353189CBDC8FC8C82A /* MCKillSwitch.h in Headers */,
-				7745FF92BD86ABBC64D60A17 /* MCKillSwitchAPI.h in Headers */,
-				5AF943AD925A60D63C7C7BEE /* MCKillSwitchAlert.h in Headers */,
-				29F4ECB1685167C0D8BB8238 /* MCKillSwitchDynamicAPI.h in Headers */,
-				4EAEB6FDC0AF1908D73082D3 /* MCKillSwitchInfo.h in Headers */,
-				3B193EAA487DED7967131B0C /* MCKillSwitchInfoButton.h in Headers */,
-				6E86E7CA56D33B77E7B78151 /* MCKillSwitchStaticAPI.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EE84355678CFA1E17B1FD5C6 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A0A2D7298820D339D9AB4B97 /* MCKillSwitch.h in Headers */,
-				A07F7F377ACF9503C8BA3E00 /* MCKillSwitchAPI.h in Headers */,
-				716DA6F98EED7BACDA1F504B /* MCKillSwitchAlert.h in Headers */,
-				40AD3B39E9390C79D4C3D0AC /* MCKillSwitchDynamicAPI.h in Headers */,
-				6D8F9FB611DB420F5BA66B72 /* MCKillSwitchInfo.h in Headers */,
-				FAEF990495AD7B8258D29809 /* MCKillSwitchInfoButton.h in Headers */,
-				C4B338AB852BDC348733A859 /* MCKillSwitchStaticAPI.h in Headers */,
+				AB4BDEA04804D031D27EF8A9 /* MCKillSwitch.h in Headers */,
+				D67C996A36890E76F6870AED /* MCKillSwitchAPI.h in Headers */,
+				38A8A5C518457CA97E587FF8 /* MCKillSwitchAlert.h in Headers */,
+				C191AFE1DA2FE52D838680EB /* MCKillSwitchDynamicAPI.h in Headers */,
+				786E7C824A9E762C68283CC9 /* MCKillSwitchInfo.h in Headers */,
+				6C43FC3B2CB2D6003B31BF01 /* MCKillSwitchInfoButton.h in Headers */,
+				2F15CC61E2C41F7DF1A95FDB /* MCKillSwitchStaticAPI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		15816C2D30C4DB18D7DBE2DD /* Pods-MCKillSwitchExampleTests */ = {
+		07F56290FCD6116B90B91CD3 /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B9C45EE820400DE29263F24 /* Build configuration list for PBXNativeTarget "Pods-MCKillSwitchExampleTests" */;
+			buildConfigurationList = DDC58306F13A0EE5C0B1CAF6 /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				513CF178564BF3DD6E87EF69 /* Sources */,
-				56E1FE6E47D340D036D0C2F7 /* Frameworks */,
+				2AD51DC5D1F5BC38127BB20A /* Sources */,
+				1CE8F2E043ABECD41BFA0554 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				37C73CC7F658A01A2D2AA7E4 /* PBXTargetDependency */,
+				6BABB63BBE9FDC870C8B0A14 /* PBXTargetDependency */,
 			);
-			name = "Pods-MCKillSwitchExampleTests";
-			productName = "Pods-MCKillSwitchExampleTests";
-			productReference = 4CD018ACF2DD855C0E9195F6 /* libPods-MCKillSwitchExampleTests.a */;
+			name = Pods;
+			productName = Pods;
+			productReference = 00B0C6256D15BC41FB021984 /* libPods.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		44FF9607B9FF5FAAA35030A9 /* Pods-MCKillSwitchExample-MCKillSwitch */ = {
+		0B9E4E2B8A1042FC56540822 /* Pods-MCKillSwitch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6DD0E62289818FE557F4C952 /* Build configuration list for PBXNativeTarget "Pods-MCKillSwitchExample-MCKillSwitch" */;
+			buildConfigurationList = 3A9EE1EBEEB5B62705D9FDD8 /* Build configuration list for PBXNativeTarget "Pods-MCKillSwitch" */;
 			buildPhases = (
-				BE03214F58383F765F9FAEFC /* Sources */,
-				473A17DFE456E54D005FAF2D /* Frameworks */,
-				EE84355678CFA1E17B1FD5C6 /* Headers */,
+				C55690432CD6C813A2C23B3F /* Sources */,
+				C6DAE21AD0BF17DC89712DC8 /* Frameworks */,
+				2FDF908C90165906E5C307D7 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-MCKillSwitchExample-MCKillSwitch";
-			productName = "Pods-MCKillSwitchExample-MCKillSwitch";
-			productReference = D57A2D1270F8F3CD303443D4 /* libPods-MCKillSwitchExample-MCKillSwitch.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		676E9DFB496F7874B7F278EA /* Pods-MCKillSwitchExampleTests-MCKillSwitch */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 93655841B248DC496F06A48D /* Build configuration list for PBXNativeTarget "Pods-MCKillSwitchExampleTests-MCKillSwitch" */;
-			buildPhases = (
-				BD084E3E140771D2AC0BBA64 /* Sources */,
-				0CEAE723AFB7FC158DE31EBF /* Frameworks */,
-				44E32EDE468A243D05B9722E /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-MCKillSwitchExampleTests-MCKillSwitch";
-			productName = "Pods-MCKillSwitchExampleTests-MCKillSwitch";
-			productReference = F56C165F026B95C10BB19E7E /* libPods-MCKillSwitchExampleTests-MCKillSwitch.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		C05D62092DBB98D19C158BD5 /* Pods-MCKillSwitchExample */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A268F15E73108103E28D69F9 /* Build configuration list for PBXNativeTarget "Pods-MCKillSwitchExample" */;
-			buildPhases = (
-				C028CC9935DD2CFCDC28D0DB /* Sources */,
-				EF11C3B31FA1439F6194770D /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				54ACE47412D716FF3AF6C15C /* PBXTargetDependency */,
-			);
-			name = "Pods-MCKillSwitchExample";
-			productName = "Pods-MCKillSwitchExample";
-			productReference = C43CC7C5A692A1009633AE11 /* libPods-MCKillSwitchExample.a */;
+			name = "Pods-MCKillSwitch";
+			productName = "Pods-MCKillSwitch";
+			productReference = DDE0041EFE49A32596725809 /* libPods-MCKillSwitch.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AF7E869B2A9345111937E26A /* Project object */ = {
+		2D410D3EA55E8993A62D765F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = A83F66DFBCC464E4204486FE /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = FF382999FD168715E64F1E12 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = C9C80FB20716611A4CAB8D82;
-			productRefGroup = 29713E497D446CBD9D33C7E8 /* Products */;
+			mainGroup = DE9105CB2ADA47D38BECF078;
+			productRefGroup = 3992D2B1167D0751D49DD742 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C05D62092DBB98D19C158BD5 /* Pods-MCKillSwitchExample */,
-				44FF9607B9FF5FAAA35030A9 /* Pods-MCKillSwitchExample-MCKillSwitch */,
-				15816C2D30C4DB18D7DBE2DD /* Pods-MCKillSwitchExampleTests */,
-				676E9DFB496F7874B7F278EA /* Pods-MCKillSwitchExampleTests-MCKillSwitch */,
+				07F56290FCD6116B90B91CD3 /* Pods */,
+				0B9E4E2B8A1042FC56540822 /* Pods-MCKillSwitch */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		513CF178564BF3DD6E87EF69 /* Sources */ = {
+		2AD51DC5D1F5BC38127BB20A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5C58A3C5450E9B1BF90D8F0 /* Pods-MCKillSwitchExampleTests-dummy.m in Sources */,
+				1F165813080AEEFC0CC65A91 /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD084E3E140771D2AC0BBA64 /* Sources */ = {
+		C55690432CD6C813A2C23B3F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34A199D79C9764D199CC1FD7 /* MCKillSwitch.m in Sources */,
-				E7C57194E0B0CC7E2ED32DB4 /* MCKillSwitchAlert.m in Sources */,
-				D3DD36C4C2184F15BB2078F4 /* MCKillSwitchDynamicAPI.m in Sources */,
-				3C3491FD50E569B8C937234C /* MCKillSwitchInfo.m in Sources */,
-				8FC4806A0DDA03B3770C8B24 /* MCKillSwitchInfoButton.m in Sources */,
-				4530EBCA256D43F550903C8E /* MCKillSwitchStaticAPI.m in Sources */,
-				9FF83F9B66C2CF0E557D97AF /* Pods-MCKillSwitchExampleTests-MCKillSwitch-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE03214F58383F765F9FAEFC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4A40186D14BDCDDAC93EDB60 /* MCKillSwitch.m in Sources */,
-				AA44FACCA71FB56B2F78BA0D /* MCKillSwitchAlert.m in Sources */,
-				B31E8EEC239F3E4ECC9141A6 /* MCKillSwitchDynamicAPI.m in Sources */,
-				89F35F962AB04CCD0F21793F /* MCKillSwitchInfo.m in Sources */,
-				222284931EF1BFEB0B489CE5 /* MCKillSwitchInfoButton.m in Sources */,
-				DC042E20F0E91AC095A2FD02 /* MCKillSwitchStaticAPI.m in Sources */,
-				93AC6D743D861AE07C473C3D /* Pods-MCKillSwitchExample-MCKillSwitch-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C028CC9935DD2CFCDC28D0DB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				11FA8EF71D6DE4AE1828A7E1 /* Pods-MCKillSwitchExample-dummy.m in Sources */,
+				A790144011B5BF77EF6526F9 /* MCKillSwitch.m in Sources */,
+				41FD48338B998FA39BDC0F2B /* MCKillSwitchAlert.m in Sources */,
+				55F018D77D4AB3AF8C7631EC /* MCKillSwitchDynamicAPI.m in Sources */,
+				68BFD5AD5B71C479169632A1 /* MCKillSwitchInfo.m in Sources */,
+				78B9C19DC8F15B52321EE795 /* MCKillSwitchInfoButton.m in Sources */,
+				4750C14581D9DA9071973CE9 /* MCKillSwitchStaticAPI.m in Sources */,
+				D6C59D602A8D062B4356F496 /* Pods-MCKillSwitch-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		37C73CC7F658A01A2D2AA7E4 /* PBXTargetDependency */ = {
+		6BABB63BBE9FDC870C8B0A14 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-MCKillSwitchExampleTests-MCKillSwitch";
-			target = 676E9DFB496F7874B7F278EA /* Pods-MCKillSwitchExampleTests-MCKillSwitch */;
-			targetProxy = 900ADD2C5C15DAF4940520BD /* PBXContainerItemProxy */;
-		};
-		54ACE47412D716FF3AF6C15C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-MCKillSwitchExample-MCKillSwitch";
-			target = 44FF9607B9FF5FAAA35030A9 /* Pods-MCKillSwitchExample-MCKillSwitch */;
-			targetProxy = F5345AF3DD4D2F4C30B73C72 /* PBXContainerItemProxy */;
+			name = "Pods-MCKillSwitch";
+			target = 0B9E4E2B8A1042FC56540822 /* Pods-MCKillSwitch */;
+			targetProxy = E12F0DF709D091F6959A233D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1E2420C0B2AD510C831A16E3 /* Debug */ = {
+		9F8D91F480FB349226C0A5E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFF666389CBCED936E212887 /* Pods-MCKillSwitchExampleTests.debug.xcconfig */;
+			baseConfigurationReference = 68C1B58C53960D2919A9891B /* Pods-MCKillSwitch-Private.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
@@ -466,13 +313,14 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-MCKillSwitch/Pods-MCKillSwitch-prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -482,17 +330,17 @@
 			};
 			name = Debug;
 		};
-		2579F1659D10951FFCB99730 /* Release */ = {
+		B22836C5A8D0610BDE8CBECD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 31AC52934EF5FDDB8751DE24 /* Pods-MCKillSwitchExample-MCKillSwitch-Private.xcconfig */;
+			baseConfigurationReference = 68C1B58C53960D2919A9891B /* Pods-MCKillSwitch-Private.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-MCKillSwitchExample-MCKillSwitch/Pods-MCKillSwitchExample-MCKillSwitch-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-MCKillSwitch/Pods-MCKillSwitch-prefix.pch";
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"$(inherited)",
@@ -511,43 +359,16 @@
 			};
 			name = Release;
 		};
-		3B82A550C5AD98AF3C4F25CC /* Debug */ = {
+		C5564F336A81ABC492691482 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE31CDED06558E95AF671AB3 /* Pods-MCKillSwitchExample.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		424548E2C9B47FAECD0BA755 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CF08C3766BA2764680E23C8 /* Pods-MCKillSwitchExampleTests-MCKillSwitch-Private.xcconfig */;
+			baseConfigurationReference = C4E144EF6E7319237B2B2FB1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-MCKillSwitchExampleTests-MCKillSwitch/Pods-MCKillSwitchExampleTests-MCKillSwitch-prefix.pch";
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"$(inherited)",
@@ -566,7 +387,7 @@
 			};
 			name = Release;
 		};
-		4B27BA870BD65C8906737EF6 /* Debug */ = {
+		E16AEEC6C36137F880D228B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -596,13 +417,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};
-		5D5EF925ED0A0B90A746C4C1 /* Release */ = {
+		EF50CBDC2F8076D4AFF7ADCE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -627,15 +448,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				STRIP_INSTALLED_PRODUCT = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		8B5959E09400DE05F5FD5CD1 /* Debug */ = {
+		F5C31D63EDD0A9B004ABC910 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 31AC52934EF5FDDB8751DE24 /* Pods-MCKillSwitchExample-MCKillSwitch-Private.xcconfig */;
+			baseConfigurationReference = F413E70239CBB1436DAED5D2 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
@@ -643,97 +464,13 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-MCKillSwitchExample-MCKillSwitch/Pods-MCKillSwitchExample-MCKillSwitch-prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		9EF8295CB5368A31849351AF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C63E0AB952C6BE04489FDECD /* Pods-MCKillSwitchExample.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		A029C2C7E077B9F1334F068B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91251D383485854EA78169E4 /* Pods-MCKillSwitchExampleTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		F8190B7779846DD1A5BE1984 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CF08C3766BA2764680E23C8 /* Pods-MCKillSwitchExampleTests-MCKillSwitch-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-MCKillSwitchExampleTests-MCKillSwitch/Pods-MCKillSwitchExampleTests-MCKillSwitch-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -746,52 +483,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0B9C45EE820400DE29263F24 /* Build configuration list for PBXNativeTarget "Pods-MCKillSwitchExampleTests" */ = {
+		3A9EE1EBEEB5B62705D9FDD8 /* Build configuration list for PBXNativeTarget "Pods-MCKillSwitch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1E2420C0B2AD510C831A16E3 /* Debug */,
-				A029C2C7E077B9F1334F068B /* Release */,
+				9F8D91F480FB349226C0A5E1 /* Debug */,
+				B22836C5A8D0610BDE8CBECD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6DD0E62289818FE557F4C952 /* Build configuration list for PBXNativeTarget "Pods-MCKillSwitchExample-MCKillSwitch" */ = {
+		DDC58306F13A0EE5C0B1CAF6 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8B5959E09400DE05F5FD5CD1 /* Debug */,
-				2579F1659D10951FFCB99730 /* Release */,
+				F5C31D63EDD0A9B004ABC910 /* Debug */,
+				C5564F336A81ABC492691482 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		93655841B248DC496F06A48D /* Build configuration list for PBXNativeTarget "Pods-MCKillSwitchExampleTests-MCKillSwitch" */ = {
+		FF382999FD168715E64F1E12 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F8190B7779846DD1A5BE1984 /* Debug */,
-				424548E2C9B47FAECD0BA755 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A268F15E73108103E28D69F9 /* Build configuration list for PBXNativeTarget "Pods-MCKillSwitchExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3B82A550C5AD98AF3C4F25CC /* Debug */,
-				9EF8295CB5368A31849351AF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A83F66DFBCC464E4204486FE /* Build configuration list for PBXProject "Pods" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4B27BA870BD65C8906737EF6 /* Debug */,
-				5D5EF925ED0A0B90A746C4C1 /* Release */,
+				E16AEEC6C36137F880D228B3 /* Debug */,
+				EF50CBDC2F8076D4AFF7ADCE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = AF7E869B2A9345111937E26A /* Project object */;
+	rootObject = 2D410D3EA55E8993A62D765F /* Project object */;
 }
