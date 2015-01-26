@@ -1,10 +1,30 @@
 //
-//  MCKillSwitchDynamicAPI.m
-//  MCKillSwitch
+// Copyright (c) 2015, Mirego
+// All rights reserved.
 //
-//  Created by Stéphanie Paquet on 2013-04-24.
-//  Copyright (c) 2013 Mirego. All rights reserved.
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are met:
 //
+// - Redistributions of source code must retain the above copyright notice,
+//   this list of conditions and the following disclaimer.
+// - Redistributions in binary form must reproduce the above copyright notice,
+//   this list of conditions and the following disclaimer in the documentation
+//   and/or other materials provided with the distribution.
+// - Neither the name of the Mirego nor the names of its contributors may
+//   be used to endorse or promote products derived from this software without
+//   specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+// POSSIBILITY OF SUCH DAMAGE.
 
 #import "MCKillSwitchDynamicAPI.h"
 
@@ -21,18 +41,21 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"http://killswitch.mirego.
 
 @interface MCKillSwitchDynamicAPI ()
 
-@property (nonatomic) NSURL *baseURL;
-@property (nonatomic) NSURLConnection *connection;
-@property (nonatomic) NSMutableData *responseData;
-@property (nonatomic) BOOL isStaticJSONFileURL;
+@property (nonatomic, readonly) NSURL *baseURL;
+@property (nonatomic, readonly) NSURLConnection *connection;
+@property (nonatomic, readonly) NSMutableData *responseData;
+@property (nonatomic, readonly) BOOL isStaticJSONFileURL;
 @end
 
 //------------------------------------------------------------------------------
 #pragma mark - Implementation
 //------------------------------------------------------------------------------
 
-@implementation MCKillSwitchDynamicAPI
-@synthesize delegate;
+@implementation MCKillSwitchDynamicAPI {
+    __weak id <MCKillSwitchAPIDelegate> _delegate; // Needs to be manually defined because it's weak
+}
+
+@synthesize delegate = _delegate;
 
 + (MCKillSwitchDynamicAPI *)defaultURLKillSwitchDynamicAPI
 {
@@ -46,18 +69,19 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"http://killswitch.mirego.
     return killSwitchDynamicAPI;
 }
 
-- (id)initWithBaseURL:(NSURL *)baseURL
+- (instancetype)initWithBaseURL:(NSURL *)baseURL
 {
     return [self initWithBaseURL:baseURL URLIsStatic:NO];
 }
 
-- (id)initWithBaseURL:(NSURL *)url URLIsStatic:(BOOL)staticURL
+- (instancetype)initWithBaseURL:(NSURL *)url URLIsStatic:(BOOL)URLIsStatic
 {
     self = [super init];
     if (self) {
         _baseURL = url;
-        _isStaticJSONFileURL = staticURL;
+        _isStaticJSONFileURL = URLIsStatic;
     }
+    
     return self;
 }
 
@@ -72,22 +96,23 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"http://killswitch.mirego.
 
 - (void)startWithParameters:(NSDictionary *)parameters
 {
-    NSMutableURLRequest *request= [self killSwitchRequestWithParameters:parameters];
+    NSMutableURLRequest *request = [self killSwitchRequestWithParameters:parameters];
 
     // URL connection
     [self cancel];
-    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    _connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 - (NSMutableURLRequest *)killSwitchRequestWithParameters:(NSDictionary *)parameters
 {
     if (self.isStaticJSONFileURL) {
         return [self requestForStaticURLWithParameters:parameters];
-    }
-    else {
+        
+    } else {
         if ([self isDefaultURL]) {
             return [self requestForDefaultURLWithParameters:parameters];
         }
+        
         return [self requestForDynamicURL:parameters];
     }
 }
@@ -141,7 +166,7 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"http://killswitch.mirego.
 {
     if (self.connection) {
         [self.connection cancel];
-        self.connection = nil;
+        _connection = nil;
     }
 }
 
@@ -179,16 +204,12 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"http://killswitch.mirego.
 
 - (void)successWithInfoDictionary:(NSDictionary *)infoDictionary
 {
-    if ([self.delegate respondsToSelector:@selector(killSwitchAPI:didLoadInfoDictionary:)]) {
-        [self.delegate killSwitchAPI:self didLoadInfoDictionary:infoDictionary];
-    }
+    [self.delegate killSwitchAPI:self didLoadInfoDictionary:infoDictionary];
 }
 
 - (void)failWithError:(NSError *)error
 {
-    if ([self.delegate respondsToSelector:@selector(killSwitchAPI:didFailWithError:)]) {
-        [self.delegate killSwitchAPI:self didFailWithError:error];
-    }
+    [self.delegate killSwitchAPI:self didFailWithError:error];
 }
 
 //------------------------------------------------------------------------------
@@ -205,6 +226,7 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"http://killswitch.mirego.
     if (!_responseData) {
         _responseData = [NSMutableData data];
     }
+    
     [_responseData appendData:data];
 }
 
@@ -215,8 +237,7 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"http://killswitch.mirego.
     
     if (!errorJSON) {
         [self successWithInfoDictionary:responseDictionary];
-    }
-    else {
+    } else {
         [self failWithError:nil];
     }
     
@@ -230,6 +251,5 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"http://killswitch.mirego.
     _responseData = nil;
     _connection = nil;
 }
-
 
 @end

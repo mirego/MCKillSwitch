@@ -1,16 +1,36 @@
 //
-//  MCKillSwitchInfo.m
-//  MCKillSwitch
+// Copyright (c) 2015, Mirego
+// All rights reserved.
 //
-//  Created by Stéphanie Paquet on 2013-04-24.
-//  Copyright (c) 2013 Mirego. All rights reserved.
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are met:
 //
+// - Redistributions of source code must retain the above copyright notice,
+//   this list of conditions and the following disclaimer.
+// - Redistributions in binary form must reproduce the above copyright notice,
+//   this list of conditions and the following disclaimer in the documentation
+//   and/or other materials provided with the distribution.
+// - Neither the name of the Mirego nor the names of its contributors may
+//   be used to endorse or promote products derived from this software without
+//   specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+// POSSIBILITY OF SUCH DAMAGE.
 
 #import "MCKillSwitchInfo.h"
 
 @implementation MCKillSwitchInfo
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
     if (self) {
@@ -18,15 +38,16 @@
         _message = dictionary[@"message"];
         
         NSArray *rawButtons = dictionary[@"buttons"];
-        NSMutableArray *finalButtons = [NSMutableArray array];
+        NSMutableArray *finalButtons = [NSMutableArray new];
         
         for (NSDictionary *dictButton in rawButtons) {
             MCKillSwitchInfoButton *objButton = [[MCKillSwitchInfoButton alloc] initWithDictionary:dictButton];
             [finalButtons addObject:objButton];
         }
         
-        _buttons = finalButtons.count > 0 ? finalButtons : nil;
+        _buttons = finalButtons.count > 0 ? [[NSArray alloc] initWithArray:finalButtons] : nil;
     }
+    
     return self;
 }
 
@@ -55,11 +76,9 @@
     
     if ([string isEqualToString:@"kill"]) {
         action = MCKillSwitchActionKill;
-    }
-    else if ([string isEqualToString:@"alert"]) {
+    } else if ([string isEqualToString:@"alert"]) {
         action = MCKillSwitchActionAlert;
-    }
-    else if ([string isEqualToString:@"ok"]) {
+    } else if ([string isEqualToString:@"ok"]) {
         action = MCKillSwitchActionOK;
     }
     
@@ -98,34 +117,32 @@
 
 - (NSArray *)urlButtons
 {
-    NSMutableArray *urlButtons = nil;
+    NSMutableArray *urlButtons = [NSMutableArray new];
     
     for (MCKillSwitchInfoButton *button in _buttons) {
         if (button.type == MCKillSwitchInfoButtonTypeURL) {
-            if (!urlButtons) {
-                urlButtons = [NSMutableArray array];
-            }
             [urlButtons addObject:button];
         }
     }
     
-    return urlButtons;
+    return urlButtons.count > 0 ? [[NSArray alloc] initWithArray:urlButtons] : nil;
 }
 
 - (NSArray *)orderedButtons
 {
-    NSMutableArray *orderedButtons = [NSMutableArray array];
+    NSMutableArray *orderedButtons = [NSMutableArray new];
+    
     MCKillSwitchInfoButton *cancelButton = [self cancelButton];
-    NSArray *otherButtons = [self urlButtons];
+    NSArray *urlButtons = [self urlButtons];
     
     if (cancelButton) {
         [orderedButtons addObject:cancelButton];
     }
-    if (otherButtons) {
-        [orderedButtons addObjectsFromArray:otherButtons];
+    if (urlButtons) {
+        [orderedButtons addObjectsFromArray:urlButtons];
     }
     
-    return orderedButtons.count > 0 ? orderedButtons : nil;
+    return orderedButtons.count > 0 ? [[NSArray alloc] initWithArray:urlButtons] : nil;
 }
 
 @end

@@ -1,11 +1,11 @@
 {
-	"action": "kill",
-	"message": "New version available, you must update in order to use the application",
-	"buttons": [
-		{
-			"label": "Update",
-			"url": "https://itunes.apple.com/app_name",
-			"type": "url"
-		}
-	]
+    "action": "kill",
+    "message": "New version available, you must update in order to use the application",
+    "buttons": [
+        {
+            "label": "Update",
+            "url": "https://itunes.apple.com/app_name",
+            "type": "url"
+        }
+    ]
 }

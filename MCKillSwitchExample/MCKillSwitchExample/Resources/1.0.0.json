@@ -1,15 +1,15 @@
 {
-	"action": "info",
-    	"message": "New version available",
-    	"buttons": [
-    		{
-    			"label": "Update",
-    			"url": "https://itunes.apple.com/lpmobile",
-    			"type": "url"
-    		},
-    		{
-    			"label": "Close",
-    			"type": "cancel"
-    		}
-    	]
+    "action": "info",
+    "message": "New version available",
+    "buttons": [
+        {
+            "label": "Update",
+            "url": "https://itunes.apple.com/lpmobile",
+            "type": "url"
+        },
+        {
+            "label": "Close",
+            "type": "cancel"
+        }
+    ]
 }
