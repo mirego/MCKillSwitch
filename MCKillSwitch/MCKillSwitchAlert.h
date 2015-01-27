@@ -33,11 +33,11 @@
 
 @interface MCKillSwitchAlert : NSObject <UIAlertViewDelegate, MCKillSwitchDelegate>
 
-@property (nonatomic, weak) id <MCKillSwitchAlertDelegate> delegate;
+@property (nonatomic, weak) id<MCKillSwitchAlertDelegate> delegate;
 @property (nonatomic, readonly, getter = isShowing) BOOL showing;
 @property (nonatomic, readonly) BOOL shouldHideAlertAfterButtonAction;
 
-- (void)showAlertForKillSwitchInfo:(MCKillSwitchInfo *)killSwitchInfo;
+- (void)showAlertForKillSwitchInfo:(id<MCKillSwitchInfo>)info;
 - (void)hideAlert;
 @end
 

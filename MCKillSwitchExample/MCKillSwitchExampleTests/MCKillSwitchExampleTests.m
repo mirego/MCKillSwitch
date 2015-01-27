@@ -180,28 +180,28 @@
 #pragma mark - MCKillSwitchDelegate methods
 //------------------------------------------------------------------------------
 
-- (void)killSwitch:(MCKillSwitch *)killSwitch shouldShowKillSwitchInfo:(MCKillSwitchInfo *)killSwitchInfo
+- (void)killSwitch:(MCKillSwitch *)killSwitch shouldShowKillSwitchInfo:(id<MCKillSwitchInfo>)info
 {
-    NSLog(@"killSwitch:shouldShowKillSwitchInfo:\n%@", killSwitchInfo);
+    NSLog(@"killSwitch:shouldShowKillSwitchInfo:\n%@", info);
     
-    BOOL validDisplayDirective = killSwitchInfo.action != MCKillSwitchActionOK && killSwitchInfo.message && killSwitchInfo.message.length > 0;
+    BOOL validDisplayDirective = info.action != MCKillSwitchActionOK && info.message && info.message.length > 0;
     NSDictionary *savedInfoDictionary = [[NSUserDefaults standardUserDefaults] objectForKey:kMCKillSwitchInfo];
     NSString *savedInfoVersion = [[NSUserDefaults standardUserDefaults] objectForKey:kMCKillSwitchInfoVersion];
     NSString *versionParam = killSwitch.parameters[kMCKillSwitchAPIAppVersion];
     BOOL versionMatches = [savedInfoVersion isEqualToString:versionParam];
     
-    XCTAssertNotNil(killSwitchInfo, @"Could not get kill switch info.");
+    XCTAssertNotNil(info, @"Could not get kill switch info.");
     XCTAssertTrue(validDisplayDirective, @"The kill switch info should not be shown.");
     XCTAssertNotNil(savedInfoDictionary, @"Did not saved info in the user defaults.");
     XCTAssertNotNil(savedInfoVersion, @"Did not saved the version related to the info in the user defaults.");
     XCTAssertTrue(versionMatches, @"Version saved in the user defaults doesn’t match the version in the parameters.");
 }
 
-- (void)killSwitch:(MCKillSwitch *)killSwitch didNotNeedToShowKillSwitchInfo:(MCKillSwitchInfo *)killSwitchInfo
+- (void)killSwitch:(MCKillSwitch *)killSwitch didNotNeedToShowKillSwitchInfo:(id<MCKillSwitchInfo>)info
 {
-    NSLog(@"killSwitch:didNotNeedToShowKillSwitchInfo:\n%@", killSwitchInfo);
+    NSLog(@"killSwitch:didNotNeedToShowKillSwitchInfo:\n%@", info);
     
-    BOOL validDisplayDirective = killSwitchInfo.action == MCKillSwitchActionOK || !killSwitchInfo.message || killSwitchInfo.message.length == 0;
+    BOOL validDisplayDirective = info.action == MCKillSwitchActionOK || !info.message || info.message.length == 0;
     
     XCTAssertTrue(validDisplayDirective, @"The kill switch info should have been shown.");
 }

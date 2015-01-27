@@ -26,38 +26,13 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
-#import "MCKillSwitchStaticAPI.h"
+#import <Foundation/Foundation.h>
+#import "MCKillSwitchInfo.h"
 
-//------------------------------------------------------------------------------
-#pragma mark MCKillSwitchStaticAPI (privates methods)
-//------------------------------------------------------------------------------
+@interface MCKillSwitchDictionaryInfo : NSObject <MCKillSwitchInfo>
 
-@interface MCKillSwitchStaticAPI ()
-@end
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary NS_DESIGNATED_INITIALIZER;
 
-//------------------------------------------------------------------------------
-#pragma mark MCKillSwitchStaticAPI implementation
-//------------------------------------------------------------------------------
-
-@implementation MCKillSwitchStaticAPI {
-    __weak id<MCKillSwitchAPIDelegate> _delegate; // Needs to be manually defined because it's weak
-}
-
-@synthesize delegate = _delegate;
-
-//------------------------------------------------------------------------------
-#pragma mark constructors and destructor
-//------------------------------------------------------------------------------
-
-+ (MCKillSwitchStaticAPI *)staticJSONFileKillSwitchDynamicAPIWithURL:(NSURL *)url
-{
-    MCKillSwitchStaticAPI *killSwitchStaticAPI = [[MCKillSwitchStaticAPI alloc] initWithBaseURL:url];
-    return killSwitchStaticAPI;
-}
-
-- (instancetype)initWithBaseURL:(NSURL *)baseURL
-{
-    return [super initWithBaseURL:baseURL URLIsStatic:YES];
-}
-
++ (NSDictionary *)infoDictionaryFromInfo:(id<MCKillSwitchInfo>)info;
++ (id<MCKillSwitchInfo>)infoFromInfoDictionary:(NSDictionary *)infoDictionary;
 @end

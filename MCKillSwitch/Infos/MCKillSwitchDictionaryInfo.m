@@ -26,22 +26,27 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
-#import "MCKillSwitchInfo.h"
+#import "MCKillSwitchDictionaryInfo.h"
+#import "MCKillSwitchDictionaryInfoButton.h"
 
-@implementation MCKillSwitchInfo
+@implementation MCKillSwitchDictionaryInfo
+
+@synthesize action = _action;
+@synthesize message = _message;
+@synthesize buttons = _buttons;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
     if (self) {
-        _action = [MCKillSwitchInfo actionForString:dictionary[@"action"]];
+        _action = [MCKillSwitchDictionaryInfo actionForString:dictionary[@"action"]];
         _message = dictionary[@"message"];
         
         NSArray *rawButtons = dictionary[@"buttons"];
         NSMutableArray *finalButtons = [NSMutableArray new];
         
         for (NSDictionary *dictButton in rawButtons) {
-            MCKillSwitchInfoButton *objButton = [[MCKillSwitchInfoButton alloc] initWithDictionary:dictButton];
+            id<MCKillSwitchInfoButton> objButton = [[MCKillSwitchDictionaryInfoButton alloc] initWithDictionary:dictButton];
             [finalButtons addObject:objButton];
         }
         
@@ -53,17 +58,58 @@
 
 - (NSString *)description
 {
-    NSString *strAction = [NSString stringWithFormat:@"Action: %@", [MCKillSwitchInfo stringForAction:_action]];
+    NSString *strAction = [NSString stringWithFormat:@"Action: %@", [MCKillSwitchDictionaryInfo stringForAction:_action]];
     NSString *strMessage = [NSString stringWithFormat:@"Message: %@", _message];
     NSMutableString *strButtons = [NSMutableString stringWithString:@"Buttons: "];
     
     if (_buttons) {
-        for (MCKillSwitchInfoButton *btn in _buttons) {
-            [strButtons appendString:[NSString stringWithFormat:@"\n    • Title: %@ -> URL: %@", btn.title, btn.urlPath]];
+        for (id<MCKillSwitchInfoButton> btn in _buttons) {
+            if (btn.type == MCKillSwitchInfoButtonTypeURL) {
+                [strButtons appendString:[NSString stringWithFormat:@"\n    • Title: %@ -> URL: %@", btn.title, btn.urlPath]];
+            } else {
+                [strButtons appendString:[NSString stringWithFormat:@"\n    • Title: %@", btn.title]];
+            }
         }
     }
     
     return [NSMutableString stringWithFormat:@"%@\n%@\n%@", strAction, strMessage, strButtons];
+}
+
++ (NSDictionary *)infoDictionaryFromInfo:(id<MCKillSwitchInfo>)info
+{
+    if (info == nil) {
+        return nil;
+    }
+    
+    NSMutableDictionary *infoDictionary = [NSMutableDictionary new];
+    
+    infoDictionary[@"action"] = [self stringForAction:info.action];
+    
+    if (info.message != nil) {
+        infoDictionary[@"message"] = info.message;
+    }
+
+    NSMutableArray *infoDictionaryButtons = [NSMutableArray new];
+    for (id<MCKillSwitchInfoButton> infoButton in info.buttons) {
+        NSDictionary *infoButtonDictionary = [MCKillSwitchDictionaryInfoButton infoButtonDictionaryFromInfoButton:infoButton];
+        if (infoButtonDictionary) {
+            [infoDictionaryButtons addObject:infoButtonDictionary];
+        }
+    }
+    if ([infoDictionaryButtons count] > 0) {
+        infoDictionary[@"buttons"] = [[NSArray alloc] initWithArray:infoDictionaryButtons];
+    }
+    
+    return infoDictionary.count > 0 ? [[NSDictionary alloc] initWithDictionary:infoDictionary] : nil;
+}
+
++ (id<MCKillSwitchInfo>)infoFromInfoDictionary:(NSDictionary *)infoDictionary
+{
+    if (infoDictionary == nil) {
+        return nil;
+    }
+    
+    return [[MCKillSwitchDictionaryInfo alloc] initWithDictionary:infoDictionary];
 }
 
 //------------------------------------------------------------------------------
@@ -74,12 +120,12 @@
 {
     MCKillSwitchAction action = MCKillSwitchActionOK;
     
-    if ([string isEqualToString:@"kill"]) {
-        action = MCKillSwitchActionKill;
+    if ([string isEqualToString:@"ok"]) {
+        action = MCKillSwitchActionOK;
     } else if ([string isEqualToString:@"alert"]) {
         action = MCKillSwitchActionAlert;
-    } else if ([string isEqualToString:@"ok"]) {
-        action = MCKillSwitchActionOK;
+    } else if ([string isEqualToString:@"kill"]) {
+        action = MCKillSwitchActionKill;
     }
     
     return action;
@@ -89,60 +135,12 @@
 {
     switch (action) {
         case MCKillSwitchActionOK:
-            return @"OK";
+            return @"ok";
         case MCKillSwitchActionAlert:
-            return @"Alert";
+            return @"alert";
         case MCKillSwitchActionKill:
-            return @"Kill";
+            return @"kill";
     }
-}
-
-//------------------------------------------------------------------------------
-#pragma mark - Public methods
-//------------------------------------------------------------------------------
-
-- (MCKillSwitchInfoButton *)cancelButton
-{
-    MCKillSwitchInfoButton *cancelButton = nil;
-    
-    for (MCKillSwitchInfoButton *button in _buttons) {
-        if (button.type == MCKillSwitchInfoButtonTypeCancel) {
-            cancelButton = button;
-            break;
-        }
-    }
-    
-    return cancelButton;
-}
-
-- (NSArray *)urlButtons
-{
-    NSMutableArray *urlButtons = [NSMutableArray new];
-    
-    for (MCKillSwitchInfoButton *button in _buttons) {
-        if (button.type == MCKillSwitchInfoButtonTypeURL) {
-            [urlButtons addObject:button];
-        }
-    }
-    
-    return urlButtons.count > 0 ? [[NSArray alloc] initWithArray:urlButtons] : nil;
-}
-
-- (NSArray *)orderedButtons
-{
-    NSMutableArray *orderedButtons = [NSMutableArray new];
-    
-    MCKillSwitchInfoButton *cancelButton = [self cancelButton];
-    NSArray *urlButtons = [self urlButtons];
-    
-    if (cancelButton) {
-        [orderedButtons addObject:cancelButton];
-    }
-    if (urlButtons) {
-        [orderedButtons addObjectsFromArray:urlButtons];
-    }
-    
-    return orderedButtons.count > 0 ? [[NSArray alloc] initWithArray:urlButtons] : nil;
 }
 
 @end

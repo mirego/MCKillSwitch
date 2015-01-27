@@ -34,7 +34,7 @@
 
 @interface MCKillSwitchAlert ()
 
-@property (nonatomic, readonly) MCKillSwitchInfo *killSwitchInfo;
+@property (nonatomic, readonly) id<MCKillSwitchInfo> killSwitchInfo;
 @property (nonatomic, readonly) UIAlertView *alertView;
 @end
 
@@ -57,87 +57,148 @@
 #pragma mark - Public methods
 //------------------------------------------------------------------------------
 
-- (void)showAlertForKillSwitchInfo:(MCKillSwitchInfo *)killSwitchInfo
+- (void)showAlertForKillSwitchInfo:(id<MCKillSwitchInfo>)info
 {
-    _killSwitchInfo = killSwitchInfo;
+    _killSwitchInfo = info;
     
-    MCKillSwitchInfoButton *cancelButton = [_killSwitchInfo cancelButton];
-    NSArray *otherButtons = [_killSwitchInfo urlButtons];
+    NSArray *orderedButtons = [MCKillSwitchAlert orderedButtonsForButtons:self.killSwitchInfo.buttons];
     
     [self hideAlert]; // If an alert is currently displayed, hide it.
     
     _alertView = [[UIAlertView alloc] initWithTitle:@""
-                                            message:_killSwitchInfo.message
+                                            message:self.killSwitchInfo.message
                                            delegate:self
-                                  cancelButtonTitle:cancelButton.title
+                                  cancelButtonTitle:nil
                                   otherButtonTitles:nil];
     
-    for (MCKillSwitchInfoButton *button in otherButtons) {
-        [_alertView addButtonWithTitle:button.title];
-    }
+    [orderedButtons enumerateObjectsUsingBlock:^(id<MCKillSwitchInfoButton> button, NSUInteger idx, BOOL *stop) {
+        if (button.type == MCKillSwitchInfoButtonTypeCancel) {
+            if (self.alertView.cancelButtonIndex == -1) {
+                self.alertView.cancelButtonIndex = idx;
+            }
+        }
+        
+        [self.alertView addButtonWithTitle:button.title];
+    }];
     
-    [_alertView show];
+    [self.alertView show];
     
     _showing = YES;
     
-    [_delegate killSwitchAlertDidShow:self];
+    [self.delegate killSwitchAlertDidShow:self];
 }
 
 - (void)hideAlert
 {
-    if (_showing) {
-        [_alertView dismissWithClickedButtonIndex:-1 animated:YES];
+    if (self.showing) {
+        [self.alertView dismissWithClickedButtonIndex:-1 animated:YES];
         _alertView = nil;
         
         _showing = NO;
         
         if ([self shouldHideAlertAfterButtonAction]) {
             // Call the delegate if the alert will be hidden completely, not when the alert is hidden to be shown right afterwards
-            
-            [_delegate killSwitchAlertDidHide:self];
+            [self.delegate killSwitchAlertDidHide:self];
         }
     }
 }
 
 - (BOOL)shouldHideAlertAfterButtonAction
 {
-    return (_killSwitchInfo.action != MCKillSwitchActionKill);
+    return (self.killSwitchInfo.action != MCKillSwitchActionKill);
 }
 
 //------------------------------------------------------------------------------
 #pragma mark - Private methods
 //------------------------------------------------------------------------------
 
-- (BOOL)openURLForButtonAtIndex:(NSInteger)index
++ (id<MCKillSwitchInfoButton>)cancelButtonForButtons:(NSArray *)buttons
 {
-    BOOL canOpenURL = NO;
-    NSArray *orderedButtons = [_killSwitchInfo orderedButtons]; // To ensure that the cancel button is at index 0 and the other buttons are following
+    id<MCKillSwitchInfoButton> cancelButton = nil;
     
-    if (index < orderedButtons.count) {
-        MCKillSwitchInfoButton *button = orderedButtons[index];
-        BOOL pathExists = button.urlPath && button.urlPath.length > 0;
-        
-        if (pathExists) {
-            NSURL *url = [NSURL URLWithString:button.urlPath];
-            canOpenURL = [[UIApplication sharedApplication] canOpenURL:url];
-            
-            if (canOpenURL) {
-                [[UIApplication sharedApplication] openURL:url];
-            }
+    for (id<MCKillSwitchInfoButton> button in buttons) {
+        if (button.type == MCKillSwitchInfoButtonTypeCancel) {
+            cancelButton = button;
+            break;
         }
     }
     
-    [self determineAlertDisplayState];
+    return cancelButton;
+}
+
++ (NSArray *)urlButtonsForButtons:(NSArray *)buttons
+{
+    NSMutableArray *urlButtons = [NSMutableArray new];
+    
+    for (id<MCKillSwitchInfoButton> button in buttons) {
+        if (button.type == MCKillSwitchInfoButtonTypeURL) {
+            [urlButtons addObject:button];
+        }
+    }
+    
+    return urlButtons.count > 0 ? [[NSArray alloc] initWithArray:urlButtons] : nil;
+}
+
++ (NSArray *)orderedButtonsForButtons:(NSArray *)buttons
+{
+    NSMutableArray *orderedButtons = [NSMutableArray new];
+    
+    id<MCKillSwitchInfoButton> cancelButton = [self cancelButtonForButtons:buttons];
+    if (cancelButton) {
+        [orderedButtons addObject:cancelButton];
+    }
+    
+    NSArray *urlButtons = [self urlButtonsForButtons:buttons];
+    if (urlButtons) {
+        [orderedButtons addObjectsFromArray:urlButtons];
+    }
+    
+    return orderedButtons.count > 0 ? [[NSArray alloc] initWithArray:orderedButtons] : nil;
+}
+
+- (BOOL)openURLForButton:(id<MCKillSwitchInfoButton>)button
+{
+    BOOL canOpenURL = NO;
+    BOOL pathExists = button.urlPath && button.urlPath.length > 0;
+    
+    if (pathExists) {
+        NSURL *url = [NSURL URLWithString:button.urlPath];
+        canOpenURL = [[UIApplication sharedApplication] canOpenURL:url];
+        
+        if (canOpenURL) {
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    }
     
     return canOpenURL;
+}
+
+- (void)performActionForButtonAtIndex:(NSInteger)index
+{
+    NSArray *orderedButtons = [MCKillSwitchAlert orderedButtonsForButtons:self.killSwitchInfo.buttons];
+    
+    if (index >= 0 && index < orderedButtons.count) {
+        id<MCKillSwitchInfoButton> button = orderedButtons[index];
+        
+        switch (button.type) {
+            case MCKillSwitchInfoButtonTypeURL:
+                [self openURLForButton:button];
+                break;
+                
+            case MCKillSwitchInfoButtonTypeCancel:
+                // NOP
+                break;
+        }
+    }
 }
 
 - (void)determineAlertDisplayState
 {
     if ([self shouldHideAlertAfterButtonAction]) {
         [self hideAlert];
+        
     } else {
-        [self showAlertForKillSwitchInfo:_killSwitchInfo];
+        [self showAlertForKillSwitchInfo:self.killSwitchInfo];
     }
 }
 
@@ -145,12 +206,12 @@
 #pragma mark - MCKillSwitchDelegate
 //------------------------------------------------------------------------------
 
-- (void)killSwitch:(MCKillSwitch *)killSwitch shouldShowKillSwitchInfo:(MCKillSwitchInfo *)killSwitchInfo
+- (void)killSwitch:(MCKillSwitch *)killSwitch shouldShowKillSwitchInfo:(id<MCKillSwitchInfo>)info
 {
-    [self showAlertForKillSwitchInfo:killSwitchInfo];
+    [self showAlertForKillSwitchInfo:info];
 }
 
-- (void)killSwitch:(MCKillSwitch *)killSwitch didNotNeedToShowKillSwitchInfo:(MCKillSwitchInfo *)killSwitchInfo
+- (void)killSwitch:(MCKillSwitch *)killSwitch didNotNeedToShowKillSwitchInfo:(id<MCKillSwitchInfo>)info
 {
     [self hideAlert];
 }
@@ -160,8 +221,9 @@
 //------------------------------------------------------------------------------
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{    
-    [self openURLForButtonAtIndex:buttonIndex];
+{
+    [self performActionForButtonAtIndex:buttonIndex];
+    [self determineAlertDisplayState];
 }
 
 @end

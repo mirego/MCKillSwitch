@@ -26,47 +26,13 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
+#import <Foundation/Foundation.h>
 #import "MCKillSwitchInfoButton.h"
 
-@implementation MCKillSwitchInfoButton
+@interface MCKillSwitchDictionaryInfoButton : NSObject <MCKillSwitchInfoButton>
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary
-{
-    self = [super init];
-    if (self) {
-        _title = dictionary[@"label"];
-        _urlPath = dictionary[@"url"];
-        _type = [MCKillSwitchInfoButton typeForString:dictionary[@"type"]];
-    }
-    
-    return self;
-}
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary NS_DESIGNATED_INITIALIZER;
 
-//------------------------------------------------------------------------------
-#pragma mark - Private methods
-//------------------------------------------------------------------------------
-
-+ (MCKillSwitchInfoButtonType)typeForString:(NSString *)string
-{
-    MCKillSwitchInfoButtonType type = MCKillSwitchInfoButtonTypeURL;
-    
-    if ([string isEqualToString:@"url"]) {
-        type = MCKillSwitchInfoButtonTypeURL;
-    } else if ([string isEqualToString:@"cancel"]) {
-        type = MCKillSwitchInfoButtonTypeCancel;
-    }
-    
-    return type;
-}
-
-+ (NSString *)stringForType:(MCKillSwitchInfoButtonType)type
-{
-    switch (type) {
-        case MCKillSwitchInfoButtonTypeURL:
-            return @"URL";
-        case MCKillSwitchInfoButtonTypeCancel:
-            return @"Cancel";
-    }
-}
-
++ (NSDictionary *)infoButtonDictionaryFromInfoButton:(id<MCKillSwitchInfoButton>)infoButton;
++ (id<MCKillSwitchInfoButton>)infoButtonFromInfoButtonDictionary:(NSDictionary *)infoButtonDictionary;
 @end

@@ -27,6 +27,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 
 #import "MCKillSwitchDynamicAPI.h"
+#import "MCKillSwitchDictionaryInfo.h"
 
 NSString * const kMCKillSwitchAPIPath = @"killswitch";
 NSString * const kMCKillSwitchAPILanguage = @"Accept-Language";
@@ -52,7 +53,7 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"http://killswitch.mirego.
 //------------------------------------------------------------------------------
 
 @implementation MCKillSwitchDynamicAPI {
-    __weak id <MCKillSwitchAPIDelegate> _delegate; // Needs to be manually defined because it's weak
+    __weak id<MCKillSwitchAPIDelegate> _delegate; // Needs to be manually defined because it's weak
 }
 
 @synthesize delegate = _delegate;
@@ -204,7 +205,8 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"http://killswitch.mirego.
 
 - (void)successWithInfoDictionary:(NSDictionary *)infoDictionary
 {
-    [self.delegate killSwitchAPI:self didLoadInfoDictionary:infoDictionary];
+    id<MCKillSwitchInfo> info = [[MCKillSwitchDictionaryInfo alloc] initWithDictionary:infoDictionary];
+    [self.delegate killSwitchAPI:self didLoadInfo:info];
 }
 
 - (void)failWithError:(NSError *)error

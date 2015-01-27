@@ -30,6 +30,8 @@
 #import "MCKillSwitchStaticAPI.h"
 #import "MCKillSwitchAlert.h"
 
+#import "MCKillSwitchDictionaryInfo.h"
+
 NSString * const kMCKillSwitchInfo = @"com.mirego.killswitch.info";
 NSString * const kMCKillSwitchInfoVersion = @"com.mirego.killswitch.info.version";
 NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
@@ -93,7 +95,6 @@ NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
     if (stateHasChanged) {
         if (executeOnAppDidBecomeActive) {
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(execute) name:UIApplicationDidBecomeActiveNotification object:nil];
-            
         } else {
             [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
         }
@@ -108,25 +109,23 @@ NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
 {
     _executing = YES;
     
-    NSMutableDictionary *finalParams = [NSMutableDictionary dictionaryWithDictionary:_parameters];
-    [finalParams setObject:[self applicationVersion] forKey:kMCKillSwitchAPIAppVersion];
-
-    _parameters = finalParams;
+    // Add application version to the parameters
+    NSMutableDictionary *parametersCopy = [[NSMutableDictionary alloc] initWithDictionary:self.parameters];
+    parametersCopy[kMCKillSwitchAPIAppVersion] = [MCKillSwitch applicationVersion];
+    _parameters = [[NSDictionary alloc] initWithDictionary:parametersCopy];
     
-    [_killSwitchAPI startWithParameters:finalParams];
+    [_killSwitchAPI startWithParameters:self.parameters];
 }
 
-- (void)prepareToShowInfo:(NSDictionary *)info
+- (void)prepareToShowInfo:(id<MCKillSwitchInfo>)info
 {
     _executing = NO;
     
-    MCKillSwitchInfo *ksInfo = [[MCKillSwitchInfo alloc] initWithDictionary:info];
-    BOOL shouldShow = info && (ksInfo.action != MCKillSwitchActionOK);
-    
-    if (shouldShow) {
-        [_delegate killSwitch:self shouldShowKillSwitchInfo:ksInfo];
+    BOOL shouldShowInfo = info && (info.action != MCKillSwitchActionOK);
+    if (shouldShowInfo) {
+        [self.delegate killSwitch:self shouldShowKillSwitchInfo:info];
     } else {
-        [_delegate killSwitch:self didNotNeedToShowKillSwitchInfo:ksInfo];
+        [self.delegate killSwitch:self didNotNeedToShowKillSwitchInfo:info];
     }
 }
 
@@ -177,22 +176,22 @@ NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
 #pragma mark - Private methods
 //------------------------------------------------------------------------------
 
-- (NSString *)applicationVersion
++ (NSString *)applicationVersion
 {
-    NSString *version = @"1.0";
-    if ([[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"]) {
-        version = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
+    NSString *version = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
+    if (version == nil) {
+        version = @"1.0";
     }
-    
+
     return version;
 }
 
-- (void)saveInfo:(NSDictionary *)info
+- (void)saveInfo:(id<MCKillSwitchInfo>)info
 {
     if (info) {
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setObject:info forKey:kMCKillSwitchInfo];
-        [userDefaults setObject:[self applicationVersion] forKey:kMCKillSwitchInfoVersion];
+        [userDefaults setObject:[MCKillSwitchDictionaryInfo infoDictionaryFromInfo:info] forKey:kMCKillSwitchInfo];
+        [userDefaults setObject:[MCKillSwitch applicationVersion] forKey:kMCKillSwitchInfoVersion];
         [userDefaults synchronize];
         
     } else {
@@ -200,15 +199,14 @@ NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
     }
 }
 
-- (NSDictionary *)lastSavedInfo
+- (id<MCKillSwitchInfo>)lastSavedInfo
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *info = [userDefaults objectForKey:kMCKillSwitchInfo];
+    id<MCKillSwitchInfo> info = [MCKillSwitchDictionaryInfo infoFromInfoDictionary:[userDefaults objectForKey:kMCKillSwitchInfo]];
     NSString *infoVersion = [userDefaults objectForKey:kMCKillSwitchInfoVersion];
     
     if (info) {
-        BOOL versionMatchesCurrent = infoVersion && [infoVersion isEqualToString:[self applicationVersion]];
-        
+        BOOL versionMatchesCurrent = infoVersion && [infoVersion isEqualToString:[MCKillSwitch applicationVersion]];
         if (!versionMatchesCurrent) {
             info = nil;
             [MCKillSwitch clearSavedInfo];
@@ -222,19 +220,19 @@ NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
 #pragma mark - MCKillSwitchAPIDelegate
 //------------------------------------------------------------------------------
 
-- (void)killSwitchAPI:(MCKillSwitchDynamicAPI *)killSwitchAPI didLoadInfoDictionary:(NSDictionary *)infoDictionary
+- (void)killSwitchAPI:(MCKillSwitchDynamicAPI *)killSwitchAPI didLoadInfo:(id<MCKillSwitchInfo>)info
 {
-    NSLog(@"MCKillSwitch: Success loading info: %@", infoDictionary);
+    NSLog(@"MCKillSwitch: Success loading info\n%@", [info description]);
     
-    [self saveInfo:infoDictionary];
-    [self prepareToShowInfo:infoDictionary];
+    [self saveInfo:info];
+    [self prepareToShowInfo:info];
 }
 
 - (void)killSwitchAPI:(MCKillSwitchDynamicAPI *)killSwitchAPI didFailWithError:(NSError *)error
 {
     NSLog(@"MCKillSwitch: Error loading info\n%@", error);
     
-    NSDictionary *lastSavedInfo = [self lastSavedInfo];
+    id<MCKillSwitchInfo> lastSavedInfo = [self lastSavedInfo];
     
     if (lastSavedInfo) {
         [self prepareToShowInfo:lastSavedInfo];
