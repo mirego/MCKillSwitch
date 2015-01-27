@@ -37,7 +37,7 @@ extern NSString * const kMCKillSwitchInfoVersion;
 
 @interface MCKillSwitch : NSObject <MCKillSwitchAPIDelegate>
 
-@property (nonatomic, weak) id <MCKillSwitchDelegate> delegate;
+@property (nonatomic, weak) id<MCKillSwitchDelegate> delegate;
 @property (nonatomic) NSDictionary *parameters;
 @property (nonatomic) BOOL executeOnAppDidBecomeActive; // default NO
 @property (nonatomic, readonly, getter = isExecuting) BOOL executing;
@@ -47,20 +47,18 @@ extern NSString * const kMCKillSwitchInfoVersion;
 
 - (void)execute;
 
-- (void)prepareToShowInfo:(NSDictionary *)info;
+- (void)prepareToShowInfo:(id<MCKillSwitchInfo>)info;
 
 + (void)clearSavedInfo;
 
 + (void)configureStaticJSONFileKillSwitchWithURL:(NSURL *)url;
 + (void)configureDefaultKillSwitchWithAPIKey:(NSString *)APIkey;
 + (void)configureKillSwitchWithCustomURL:(NSURL *)url parameters:(NSDictionary *)parameters;
-
 @end
 
 
 @protocol MCKillSwitchDelegate <NSObject>
 
-- (void)killSwitch:(MCKillSwitch *)killSwitch shouldShowKillSwitchInfo:(MCKillSwitchInfo *)killSwitchInfo;
-- (void)killSwitch:(MCKillSwitch *)killSwitch didNotNeedToShowKillSwitchInfo:(MCKillSwitchInfo *)killSwitchInfo;
-
+- (void)killSwitch:(MCKillSwitch *)killSwitch shouldShowKillSwitchInfo:(id<MCKillSwitchInfo>)info;
+- (void)killSwitch:(MCKillSwitch *)killSwitch didNotNeedToShowKillSwitchInfo:(id<MCKillSwitchInfo>)info;
 @end

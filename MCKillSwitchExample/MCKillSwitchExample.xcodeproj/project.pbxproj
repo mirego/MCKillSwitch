@@ -24,7 +24,6 @@
 		A60B9AB91A76DB1A00C1C9CE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B9AB81A76DB1A00C1C9CE /* Default-568h@2x.png */; };
 		A60B9ABF1A76DB8D00C1C9CE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A60B9ABE1A76DB8D00C1C9CE /* Localizable.strings */; };
 		A60B9AC51A76DCB700C1C9CE /* MCKillSwitchExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B9AC41A76DCB700C1C9CE /* MCKillSwitchExampleTests.m */; };
-		A680F8921A76EEC9001F1082 /* Images-3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A680F8911A76EEC9001F1082 /* Images-3.xcassets */; };
 		AAC322A7330D4D799B7BFFB6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0805F2F953D9E8E7A4545565 /* libPods.a */; };
 		C0C90F7A6CB1BF5A0387577A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0805F2F953D9E8E7A4545565 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -71,7 +70,6 @@
 		A60B9AC01A76DB9500C1C9CE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A60B9AC21A76DBA000C1C9CE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A60B9AC41A76DCB700C1C9CE /* MCKillSwitchExampleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKillSwitchExampleTests.m; sourceTree = "<group>"; };
-		A680F8911A76EEC9001F1082 /* Images-3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-3.xcassets"; sourceTree = "<group>"; };
 		C0550DC683EC90ED1BB7AE45 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,7 +131,6 @@
 				A60B9A771A76D80800C1C9CE /* Images.xcassets */,
 				A60B9A901A76D95800C1C9CE /* Classes */,
 				A60B9A9F1A76D95800C1C9CE /* Resources */,
-				A680F8911A76EEC9001F1082 /* Images-3.xcassets */,
 				A60B9A6A1A76D80800C1C9CE /* Supporting Files */,
 			);
 			path = MCKillSwitchExample;
@@ -294,7 +291,6 @@
 				A60B9A781A76D80800C1C9CE /* Images.xcassets in Resources */,
 				A60B9AAE1A76D95800C1C9CE /* action_kill.json in Resources */,
 				A60B9AAD1A76D95800C1C9CE /* action_alert.json in Resources */,
-				A680F8921A76EEC9001F1082 /* Images-3.xcassets in Resources */,
 				A60B9ABF1A76DB8D00C1C9CE /* Localizable.strings in Resources */,
 				A60B9AAF1A76D95800C1C9CE /* action_ok.json in Resources */,
 				A60B9AB91A76DB1A00C1C9CE /* Default-568h@2x.png in Resources */,

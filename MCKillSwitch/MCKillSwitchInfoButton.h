@@ -33,11 +33,9 @@ typedef NS_ENUM (NSInteger, MCKillSwitchInfoButtonType) {
     MCKillSwitchInfoButtonTypeCancel
 };
 
-@interface MCKillSwitchInfoButton : NSObject
+@protocol MCKillSwitchInfoButton <NSObject>
 
 @property (nonatomic, readonly) NSString *title;
 @property (nonatomic, readonly) NSString *urlPath;
 @property (nonatomic, readonly) MCKillSwitchInfoButtonType type;
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary NS_DESIGNATED_INITIALIZER;
 @end

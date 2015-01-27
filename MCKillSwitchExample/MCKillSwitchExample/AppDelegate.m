@@ -30,7 +30,7 @@
 #import "MCKillSwitch.h"
 #import "MCKillSwitchExampleRootViewController.h"
 
-static BOOL const TestDefaultKillSwitch = YES;
+static BOOL const TestDefaultKillSwitch = NO;
 static BOOL const TestCustomKillSwitch = NO;
 static BOOL const TestStaticJSONFileKillSwitch = NO;
 

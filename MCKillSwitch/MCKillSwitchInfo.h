@@ -35,15 +35,9 @@ typedef NS_ENUM (NSInteger, MCKillSwitchAction) {
     MCKillSwitchActionKill
 };
 
-@interface MCKillSwitchInfo : NSObject
+@protocol MCKillSwitchInfo <NSObject>
 
 @property (nonatomic, readonly) MCKillSwitchAction action;
 @property (nonatomic, readonly) NSString *message;
 @property (nonatomic, readonly) NSArray *buttons;
-
-@property (nonatomic, readonly) MCKillSwitchInfoButton *cancelButton;
-@property (nonatomic, readonly) NSArray *urlButtons;
-@property (nonatomic, readonly) NSArray *orderedButtons;
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary NS_DESIGNATED_INITIALIZER;
 @end

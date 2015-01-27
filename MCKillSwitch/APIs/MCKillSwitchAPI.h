@@ -28,17 +28,17 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol MCKillSwitchInfo;
 @protocol MCKillSwitchAPIDelegate;
 
 @protocol MCKillSwitchAPI <NSObject>
 - (void)cancel;
 - (void)startWithParameters:(NSDictionary *)parameters;
-@property (nonatomic, weak) id <MCKillSwitchAPIDelegate> delegate;
+@property (nonatomic, weak) id<MCKillSwitchAPIDelegate> delegate;
 @end
 
 @protocol MCKillSwitchAPIDelegate <NSObject>
 
-- (void)killSwitchAPI:(id<MCKillSwitchAPI>)killSwitchAPI didLoadInfoDictionary:(NSDictionary *)infoDictionary;
+- (void)killSwitchAPI:(id<MCKillSwitchAPI>)killSwitchAPI didLoadInfo:(id<MCKillSwitchInfo>)info;
 - (void)killSwitchAPI:(id<MCKillSwitchAPI>)killSwitchAPI didFailWithError:(NSError *)error;
-
 @end
