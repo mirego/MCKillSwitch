@@ -34,6 +34,11 @@
 @synthesize urlPath = _urlPath;
 @synthesize type = _type;
 
+- (instancetype)init
+{
+    return [self initWithDictionary:nil];
+}
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];

@@ -158,19 +158,15 @@
 
 - (BOOL)openURLForButton:(id<MCKillSwitchInfoButton>)button
 {
-    BOOL canOpenURL = NO;
+    BOOL didOpenURL = NO;
     BOOL pathExists = button.urlPath && button.urlPath.length > 0;
     
     if (pathExists) {
         NSURL *url = [NSURL URLWithString:button.urlPath];
-        canOpenURL = [[UIApplication sharedApplication] canOpenURL:url];
-        
-        if (canOpenURL) {
-            [[UIApplication sharedApplication] openURL:url];
-        }
+        didOpenURL = [[UIApplication sharedApplication] openURL:url];
     }
     
-    return canOpenURL;
+    return didOpenURL;
 }
 
 - (void)performActionForButtonAtIndex:(NSInteger)index

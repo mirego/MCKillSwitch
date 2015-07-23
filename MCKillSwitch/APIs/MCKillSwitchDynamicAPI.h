@@ -42,6 +42,7 @@ extern NSString * const kMCKillSwitchAPIPlatform;
 + (MCKillSwitchDynamicAPI *)defaultURLKillSwitchDynamicAPI;
 + (MCKillSwitchDynamicAPI *)killSwitchDynamicAPIWithCustomURL:(NSURL *)url;
 
+- (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithBaseURL:(NSURL *)baseURL;
 - (instancetype)initWithBaseURL:(NSURL *)url URLIsStatic:(BOOL)URLIsStatic NS_DESIGNATED_INITIALIZER;
 - (void)successWithInfoDictionary:(NSDictionary *)infoDictionary;

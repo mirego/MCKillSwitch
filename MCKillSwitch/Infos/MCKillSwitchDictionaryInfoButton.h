@@ -31,6 +31,7 @@
 
 @interface MCKillSwitchDictionaryInfoButton : NSObject <MCKillSwitchInfoButton>
 
+- (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary NS_DESIGNATED_INITIALIZER;
 
 + (NSDictionary *)infoButtonDictionaryFromInfoButton:(id<MCKillSwitchInfoButton>)infoButton;

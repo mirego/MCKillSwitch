@@ -35,6 +35,10 @@
 @synthesize message = _message;
 @synthesize buttons = _buttons;
 
+- (instancetype)init {
+    return [self initWithDictionary:nil];
+}
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];

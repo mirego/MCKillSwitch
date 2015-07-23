@@ -31,6 +31,7 @@
 
 @interface MCKillSwitchDictionaryInfo : NSObject <MCKillSwitchInfo>
 
+- (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary NS_DESIGNATED_INITIALIZER;
 
 + (NSDictionary *)infoDictionaryFromInfo:(id<MCKillSwitchInfo>)info;

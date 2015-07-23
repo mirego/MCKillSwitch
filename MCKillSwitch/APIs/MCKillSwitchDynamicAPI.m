@@ -70,6 +70,11 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"https://killswitch.mirego
     return killSwitchDynamicAPI;
 }
 
+- (instancetype)init
+{
+    return [self initWithBaseURL:nil URLIsStatic:NO];
+}
+
 - (instancetype)initWithBaseURL:(NSURL *)baseURL
 {
     return [self initWithBaseURL:baseURL URLIsStatic:NO];
