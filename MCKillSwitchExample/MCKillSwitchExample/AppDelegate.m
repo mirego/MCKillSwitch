@@ -40,7 +40,7 @@ static BOOL const TestStaticJSONFileKillSwitch = NO;
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[MCKillSwitchExampleRootViewController alloc] init];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[MCKillSwitchExampleRootViewController alloc] init]];
     [self.window makeKeyAndVisible];
     
     if (TestDefaultKillSwitch) {

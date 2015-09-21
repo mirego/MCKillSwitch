@@ -32,6 +32,7 @@
 
 extern NSString * const kMCKillSwitchInfo;
 extern NSString * const kMCKillSwitchInfoVersion;
+extern NSString * const kMCKillDefaultAPIKeyParameterName;
 
 @protocol MCKillSwitchDelegate;
 
