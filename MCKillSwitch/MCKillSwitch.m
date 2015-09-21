@@ -66,7 +66,7 @@ NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
     return [self initWithBaseURL:nil orAPI:killSwitchAPI];
 }
 
-- (instancetype)initWithBaseURL:(NSURL *)baseURL  orAPI:(id<MCKillSwitchAPI>)killSwitchAPI {
+- (instancetype)initWithBaseURL:(NSURL *)baseURL orAPI:(id<MCKillSwitchAPI>)killSwitchAPI {
     self = [super init];
     if (self) {
         _killSwitchAPI = killSwitchAPI ? killSwitchAPI : [[MCKillSwitchDynamicAPI alloc] initWithBaseURL:baseURL];

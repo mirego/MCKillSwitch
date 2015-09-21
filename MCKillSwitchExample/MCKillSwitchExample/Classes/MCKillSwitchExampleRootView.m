@@ -77,8 +77,14 @@
         [_buttonTestUseStaticKillSwitch sizeToFit];
         _buttonTestUseStaticKillSwitch.frame = CGRectIntegral(CGRectMake([self originXForView:_buttonTestUseStaticKillSwitch], CGRectGetMaxY(_buttonTestActionKill.frame) + margin, _buttonTestUseStaticKillSwitch.frame.size.width, _buttonTestUseStaticKillSwitch.frame.size.height));
         [container addSubview:_buttonTestUseStaticKillSwitch];
+        
+        _buttonCustomBackendActions = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_buttonCustomBackendActions setTitle:@"Custom backend actions" forState:UIControlStateNormal];
+        [_buttonCustomBackendActions sizeToFit];
+        _buttonCustomBackendActions.frame = CGRectIntegral(CGRectMake([self originXForView:_buttonCustomBackendActions], CGRectGetMaxY(_buttonTestUseStaticKillSwitch.frame) + margin, _buttonCustomBackendActions.frame.size.width, _buttonCustomBackendActions.frame.size.height));
+        [container addSubview:_buttonCustomBackendActions];
 
-        CGFloat heightContainer = CGRectGetMaxY(_buttonTestUseStaticKillSwitch.frame);
+        CGFloat heightContainer = CGRectGetMaxY(_buttonCustomBackendActions.frame);
         container.frame = CGRectIntegral(CGRectMake(0.0, (self.bounds.size.height - heightContainer) / 2, self.bounds.size.width, heightContainer));
         [self addSubview:container];
     }

@@ -34,6 +34,7 @@ extern NSString * const kMCKillSwitchAPILanguage;
 extern NSString * const kMCKillSwitchAPIUserAgent;
 extern NSString * const kMCKillSwitchAPIAppVersion;
 extern NSString * const kMCKillSwitchAPIPlatform;
+extern NSString * const kMCKillSwitchAPIDefaultAPIBaseURL;
 
 @protocol MCKillSwitchAPIDelegate;
 

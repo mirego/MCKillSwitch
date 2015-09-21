@@ -163,7 +163,7 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"https://killswitch.mirego
     // Request contruction
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
-    [request setValue:[self language] forHTTPHeaderField:kMCKillSwitchAPILanguage];
+    [request setValue:[self language:parameters] forHTTPHeaderField:kMCKillSwitchAPILanguage];
     [request setValue:[self userAgent] forHTTPHeaderField:kMCKillSwitchAPIUserAgent];
     return request;
 }
@@ -180,8 +180,13 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"https://killswitch.mirego
 #pragma mark - Private methods
 //------------------------------------------------------------------------------
 
-- (NSString *)language
+- (NSString *)language:(NSDictionary *)parameters
 {
+    NSString *overridedLanguageValue = parameters[kMCKillSwitchAPILanguage];
+    if (overridedLanguageValue.length > 0) {
+        return overridedLanguageValue;
+    }
+    
     NSString *localeIdentifier = [NSLocale preferredLanguages][0];
     NSDictionary *components = [NSLocale componentsFromLocaleIdentifier:localeIdentifier];
     NSString *languageCode = components[NSLocaleLanguageCode];
@@ -199,6 +204,9 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"https://killswitch.mirego
     NSMutableArray *list = [NSMutableArray array];
     
     for (NSString *key in [parameters allKeys]) {
+        if ([key isEqualToString:kMCKillSwitchAPILanguage]) {
+            continue;
+        }
         NSString *value = parameters[key];
         if ([value isKindOfClass:[NSString class]]) {
             [list addObject:[NSString stringWithFormat:@"%@=%@", key, value]];

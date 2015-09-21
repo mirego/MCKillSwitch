@@ -28,6 +28,7 @@
 
 #import "MCKillSwitchExampleRootViewController.h"
 #import "MCKillSwitchExampleRootView.h"
+#import "MCKillSwitchCustomBackendActionsViewController.h"
 
 #import "MCKillSwitch.h"
 #import "MCKillSwitchAlert.h"
@@ -47,6 +48,7 @@
 {
     self = [super init];
     if (self) {
+        self.title = @"MRGKillSwitchExample";
         _killSwitchAlert = [[MCKillSwitchAlert alloc] init];
     }
     
@@ -69,7 +71,8 @@
     [self.rootView.buttonTestActionOK addTarget:self action:@selector(selectedTestActionOkButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.rootView.buttonTestActionAlert addTarget:self action:@selector(selectedTestActionAlertButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.rootView.buttonTestActionKill addTarget:self action:@selector(selectedTestActionKillButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.rootView.buttonTestUseStaticKillSwitch addTarget:self action:@selector(useTestStaticKillSwitch) forControlEvents:UIControlEventTouchUpInside];
+    [self.rootView.buttonTestUseStaticKillSwitch addTarget:self action:@selector(useTestStaticKillSwitch:) forControlEvents:UIControlEventTouchUpInside];
+    [self.rootView.buttonCustomBackendActions addTarget:self action:@selector(pushToCustomBackendActions:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 //------------------------------------------------------------------------------
@@ -99,10 +102,15 @@
     [killSwitch execute];
 }
 
-- (void)useTestStaticKillSwitch
+- (void)useTestStaticKillSwitch:(UIButton *)button
 {
     // FIXME Change HOST to a better one
     [MCKillSwitch configureStaticJSONFileKillSwitchWithURL:[NSURL URLWithString:@"http://lefrancois-test.s3.amazonaws.com/1.0.0.json"]];
+}
+
+- (void)pushToCustomBackendActions:(UIButton *)button
+{
+    [self.navigationController pushViewController:[[MCKillSwitchCustomBackendActionsViewController alloc] init] animated:YES];
 }
 
 //------------------------------------------------------------------------------
