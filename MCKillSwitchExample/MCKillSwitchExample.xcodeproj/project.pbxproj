@@ -21,7 +21,6 @@
 		A60B9AAD1A76D95800C1C9CE /* action_alert.json in Resources */ = {isa = PBXBuildFile; fileRef = A60B9AA11A76D95800C1C9CE /* action_alert.json */; };
 		A60B9AAE1A76D95800C1C9CE /* action_kill.json in Resources */ = {isa = PBXBuildFile; fileRef = A60B9AA21A76D95800C1C9CE /* action_kill.json */; };
 		A60B9AAF1A76D95800C1C9CE /* action_ok.json in Resources */ = {isa = PBXBuildFile; fileRef = A60B9AA31A76D95800C1C9CE /* action_ok.json */; };
-		A60B9AB91A76DB1A00C1C9CE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B9AB81A76DB1A00C1C9CE /* Default-568h@2x.png */; };
 		A60B9ABF1A76DB8D00C1C9CE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A60B9ABE1A76DB8D00C1C9CE /* Localizable.strings */; };
 		A60B9AC51A76DCB700C1C9CE /* MCKillSwitchExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B9AC41A76DCB700C1C9CE /* MCKillSwitchExampleTests.m */; };
 		AAC322A7330D4D799B7BFFB6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0805F2F953D9E8E7A4545565 /* libPods.a */; };
@@ -65,7 +64,6 @@
 		A60B9AA11A76D95800C1C9CE /* action_alert.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = action_alert.json; sourceTree = "<group>"; };
 		A60B9AA21A76D95800C1C9CE /* action_kill.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = action_kill.json; sourceTree = "<group>"; };
 		A60B9AA31A76D95800C1C9CE /* action_ok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = action_ok.json; sourceTree = "<group>"; };
-		A60B9AB81A76DB1A00C1C9CE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A60B9ABE1A76DB8D00C1C9CE /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		A60B9AC01A76DB9500C1C9CE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A60B9AC21A76DBA000C1C9CE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 		A60B9A5E1A76D80800C1C9CE = {
 			isa = PBXGroup;
 			children = (
-				A60B9AB81A76DB1A00C1C9CE /* Default-568h@2x.png */,
 				A60B9A691A76D80800C1C9CE /* MCKillSwitchExample */,
 				A60B9A831A76D80800C1C9CE /* MCKillSwitchExampleTests */,
 				FD9BDAC1AE4C577EB4E94DB4 /* Frameworks */,
@@ -252,7 +249,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MC;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Mirego Inc.";
 				TargetAttributes = {
 					A60B9A661A76D80800C1C9CE = {
@@ -293,7 +290,6 @@
 				A60B9AAD1A76D95800C1C9CE /* action_alert.json in Resources */,
 				A60B9ABF1A76DB8D00C1C9CE /* Localizable.strings in Resources */,
 				A60B9AAF1A76D95800C1C9CE /* action_ok.json in Resources */,
-				A60B9AB91A76DB1A00C1C9CE /* Default-568h@2x.png in Resources */,
 				A60B9AAC1A76D95800C1C9CE /* 1.0.0.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +422,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -492,6 +489,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = MCKillSwitchExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mirego.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -504,6 +502,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = MCKillSwitchExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mirego.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -513,16 +512,13 @@
 			baseConfigurationReference = 1DBBCC6C290411915CE6591A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = MCKillSwitchExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mirego.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MCKillSwitchExample.app/MCKillSwitchExample";
 			};
@@ -533,12 +529,9 @@
 			baseConfigurationReference = C0550DC683EC90ED1BB7AE45 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = MCKillSwitchExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mirego.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MCKillSwitchExample.app/MCKillSwitchExample";
 			};

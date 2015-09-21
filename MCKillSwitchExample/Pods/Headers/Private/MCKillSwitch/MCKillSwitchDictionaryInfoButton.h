@@ -1,0 +1,1 @@
+../../../../../MCKillSwitch/Infos/MCKillSwitchDictionaryInfoButton.h
