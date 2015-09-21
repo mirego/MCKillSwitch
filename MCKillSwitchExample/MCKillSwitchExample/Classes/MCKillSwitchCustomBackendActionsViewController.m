@@ -141,7 +141,7 @@ NSString * const kMCKillSwitchBackendKey = @"backend";
     if (shouldShowInfo) {
         [_alert showAlertForKillSwitchInfo:info];
     } else {
-        [[[UIAlertView alloc] initWithTitle:@"All good" message:@"This parameters is fine, no alert will be shown in real application." delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"All good" message:@"These parameters are fine, no alert will be shown in real application." delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil] show];
     }
 }
 
