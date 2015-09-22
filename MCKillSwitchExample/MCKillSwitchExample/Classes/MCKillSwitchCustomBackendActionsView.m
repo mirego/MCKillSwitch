@@ -11,7 +11,7 @@
 NSString * const kMCKillSwitchBackendVersionCI = @"CI";
 NSString * const kMCKillSwitchBackendVersionQA = @"QA";
 NSString * const kMCKillSwitchBackendVersionPROD = @"PROD";
-NSString * const kMCKillSwitchAppVersionLanguageAny = @"Any language";
+NSString * const kMCKillSwitchAppVersionLanguageDevice = @"Current Device Language";
 NSString * const kMCKillSwitchAppVersionLanguageFrench = @"French";
 NSString * const kMCKillSwitchAppVersionLanguageEnglish = @"English";
 
@@ -51,7 +51,7 @@ NSString * const kMCKillSwitchAppVersionLanguageEnglish = @"English";
         _textFieldAppVersionLanguage.inputView = [self createAppVersionLanguagePicker];
         _textFieldAppVersionLanguage.placeholder = @"App Version Language";
         _textFieldAppVersionLanguage.borderStyle = UITextBorderStyleRoundedRect;
-        _textFieldAppVersionLanguage.text = kMCKillSwitchAppVersionLanguageAny;
+        _textFieldAppVersionLanguage.text = kMCKillSwitchAppVersionLanguageDevice;
         [_container addSubview:_textFieldAppVersionLanguage];
         
         _textFieldBackendVersion = [[UITextField alloc] initWithFrame:CGRectZero];
@@ -150,7 +150,7 @@ NSString * const kMCKillSwitchAppVersionLanguageEnglish = @"English";
         switch (row) {
             default:
             case 0:
-                return kMCKillSwitchAppVersionLanguageAny;
+                return kMCKillSwitchAppVersionLanguageDevice;
             case 1:
                 return kMCKillSwitchAppVersionLanguageFrench;
             case 2:
@@ -177,7 +177,7 @@ NSString * const kMCKillSwitchAppVersionLanguageEnglish = @"English";
         switch (row) {
             default:
             case 0:
-                _textFieldAppVersionLanguage.text = kMCKillSwitchAppVersionLanguageAny;
+                _textFieldAppVersionLanguage.text = kMCKillSwitchAppVersionLanguageDevice;
                 break;
             case 1:
                 _textFieldAppVersionLanguage.text = kMCKillSwitchAppVersionLanguageFrench;

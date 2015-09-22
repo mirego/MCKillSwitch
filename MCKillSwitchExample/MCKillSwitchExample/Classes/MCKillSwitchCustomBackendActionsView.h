@@ -11,7 +11,7 @@
 extern NSString * const kMCKillSwitchBackendVersionCI;
 extern NSString * const kMCKillSwitchBackendVersionQA;
 extern NSString * const kMCKillSwitchBackendVersionPROD;
-extern NSString * const kMCKillSwitchAppVersionLanguageAny;
+extern NSString * const kMCKillSwitchAppVersionLanguageDevice;
 extern NSString * const kMCKillSwitchAppVersionLanguageFrench;
 extern NSString * const kMCKillSwitchAppVersionLanguageEnglish;
 
