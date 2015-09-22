@@ -37,13 +37,12 @@ NSString * const kMCKillSwitchAppVersionLanguageEnglish = @"English";
         [self addSubview:_container];
         
         _textFieldAPIKey = [[UITextField alloc] initWithFrame:CGRectZero];
-        _textFieldAPIKey.keyboardType = UIKeyboardTypeNumberPad;
         _textFieldAPIKey.placeholder = @"Api Key";
         _textFieldAPIKey.borderStyle = UITextBorderStyleRoundedRect;
         [_container addSubview:_textFieldAPIKey];
         
         _textFieldAppVersionNumber = [[UITextField alloc] initWithFrame:CGRectZero];
-        _textFieldAppVersionNumber.keyboardType = UIKeyboardTypeDecimalPad;
+        _textFieldAppVersionNumber.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
         _textFieldAppVersionNumber.placeholder = @"App Version";
         _textFieldAppVersionNumber.borderStyle = UITextBorderStyleRoundedRect;
         [_container addSubview:_textFieldAppVersionNumber];
