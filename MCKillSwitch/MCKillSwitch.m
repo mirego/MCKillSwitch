@@ -231,8 +231,9 @@ NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
 
 - (void)killSwitchAPI:(MCKillSwitchDynamicAPI *)killSwitchAPI didFailWithError:(NSError *)error
 {
+#ifdef KILLSWITCH_LOG
     NSLog(@"MCKillSwitch: Error loading info\n%@", error);
-    
+#endif     
     id<MCKillSwitchInfo> lastSavedInfo = [self lastSavedInfo];
     
     if (lastSavedInfo) {
