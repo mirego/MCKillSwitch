@@ -222,8 +222,9 @@ NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
 
 - (void)killSwitchAPI:(MCKillSwitchDynamicAPI *)killSwitchAPI didLoadInfo:(id<MCKillSwitchInfo>)info
 {
+#ifdef KILLSWITCH_LOG
     NSLog(@"MCKillSwitch: Success loading info\n%@", [info description]);
-    
+#endif     
     [self saveInfo:info];
     [self prepareToShowInfo:info];
 }
