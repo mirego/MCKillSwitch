@@ -1,5 +1,5 @@
 PODS:
-  - MCKillSwitch (0.3.1)
+  - MCKillSwitch (1.0)
 
 DEPENDENCIES:
   - MCKillSwitch (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MCKillSwitch: db050683bc4a40a5f6e72e93e355d3412d9ebf73
+  MCKillSwitch: 8dd80438c11698b03635c61268274a3ab4fb97b5
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

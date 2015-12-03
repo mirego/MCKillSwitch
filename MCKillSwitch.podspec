@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MCKillSwitch'
-  s.version  = '0.3.2'
+  s.version  = '1.0'
   s.license  = 'BSD 3-Clause'
   s.summary  = 'Stop a version of your app from working, prompting the user to upgrade.'
   s.homepage = 'http://open.mirego.com/'
@@ -9,5 +9,7 @@ Pod::Spec.new do |s|
   s.source_files = 'MCKillSwitch/**/*.{h,m}'
   s.requires_arc = true
   
-  s.platform = :ios, '5.0'
+  s.ios.deployment_target = '6.0'
+  # s.watchos.deployment_target = '2.0'
+  # s.tvos.deployment_target = '9.0'
 end

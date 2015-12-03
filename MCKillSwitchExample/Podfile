@@ -1,8 +1,9 @@
-platform :ios, 5.0
-
 source 'https://github.com/CocoaPods/Specs.git'
-source 'git@github.com:mirego/MCPodSpecs.git'
 
-link_with 'MCKillSwitchExample', 'MCKillSwitchExampleTests'
+target 'MCKillSwitchExample', :exclusive => true do
+  pod "MCKillSwitch", :path => "../"
+end
 
-pod 'MCKillSwitch', :path => '../'
+target 'MCKillSwitchExampleTests', :exclusive => true do
+  pod "MCKillSwitch", :path => "../"
+end
