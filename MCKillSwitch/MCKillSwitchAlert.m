@@ -28,6 +28,9 @@
 
 #import "MCKillSwitchAlert.h"
 
+#define STORE_PREFIX @"store:"
+#define STORE_ID_START_INDEX 6
+
 //------------------------------------------------------------------------------
 #pragma mark - Private interface
 //------------------------------------------------------------------------------
@@ -162,11 +165,44 @@
     BOOL pathExists = button.urlPath && button.urlPath.length > 0;
     
     if (pathExists) {
+        
+        // If the URL begins with "store:", this is an ID to open the store
+        if ([button.urlPath hasPrefix:STORE_PREFIX]) {
+            [self showStoreView:button];
+            return YES;
+        }
+        
         NSURL *url = [NSURL URLWithString:button.urlPath];
         didOpenURL = [[UIApplication sharedApplication] openURL:url];
     }
     
     return didOpenURL;
+}
+
+- (void)showStoreView:(id<MCKillSwitchInfoButton>)button
+{
+    NSString *storeNumber = [button.urlPath substringFromIndex:STORE_ID_START_INDEX];
+    SKStoreProductViewController *storeViewController = [[SKStoreProductViewController alloc] init];
+    
+    storeViewController.delegate = self;
+    
+    NSDictionary *parameters = @{SKStoreProductParameterITunesItemIdentifier:[NSNumber numberWithInteger:[storeNumber integerValue]]};
+    
+    [self hideAlert];
+    
+    __block id rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
+    if(rootViewController) {
+        [rootViewController presentViewController:storeViewController animated:YES completion:nil];
+        
+        [storeViewController loadProductWithParameters:parameters completionBlock:^(BOOL result, NSError * _Nullable error) {
+            if(result) {
+                [self hideAlert];
+            }
+        }];
+    } else {
+        
+        [self determineAlertDisplayState];
+    }
 }
 
 - (void)performActionForButtonAtIndex:(NSInteger)index
@@ -196,6 +232,17 @@
     } else {
         [self showAlertForKillSwitchInfo:self.killSwitchInfo];
     }
+}
+
+//------------------------------------------------------------------------------
+#pragma mark - SKStoreProductViewControllerDelegate
+//------------------------------------------------------------------------------
+
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController {
+    id rootViewController=[UIApplication sharedApplication].delegate.window.rootViewController;
+    [rootViewController dismissViewControllerAnimated:YES completion:nil];
+    
+    [self determineAlertDisplayState];
 }
 
 //------------------------------------------------------------------------------
