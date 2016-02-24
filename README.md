@@ -21,6 +21,25 @@ killSwitch.delegate = _killSwitchAlert;
 
 ```
 
+##Button Types
+
+###URL
+You can specify an URL like this:
+
+Open URL in Safari:
+```
+"type": "url",
+"label": "Upgrade",
+"url": "http://google.com"
+```
+
+Open AppStore directly in the current app:
+```
+"type": "url",
+"label": "Upgrade",
+"url": "store:507874739"
+```
+
 ## Adding to your project
 
 If you're using [`CocoaPods`](http://cocoapods.org/), there's nothing simpler.
