@@ -28,6 +28,8 @@
 
 #import "MCKillSwitchAlert.h"
 
+#define STORE_PREFIX @"store:"
+
 //------------------------------------------------------------------------------
 #pragma mark - Private interface
 //------------------------------------------------------------------------------
@@ -162,11 +164,41 @@
     BOOL pathExists = button.urlPath && button.urlPath.length > 0;
     
     if (pathExists) {
+        
+        // If the URL begins with "store:", this is an ID to open the store
+        if ([button.urlPath hasPrefix:STORE_PREFIX]) {
+            [self showStoreViewForUrl:button.urlPath];
+            return YES;
+        }
+        
         NSURL *url = [NSURL URLWithString:button.urlPath];
         didOpenURL = [[UIApplication sharedApplication] openURL:url];
     }
     
     return didOpenURL;
+}
+
+- (void)showStoreViewForUrl:(NSString*)url
+{
+    NSString *storeNumber = [url substringFromIndex:STORE_PREFIX.length];
+    SKStoreProductViewController *storeViewController = [[SKStoreProductViewController alloc] init];
+    
+    storeViewController.delegate = self;
+    
+    NSDictionary *parameters = @{SKStoreProductParameterITunesItemIdentifier:@([storeNumber integerValue])};
+    
+    UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
+    if (rootViewController) {
+        [rootViewController presentViewController:storeViewController animated:YES completion:nil];
+        
+        [storeViewController loadProductWithParameters:parameters completionBlock:^(BOOL result, NSError * _Nullable error) {
+            if (result) {
+                [self hideAlert];
+            }
+        }];
+    } else {
+        [self determineAlertDisplayState];
+    }
 }
 
 - (void)performActionForButtonAtIndex:(NSInteger)index
@@ -196,6 +228,17 @@
     } else {
         [self showAlertForKillSwitchInfo:self.killSwitchInfo];
     }
+}
+
+//------------------------------------------------------------------------------
+#pragma mark - SKStoreProductViewControllerDelegate
+//------------------------------------------------------------------------------
+
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController {
+    UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
+    [rootViewController dismissViewControllerAnimated:YES completion:nil];
+    
+    [self determineAlertDisplayState];
 }
 
 //------------------------------------------------------------------------------
