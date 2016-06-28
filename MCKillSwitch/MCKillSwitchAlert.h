@@ -32,7 +32,7 @@
 
 @protocol MCKillSwitchAlertDelegate;
 
-@interface MCKillSwitchAlert : NSObject <UIAlertViewDelegate, MCKillSwitchDelegate, SKStoreProductViewControllerDelegate>
+@interface MCKillSwitchAlert : NSObject <MCKillSwitchDelegate, SKStoreProductViewControllerDelegate>
 
 @property (nonatomic, weak) id<MCKillSwitchAlertDelegate> delegate;
 @property (nonatomic, readonly, getter = isShowing) BOOL showing;
