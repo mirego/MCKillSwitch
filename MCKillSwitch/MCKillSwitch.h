@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2015, Mirego
+// Copyright (c) 2016, Mirego
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
