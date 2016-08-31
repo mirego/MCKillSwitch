@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MCKillSwitch  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="MCKillSwitch  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">MCKillSwitch Docs</a> (0% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">MCKillSwitch Reference</a>
+        <img id="carat" src="img/carat.png" />
+        MCKillSwitch  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <a href='#mckillswitch' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='mckillswitch'>MCKillSwitch</h1>
+
+<p>MCKillSwitch is the official kill switch to use with Mirego’s backend implementation (see API Specs).</p>
+<a href='#using' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='using'>Using</h2>
+
+<p>Keep a strong instance of <code>MCKillSwitchAlert</code> in your class. The alert will be the delegate of the kill switch.</p>
+<pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">MCKillSwitchAlert</span> <span class="o">*</span><span class="n">killSwitchAlert</span><span class="p">;</span>
+</code></pre>
+
+<p>Then execute the kill switch when needed.</p>
+<pre class="highlight objective_c"><code><span class="n">NSURL</span> <span class="o">*</span><span class="n">baseURL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nf">URLWithString</span><span class="p">:</span><span class="s">@"http://api.project.com"</span><span class="p">];</span>
+
+<span class="n">MCKillSwitch</span> <span class="o">*</span><span class="n">killSwitch</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MCKillSwitch</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithBaseURL</span><span class="p">:</span><span class="n">baseURL</span><span class="p">];</span>
+<span class="n">killSwitch</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">_killSwitchAlert</span><span class="p">;</span>
+<span class="p">[</span><span class="n">killSwitch</span> <span class="nf">execute</span><span class="p">];</span>
+
+</code></pre>
+<a href='#button-types' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='button-types'>Button Types</h2>
+<a href='#url' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='url'>URL</h3>
+
+<p>You can specify an URL like this:</p>
+
+<p>Open URL in Safari:
+<code>
+&quot;type&quot;: &quot;url&quot;,
+&quot;label&quot;: &quot;Upgrade&quot;,
+&quot;url&quot;: &quot;http://google.com&quot;
+</code></p>
+
+<p>Open AppStore directly in the current app:
+<code>
+&quot;type&quot;: &quot;url&quot;,
+&quot;label&quot;: &quot;Upgrade&quot;,
+&quot;url&quot;: &quot;store:507874739&quot;
+</code></p>
+<a href='#adding-to-your-project' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='adding-to-your-project'>Adding to your project</h2>
+
+<p>If you&rsquo;re using <a href="http://cocoapods.org/"><code>CocoaPods</code></a>, there&rsquo;s nothing simpler.
+Add the following to your <a href="http://docs.cocoapods.org/podfile.html"><code>Podfile</code></a>
+and run <code>pod install</code></p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'MCKillSwitch'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/mirego/MCKillswitch.git'</span>
+</code></pre>
+<a href='#license' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='license'>License</h2>
+
+<p>MCKillSwitch is © 2013-2015 <a href="http://www.mirego.com">Mirego</a> and may be freely
+distributed under the <a href="http://opensource.org/licenses/BSD-3-Clause">New BSD license</a>.
+See the <a href="https://github.com/mirego/MCKillSwitch/blob/master/LICENSE"><code>LICENSE</code></a> file.</p>
+<a href='#about-mirego' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='about-mirego'>About Mirego</h2>
+
+<p>Mirego is a team of passionate people who believe that work is a place where you can innovate and have fun.
+We proudly built mobile applications for
+<a href="http://mirego.com/en/iphone-app-development/" title="iPhone application development">iPhone</a>,
+<a href="http://mirego.com/en/ipad-app-development/" title="iPad application development">iPad</a>,
+<a href="http://mirego.com/en/android-app-development/" title="Android application development">Android</a>,
+<a href="http://mirego.com/en/blackberry-app-development/" title="Blackberry application development">Blackberry</a>,
+<a href="http://mirego.com/en/windows-phone-app-development/" title="Windows Phone application development">Windows Phone</a> and
+<a href="http://mirego.com/en/windows-8-app-development/" title="Windows 8 application development">Windows 8</a>.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>2016 Mirego</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
