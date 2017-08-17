@@ -30,6 +30,8 @@
 
 #define STORE_PREFIX @"store:"
 
+typedef void(^MCKillSwitchAlertBlock)();
+
 //------------------------------------------------------------------------------
 #pragma mark - Private interface
 //------------------------------------------------------------------------------
@@ -65,24 +67,24 @@
     
     NSArray *orderedButtons = [MCKillSwitchAlert orderedButtonsForButtons:self.killSwitchInfo.buttons];
     
-    [self hideAlert]; // If an alert is currently displayed, hide it.
-    
-    _alertView = [UIAlertController alertControllerWithTitle:@""
-                                                     message:self.killSwitchInfo.message
-                                              preferredStyle:UIAlertControllerStyleAlert];
-    
-    [orderedButtons enumerateObjectsUsingBlock:^(id<MCKillSwitchInfoButton> button, NSUInteger idx, BOOL *stop) {
-        [self.alertView addAction:[UIAlertAction actionWithTitle:button.title style:[self styleForButton:button] handler:^(UIAlertAction * _Nonnull action) {
-            [self performActionForButtonAtIndex:idx];
-            [self determineAlertDisplayState];
-        }]];
+    [self hideAlertWithCompletion:^{
+        _alertView = [UIAlertController alertControllerWithTitle:@""
+                                                         message:self.killSwitchInfo.message
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+
+        [orderedButtons enumerateObjectsUsingBlock:^(id<MCKillSwitchInfoButton> button, NSUInteger idx, BOOL *stop) {
+            [self.alertView addAction:[UIAlertAction actionWithTitle:button.title style:[self styleForButton:button] handler:^(UIAlertAction * _Nonnull action) {
+                [self performActionForButtonAtIndex:idx];
+                [self determineAlertDisplayState];
+            }]];
+        }];
+
+        [[self topMostViewController] presentViewController:self.alertView animated:YES completion:nil];
+
+        _showing = YES;
+
+        [self.delegate killSwitchAlertDidShow:self];
     }];
-    
-    [[self topMostViewController] presentViewController:self.alertView animated:YES completion:nil];
-    
-    _showing = YES;
-    
-    [self.delegate killSwitchAlertDidShow:self];
 }
 
 - (UIViewController *)topMostViewController {
@@ -94,7 +96,6 @@
     return topMostViewController;
 }
 
-
 - (UIAlertActionStyle)styleForButton:(id<MCKillSwitchInfoButton>)button {
     switch(button.type) {
         case MCKillSwitchInfoButtonTypeURL:
@@ -104,18 +105,29 @@
     }
 }
 
-- (void)hideAlert
-{
+- (void)hideAlert {
     if (self.showing) {
         [self.alertView dismissViewControllerAnimated:YES completion:nil];
-        _alertView = nil;
-        
-        _showing = NO;
-        
-        if ([self shouldHideAlertAfterButtonAction]) {
-            // Call the delegate if the alert will be hidden completely, not when the alert is hidden to be shown right afterwards
-            [self.delegate killSwitchAlertDidHide:self];
-        }
+        [self destroyAlertView];
+    }
+}
+
+- (void)hideAlertWithCompletion:(MCKillSwitchAlertBlock)completion {
+    if (self.showing) {
+        [self.alertView dismissViewControllerAnimated:YES completion:^{ completion(); }];
+        [self destroyAlertView];
+    } else {
+        completion();
+    }
+}
+
+- (void)destroyAlertView {
+    _alertView = nil;
+    _showing = NO;
+
+    if ([self shouldHideAlertAfterButtonAction]) {
+        // Call the delegate if the alert will be hidden completely, not when the alert is hidden to be shown right afterwards
+        [self.delegate killSwitchAlertDidHide:self];
     }
 }
 
