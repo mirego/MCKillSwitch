@@ -30,7 +30,7 @@
 
 #define STORE_PREFIX @"store:"
 
-typedef void(^MCKillSwitchAlertBlock)();
+typedef void(^MCKillSwitchAlertBlock)(void);
 
 //------------------------------------------------------------------------------
 #pragma mark - Private interface
@@ -106,17 +106,24 @@ typedef void(^MCKillSwitchAlertBlock)();
 }
 
 - (void)hideAlert {
-    if (self.showing) {
-        [self.alertView dismissViewControllerAnimated:YES completion:nil];
-        [self destroyAlertView];
-    }
+    [self hideAlertWithCompletion:nil];
 }
 
 - (void)hideAlertWithCompletion:(MCKillSwitchAlertBlock)completion {
     if (self.showing) {
-        [self.alertView dismissViewControllerAnimated:YES completion:^{ completion(); }];
-        [self destroyAlertView];
-    } else {
+        [self.alertView dismissViewControllerAnimated:YES completion:^{
+            if (completion) {
+                completion();
+            }
+        }];
+        _alertView = nil;
+        _showing = NO;
+
+        if ([self shouldHideAlertAfterButtonAction]) {
+            // Call the delegate if the alert will be hidden completely, not when the alert is hidden to be shown right afterwards
+            [self.delegate killSwitchAlertDidHide:self];
+        }
+    } else if (completion) {
         completion();
     }
 }
