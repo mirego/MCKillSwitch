@@ -178,7 +178,7 @@ NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
 
 + (NSString *)applicationVersion
 {
-    NSString *version = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
+    NSString *version = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
     if (version == nil) {
         version = @"1.0";
     }
