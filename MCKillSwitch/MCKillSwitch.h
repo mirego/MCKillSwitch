@@ -43,8 +43,10 @@ extern NSString * const kMCKillDefaultAPIKeyParameterName;
 @property (nonatomic) BOOL executeOnAppDidBecomeActive; // default NO
 @property (nonatomic, readonly, getter = isExecuting) BOOL executing;
 
-- (instancetype)initWithBaseURL:(NSURL *)baseURL;
-- (instancetype)initWithAPI:(id<MCKillSwitchAPI>)killSwitchAPI;
+- (instancetype)initWithBaseURL:(NSURL *)baseURL version:(NSString *)version;
+- (instancetype)initWithBaseURL:(NSURL *)baseURL DEPRECATED_MSG_ATTRIBUTE("Use initWithBaseURL:version: instead");
+- (instancetype)initWithAPI:(id<MCKillSwitchAPI>)killSwitchAPI version:(NSString *)version;
+- (instancetype)initWithAPI:(id<MCKillSwitchAPI>)killSwitchAPI DEPRECATED_MSG_ATTRIBUTE("Use initWithAPI:version: instead");
 
 - (void)execute;
 
@@ -52,9 +54,12 @@ extern NSString * const kMCKillDefaultAPIKeyParameterName;
 
 + (void)clearSavedInfo;
 
-+ (void)configureStaticJSONFileKillSwitchWithURL:(NSURL *)url;
-+ (void)configureDefaultKillSwitchWithAPIKey:(NSString *)APIkey;
-+ (void)configureKillSwitchWithCustomURL:(NSURL *)url parameters:(NSDictionary *)parameters;
++ (void)configureStaticJSONFileKillSwitchWithURL:(NSURL *)url version:(NSString *)version;
++ (void)configureStaticJSONFileKillSwitchWithURL:(NSURL *)url DEPRECATED_MSG_ATTRIBUTE("Use configureStaticJSONFileKillSwitchWithURL:version: instead");
++ (void)configureDefaultKillSwitchWithAPIKey:(NSString *)APIkey version:(NSString *)version;
++ (void)configureDefaultKillSwitchWithAPIKey:(NSString *)APIkey DEPRECATED_MSG_ATTRIBUTE("Use configureDefaultKillSwitchWithAPIKey:version: instead");
++ (void)configureKillSwitchWithCustomURL:(NSURL *)url parameters:(NSDictionary *)parameters version:(NSString *)version;
++ (void)configureKillSwitchWithCustomURL:(NSURL *)url parameters:(NSDictionary *)parameters DEPRECATED_MSG_ATTRIBUTE("Use configureKillSwitchWithCustomURL:parameters:version: instead");
 @end
 
 

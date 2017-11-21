@@ -1,9 +1,11 @@
-source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
 
-target 'MCKillSwitchExample', :exclusive => true do
-  pod "MCKillSwitch", :path => "../"
-end
+target 'MCKillSwitchExample' do
 
-target 'MCKillSwitchExampleTests', :exclusive => true do
   pod "MCKillSwitch", :path => "../"
+
+  target 'MCKillSwitchExampleTests' do
+    inherit! :search_paths
+  end
+
 end

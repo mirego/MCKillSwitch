@@ -18,7 +18,7 @@
 		A60B9AA91A76D95800C1C9CE /* MCMockKillSwitchAPIKill.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B9A9A1A76D95800C1C9CE /* MCMockKillSwitchAPIKill.m */; };
 		A60B9AAA1A76D95800C1C9CE /* MCMockKillSwitchAPINoInternet.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B9A9C1A76D95800C1C9CE /* MCMockKillSwitchAPINoInternet.m */; };
 		A60B9AAB1A76D95800C1C9CE /* MCMockKillSwitchAPIOK.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B9A9E1A76D95800C1C9CE /* MCMockKillSwitchAPIOK.m */; };
-		A60B9AAC1A76D95800C1C9CE /* 1.0.0.json in Resources */ = {isa = PBXBuildFile; fileRef = A60B9AA01A76D95800C1C9CE /* 1.0.0.json */; };
+		A60B9AAC1A76D95800C1C9CE /* 1.0.json in Resources */ = {isa = PBXBuildFile; fileRef = A60B9AA01A76D95800C1C9CE /* 1.0.json */; };
 		A60B9AAD1A76D95800C1C9CE /* action_alert.json in Resources */ = {isa = PBXBuildFile; fileRef = A60B9AA11A76D95800C1C9CE /* action_alert.json */; };
 		A60B9AAE1A76D95800C1C9CE /* action_kill.json in Resources */ = {isa = PBXBuildFile; fileRef = A60B9AA21A76D95800C1C9CE /* action_kill.json */; };
 		A60B9AAF1A76D95800C1C9CE /* action_ok.json in Resources */ = {isa = PBXBuildFile; fileRef = A60B9AA31A76D95800C1C9CE /* action_ok.json */; };
@@ -66,7 +66,7 @@
 		A60B9A9C1A76D95800C1C9CE /* MCMockKillSwitchAPINoInternet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMockKillSwitchAPINoInternet.m; sourceTree = "<group>"; };
 		A60B9A9D1A76D95800C1C9CE /* MCMockKillSwitchAPIOK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMockKillSwitchAPIOK.h; sourceTree = "<group>"; };
 		A60B9A9E1A76D95800C1C9CE /* MCMockKillSwitchAPIOK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMockKillSwitchAPIOK.m; sourceTree = "<group>"; };
-		A60B9AA01A76D95800C1C9CE /* 1.0.0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1.0.0.json; sourceTree = "<group>"; };
+		A60B9AA01A76D95800C1C9CE /* 1.0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1.0.json; sourceTree = "<group>"; };
 		A60B9AA11A76D95800C1C9CE /* action_alert.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = action_alert.json; sourceTree = "<group>"; };
 		A60B9AA21A76D95800C1C9CE /* action_kill.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = action_kill.json; sourceTree = "<group>"; };
 		A60B9AA31A76D95800C1C9CE /* action_ok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = action_ok.json; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 		A60B9A9F1A76D95800C1C9CE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A60B9AA01A76D95800C1C9CE /* 1.0.0.json */,
+				A60B9AA01A76D95800C1C9CE /* 1.0.json */,
 				A60B9AA11A76D95800C1C9CE /* action_alert.json */,
 				A60B9AA21A76D95800C1C9CE /* action_kill.json */,
 				A60B9AA31A76D95800C1C9CE /* action_ok.json */,
@@ -226,12 +226,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A60B9A8A1A76D80800C1C9CE /* Build configuration list for PBXNativeTarget "MCKillSwitchExample" */;
 			buildPhases = (
-				62C21D8319195F452919FC35 /* Check Pods Manifest.lock */,
+				62C21D8319195F452919FC35 /* [CP] Check Pods Manifest.lock */,
 				A60B9A631A76D80800C1C9CE /* Sources */,
 				A60B9A641A76D80800C1C9CE /* Frameworks */,
 				A60B9A651A76D80800C1C9CE /* Resources */,
-				5BC59CD3B0FC87CA0E3F73E7 /* Embed Pods Frameworks */,
-				069D75FC9701DA547310E11A /* Copy Pods Resources */,
+				5BC59CD3B0FC87CA0E3F73E7 /* [CP] Embed Pods Frameworks */,
+				069D75FC9701DA547310E11A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,12 +246,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A60B9A8D1A76D80800C1C9CE /* Build configuration list for PBXNativeTarget "MCKillSwitchExampleTests" */;
 			buildPhases = (
-				96A66FA60769CAB4CE52A6B5 /* Check Pods Manifest.lock */,
+				96A66FA60769CAB4CE52A6B5 /* [CP] Check Pods Manifest.lock */,
 				A60B9A7C1A76D80800C1C9CE /* Sources */,
 				A60B9A7D1A76D80800C1C9CE /* Frameworks */,
 				A60B9A7E1A76D80800C1C9CE /* Resources */,
-				02DC30629A546DFD50D5CB83 /* Embed Pods Frameworks */,
-				FCC5D90806E63F57B6DD1A7B /* Copy Pods Resources */,
+				02DC30629A546DFD50D5CB83 /* [CP] Embed Pods Frameworks */,
+				FCC5D90806E63F57B6DD1A7B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -270,14 +270,16 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MC;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Mirego Inc.";
 				TargetAttributes = {
 					A60B9A661A76D80800C1C9CE = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 4Q596JWQC5;
 					};
 					A60B9A7F1A76D80800C1C9CE = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 4Q596JWQC5;
 						TestTargetID = A60B9A661A76D80800C1C9CE;
 					};
 				};
@@ -311,7 +313,7 @@
 				A60B9AAD1A76D95800C1C9CE /* action_alert.json in Resources */,
 				A60B9ABF1A76DB8D00C1C9CE /* Localizable.strings in Resources */,
 				A60B9AAF1A76D95800C1C9CE /* action_ok.json in Resources */,
-				A60B9AAC1A76D95800C1C9CE /* 1.0.0.json in Resources */,
+				A60B9AAC1A76D95800C1C9CE /* 1.0.json in Resources */,
 				F890BF5D1BB08E7700155A5C /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,14 +328,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02DC30629A546DFD50D5CB83 /* Embed Pods Frameworks */ = {
+		02DC30629A546DFD50D5CB83 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,14 +343,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCKillSwitchExampleTests/Pods-MCKillSwitchExampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		069D75FC9701DA547310E11A /* Copy Pods Resources */ = {
+		069D75FC9701DA547310E11A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,14 +358,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCKillSwitchExample/Pods-MCKillSwitchExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5BC59CD3B0FC87CA0E3F73E7 /* Embed Pods Frameworks */ = {
+		5BC59CD3B0FC87CA0E3F73E7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,44 +373,50 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCKillSwitchExample/Pods-MCKillSwitchExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		62C21D8319195F452919FC35 /* Check Pods Manifest.lock */ = {
+		62C21D8319195F452919FC35 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MCKillSwitchExample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		96A66FA60769CAB4CE52A6B5 /* Check Pods Manifest.lock */ = {
+		96A66FA60769CAB4CE52A6B5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MCKillSwitchExampleTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FCC5D90806E63F57B6DD1A7B /* Copy Pods Resources */ = {
+		FCC5D90806E63F57B6DD1A7B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,13 +472,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -479,6 +495,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -491,7 +508,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -507,13 +524,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -521,13 +546,14 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -541,6 +567,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 4Q596JWQC5;
 				INFOPLIST_FILE = MCKillSwitchExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mirego.killswitch;
@@ -554,6 +581,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 4Q596JWQC5;
 				INFOPLIST_FILE = MCKillSwitchExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mirego.killswitch;
@@ -566,6 +594,7 @@
 			baseConfigurationReference = 0A16B600A708B7DC8ED27334 /* Pods-MCKillSwitchExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 4Q596JWQC5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -583,6 +612,7 @@
 			baseConfigurationReference = 5838DDC805A0CF4645613505 /* Pods-MCKillSwitchExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 4Q596JWQC5;
 				INFOPLIST_FILE = MCKillSwitchExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mirego.$(PRODUCT_NAME:rfc1034identifier)";
