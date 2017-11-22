@@ -105,7 +105,7 @@
 - (void)useTestStaticKillSwitch:(UIButton *)button
 {
     // FIXME Change HOST to a better one
-    [MCKillSwitch configureStaticJSONFileKillSwitchWithURL:[NSURL URLWithString:@"http://lefrancois-test.s3.amazonaws.com/1.0.0.json"]];
+    [MCKillSwitch configureStaticJSONFileKillSwitchWithURL:[NSURL URLWithString:@"http://lefrancois-test.s3.amazonaws.com/1.0.0.json"] version:[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]];
 }
 
 - (void)pushToCustomBackendActions:(UIButton *)button
@@ -123,7 +123,7 @@
     
     BOOL isAPIKillSwitchClass = [apiClass isSubclassOfClass:[MCKillSwitchDynamicAPI class]];
     if (isAPIKillSwitchClass) {
-        killSwitch = [[MCKillSwitch alloc] initWithAPI:[[apiClass alloc] init]]; // Tests with local JSON.
+        killSwitch = [[MCKillSwitch alloc] initWithAPI:[[apiClass alloc] init] version:[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]]; // Tests with local JSON.
         killSwitch.delegate = _killSwitchAlert;
     }
     

@@ -131,7 +131,7 @@
     
     BOOL conformsToMCKillSwitchAPIProtocol = [apiClass conformsToProtocol:@protocol(MCKillSwitchAPI)];
     if (conformsToMCKillSwitchAPIProtocol) {
-        killSwitch = [[MCKillSwitch alloc] initWithAPI:[[apiClass alloc] init]];
+        killSwitch = [[MCKillSwitch alloc] initWithAPI:[[apiClass alloc] init] version:[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]];
         killSwitch.delegate = self;
         
     } else {

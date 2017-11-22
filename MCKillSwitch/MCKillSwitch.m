@@ -43,6 +43,8 @@ NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
 @interface MCKillSwitch ()
 
 @property (nonatomic, readonly) id<MCKillSwitchAPI> killSwitchAPI;
+@property (nonatomic, readonly, copy) NSString *version;
+
 @end
 
 //------------------------------------------------------------------------------
@@ -53,24 +55,35 @@ NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
 
 - (instancetype)init
 {
-    return [self initWithBaseURL:nil];
+    return [self initWithBaseURL:nil version:[MCKillSwitch applicationVersion]];
+}
+
+- (instancetype)initWithBaseURL:(NSURL *)baseURL version:(NSString *)version
+{
+    return [self initWithBaseURL:baseURL orAPI:nil version:version];
 }
 
 - (instancetype)initWithBaseURL:(NSURL *)baseURL
 {
-    return [self initWithBaseURL:baseURL orAPI:nil];
+    return [self initWithBaseURL:baseURL version:[MCKillSwitch applicationVersion]];
+}
+
+- (instancetype)initWithAPI:(id<MCKillSwitchAPI>)killSwitchAPI version:(NSString *)version
+{
+    return [self initWithBaseURL:nil orAPI:killSwitchAPI version:version];
 }
 
 - (instancetype)initWithAPI:(id<MCKillSwitchAPI>)killSwitchAPI
 {
-    return [self initWithBaseURL:nil orAPI:killSwitchAPI];
+    return [self initWithAPI:killSwitchAPI version:[MCKillSwitch applicationVersion]];
 }
 
-- (instancetype)initWithBaseURL:(NSURL *)baseURL orAPI:(id<MCKillSwitchAPI>)killSwitchAPI {
+- (instancetype)initWithBaseURL:(NSURL *)baseURL orAPI:(id<MCKillSwitchAPI>)killSwitchAPI version:(NSString *)version {
     self = [super init];
     if (self) {
         _killSwitchAPI = killSwitchAPI ? killSwitchAPI : [[MCKillSwitchDynamicAPI alloc] initWithBaseURL:baseURL];
         _killSwitchAPI.delegate = self;
+        _version = version;
     }
     
     return self;
@@ -111,7 +124,7 @@ NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
     
     // Add application version to the parameters
     NSMutableDictionary *parametersCopy = [[NSMutableDictionary alloc] initWithDictionary:self.parameters];
-    parametersCopy[kMCKillSwitchAPIAppVersion] = [MCKillSwitch applicationVersion];
+    parametersCopy[kMCKillSwitchAPIAppVersion] = self.version;
     _parameters = [[NSDictionary alloc] initWithDictionary:parametersCopy];
     
     [_killSwitchAPI startWithParameters:self.parameters];
@@ -137,39 +150,54 @@ NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
     [userDefaults synchronize];
 }
 
-+ (void)configureStaticJSONFileKillSwitchWithURL:(NSURL *)url
++ (void)configureStaticJSONFileKillSwitchWithURL:(NSURL *)url version:(NSString *)version
 {
     static MCKillSwitchAlert *killSwitchAlert;
     killSwitchAlert = [[MCKillSwitchAlert alloc] init];
     
     static MCKillSwitch *killSwitch;
-    killSwitch = [[MCKillSwitch alloc] initWithAPI:[MCKillSwitchStaticAPI staticJSONFileKillSwitchDynamicAPIWithURL:url]];
+    killSwitch = [[MCKillSwitch alloc] initWithAPI:[MCKillSwitchStaticAPI staticJSONFileKillSwitchDynamicAPIWithURL:url] version:version];
     killSwitch.executeOnAppDidBecomeActive = YES;
     killSwitch.delegate = killSwitchAlert;
 }
 
-+ (void)configureDefaultKillSwitchWithAPIKey:(NSString *)APIkey
++ (void)configureStaticJSONFileKillSwitchWithURL:(NSURL *)url
+{
+    [MCKillSwitch configureStaticJSONFileKillSwitchWithURL:url version:[MCKillSwitch applicationVersion]];
+}
+
++ (void)configureDefaultKillSwitchWithAPIKey:(NSString *)APIkey version:(NSString *)version
 {
     static MCKillSwitchAlert *killSwitchAlert;
     killSwitchAlert = [[MCKillSwitchAlert alloc] init];
     
     static MCKillSwitch *killSwitch;
-    killSwitch = [[MCKillSwitch alloc] initWithAPI:[MCKillSwitchDynamicAPI defaultURLKillSwitchDynamicAPI]];
+    killSwitch = [[MCKillSwitch alloc] initWithAPI:[MCKillSwitchDynamicAPI defaultURLKillSwitchDynamicAPI] version:version];
     killSwitch.executeOnAppDidBecomeActive = YES;
     killSwitch.delegate = killSwitchAlert;
     killSwitch.parameters = @{ kMCKillDefaultAPIKeyParameterName: APIkey };
 }
 
-+ (void)configureKillSwitchWithCustomURL:(NSURL *)url parameters:(NSDictionary *)parameters
++ (void)configureDefaultKillSwitchWithAPIKey:(NSString *)APIkey
+{
+    [MCKillSwitch configureDefaultKillSwitchWithAPIKey:APIkey version:[MCKillSwitch applicationVersion]];
+}
+
++ (void)configureKillSwitchWithCustomURL:(NSURL *)url parameters:(NSDictionary *)parameters version:(NSString *)version
 {
     static MCKillSwitchAlert *killSwitchAlert;
     killSwitchAlert = [[MCKillSwitchAlert alloc] init];
     
     static MCKillSwitch *killSwitch;
-    killSwitch = [[MCKillSwitch alloc] initWithAPI:[MCKillSwitchDynamicAPI killSwitchDynamicAPIWithCustomURL:url]];
+    killSwitch = [[MCKillSwitch alloc] initWithAPI:[MCKillSwitchDynamicAPI killSwitchDynamicAPIWithCustomURL:url] version:version];
     killSwitch.executeOnAppDidBecomeActive = YES;
     killSwitch.delegate = killSwitchAlert;
     killSwitch.parameters = parameters;
+}
+
++ (void)configureKillSwitchWithCustomURL:(NSURL *)url parameters:(NSDictionary *)parameters
+{
+    [MCKillSwitch configureKillSwitchWithCustomURL:url parameters:parameters version:[MCKillSwitch applicationVersion]];
 }
 
 //------------------------------------------------------------------------------
@@ -191,7 +219,7 @@ NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
     if (info) {
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setObject:[MCKillSwitchDictionaryInfo infoDictionaryFromInfo:info] forKey:kMCKillSwitchInfo];
-        [userDefaults setObject:[MCKillSwitch applicationVersion] forKey:kMCKillSwitchInfoVersion];
+        [userDefaults setObject:self.version forKey:kMCKillSwitchInfoVersion];
         [userDefaults synchronize];
         
     } else {
@@ -206,7 +234,7 @@ NSString * const kMCKillDefaultAPIKeyParameterName = @"key";
     NSString *infoVersion = [userDefaults objectForKey:kMCKillSwitchInfoVersion];
     
     if (info) {
-        BOOL versionMatchesCurrent = infoVersion && [infoVersion isEqualToString:[MCKillSwitch applicationVersion]];
+        BOOL versionMatchesCurrent = infoVersion && [infoVersion isEqualToString:self.version];
         if (!versionMatchesCurrent) {
             info = nil;
             [MCKillSwitch clearSavedInfo];
