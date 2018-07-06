@@ -68,9 +68,9 @@ typedef void(^MCKillSwitchAlertBlock)(void);
     NSArray *orderedButtons = [MCKillSwitchAlert orderedButtonsForButtons:self.killSwitchInfo.buttons];
     
     [self hideAlertWithCompletion:^{
-        _alertView = [UIAlertController alertControllerWithTitle:@""
-                                                         message:self.killSwitchInfo.message
-                                                  preferredStyle:UIAlertControllerStyleAlert];
+        self->_alertView = [UIAlertController alertControllerWithTitle:@""
+                                                               message:self.killSwitchInfo.message
+                                                        preferredStyle:UIAlertControllerStyleAlert];
 
         [orderedButtons enumerateObjectsUsingBlock:^(id<MCKillSwitchInfoButton> button, NSUInteger idx, BOOL *stop) {
             [self.alertView addAction:[UIAlertAction actionWithTitle:button.title style:[self styleForButton:button] handler:^(UIAlertAction * _Nonnull action) {
@@ -81,7 +81,7 @@ typedef void(^MCKillSwitchAlertBlock)(void);
 
         [[self topMostViewController] presentViewController:self.alertView animated:YES completion:nil];
 
-        _showing = YES;
+        self->_showing = YES;
 
         [self.delegate killSwitchAlertDidShow:self];
     }];

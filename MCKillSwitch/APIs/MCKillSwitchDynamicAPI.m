@@ -106,7 +106,10 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"https://killswitch.mirego
 
     // URL connection
     [self cancel];
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
     _connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+#pragma GCC diagnostic pop
 }
 
 - (NSMutableURLRequest *)killSwitchRequestWithParameters:(NSDictionary *)parameters
@@ -130,7 +133,7 @@ NSString * const kMCKillSwitchAPIDefaultAPIBaseURL = @"https://killswitch.mirego
 
 - (NSMutableURLRequest *)requestForStaticURLWithParameters:(NSDictionary *)parameters
 {
-    NSString *appVersion = parameters[kMCKillSwitchAPIAppVersion];
+    NSString *appVersion = parameters[kMCKillSwitchAPIAppVersion] ?: @"";
     NSURL *url = [NSURL URLWithString:[appVersion stringByAppendingPathExtension:@"json"] relativeToURL:self.baseURL];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
