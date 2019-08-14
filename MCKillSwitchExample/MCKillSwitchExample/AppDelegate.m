@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2015, Mirego
+// Copyright (c) 2013-2019, Mirego
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -44,13 +44,22 @@ static BOOL const TestStaticJSONFileKillSwitch = NO;
     [self.window makeKeyAndVisible];
     
     if (TestDefaultKillSwitch) {
+        #pragma GCC diagnostic push
+        #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         [MCKillSwitch configureDefaultKillSwitchWithAPIKey:@"f146acb80b791e17a201e845137e9fc49b55bce02ab4e1e9e0c33216fc56f9fe"];
+        #pragma GCC diagnostic pop
     }
     if (TestCustomKillSwitch) {
+        #pragma GCC diagnostic push
+        #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         [MCKillSwitch configureKillSwitchWithCustomURL:[NSURL URLWithString:@"__YOUR_BASE_URL__"] parameters:nil];
+        #pragma GCC diagnostic pop
     }
     if (TestStaticJSONFileKillSwitch) {
+        #pragma GCC diagnostic push
+        #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         [MCKillSwitch configureStaticJSONFileKillSwitchWithURL:[NSURL URLWithString:@"http://lefrancois-test.s3.amazonaws.com/1.0.0.json"]];
+        #pragma GCC diagnostic pop
     }
     
     return YES;

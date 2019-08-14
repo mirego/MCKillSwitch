@@ -2,7 +2,7 @@ author: Mirego
 author_url: https://github.com/mirego
 module: MCKillSwitch 
 module_version: 1.1
-copyright: 2016 Mirego
+copyright: 2013-2019 Mirego
 readme: README.md
 objc: true
 skip_undocumented: true

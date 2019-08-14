@@ -1,5 +1,7 @@
 platform :ios, '8.0'
 
+source 'https://cdn.cocoapods.org/'
+
 target 'MCKillSwitchExample' do
 
   pod "MCKillSwitch", :path => "../"

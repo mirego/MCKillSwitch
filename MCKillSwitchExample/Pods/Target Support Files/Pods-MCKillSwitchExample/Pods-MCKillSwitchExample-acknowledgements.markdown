@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## MCKillSwitch
 
-Copyright (c) 2013-2016, Mirego
+Copyright (c) 2013-2019, Mirego
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

@@ -52,7 +52,7 @@ pod 'MCKillSwitch', :git => 'https://github.com/mirego/MCKillswitch.git'
 
 ## License
 
-MCKillSwitch is © 2013-2017 [Mirego](http://www.mirego.com) and may be freely
+MCKillSwitch is © 2013-2019 [Mirego](http://www.mirego.com) and may be freely
 distributed under the [New BSD license](http://opensource.org/licenses/BSD-3-Clause).
 See the [`LICENSE`](https://github.com/mirego/MCKillSwitch/blob/master/LICENSE) file.
 
