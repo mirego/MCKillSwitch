@@ -28,6 +28,8 @@
 
 #import "MCKillSwitchAlert.h"
 
+#import <StoreKit/StoreKit.h>
+
 #define STORE_PREFIX @"store:"
 
 typedef void(^MCKillSwitchAlertBlock)(void);
@@ -36,10 +38,22 @@ typedef void(^MCKillSwitchAlertBlock)(void);
 #pragma mark - Private interface
 //------------------------------------------------------------------------------
 
-@interface MCKillSwitchAlert ()
+@interface MCKillSwitchAlertController : UIAlertController
+@end
 
-@property (nonatomic, readonly) id<MCKillSwitchInfo> killSwitchInfo;
-@property (nonatomic, readonly) UIAlertController *alertView;
+@implementation MCKillSwitchAlertController
+
+- (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
+    @throw [NSException exceptionWithName:NSGenericException
+                                   reason:[NSString stringWithFormat:@"Trying to present a view controller on top of the Kill Switch: %@", viewControllerToPresent]
+                                 userInfo:nil];
+}
+
+@end
+
+@interface MCKillSwitchAlert () <SKStoreProductViewControllerDelegate>
+
+@property (nonatomic) id<MCKillSwitchInfo> killSwitchInfo;
 @end
 
 //------------------------------------------------------------------------------
@@ -48,8 +62,7 @@ typedef void(^MCKillSwitchAlertBlock)(void);
 
 @implementation MCKillSwitchAlert
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
     }
@@ -61,43 +74,92 @@ typedef void(^MCKillSwitchAlertBlock)(void);
 #pragma mark - Public methods
 //------------------------------------------------------------------------------
 
-- (void)showAlertForKillSwitchInfo:(id<MCKillSwitchInfo>)info
-{
-    _killSwitchInfo = info;
-    
-    NSArray *orderedButtons = [MCKillSwitchAlert orderedButtonsForButtons:self.killSwitchInfo.buttons];
+- (BOOL)shouldHideAlertAfterButtonAction {
+    return (self.killSwitchInfo.action != MCKillSwitchActionKill);
+}
+
+- (BOOL)isShowing {
+    UIViewController *topMostViewController = MCKillSwitchAlert.topMostViewController;
+    return [topMostViewController isKindOfClass:MCKillSwitchAlertController.class];
+}
+
+- (void)showAlertForKillSwitchInfo:(id<MCKillSwitchInfo>)killSwitchInfo {
+    self.killSwitchInfo = killSwitchInfo;
     
     [self hideAlertWithCompletion:^{
-        self->_alertView = [UIAlertController alertControllerWithTitle:@""
-                                                               message:self.killSwitchInfo.message
-                                                        preferredStyle:UIAlertControllerStyleAlert];
-
+        MCKillSwitchAlertController* alertController =
+        [MCKillSwitchAlertController alertControllerWithTitle:@""
+                                                      message:killSwitchInfo.message
+                                               preferredStyle:UIAlertControllerStyleAlert];
+        
+        NSArray *orderedButtons = [MCKillSwitchAlert orderedButtonsForButtons:killSwitchInfo.buttons];
         [orderedButtons enumerateObjectsUsingBlock:^(id<MCKillSwitchInfoButton> button, NSUInteger idx, BOOL *stop) {
-            [self.alertView addAction:[UIAlertAction actionWithTitle:button.title style:[self styleForButton:button] handler:^(UIAlertAction * _Nonnull action) {
-                [self performActionForButtonAtIndex:idx];
-                [self determineAlertDisplayState];
+            [alertController addAction:
+             [UIAlertAction actionWithTitle:button.title
+                                      style:[MCKillSwitchAlert styleForButton:button]
+                                    handler:^(UIAlertAction * _Nonnull action) {
+                [self performActionForButton:button];
             }]];
         }];
-
-        [[self topMostViewController] presentViewController:self.alertView animated:YES completion:nil];
-
-        self->_showing = YES;
-
-        [self.delegate killSwitchAlertDidShow:self];
+        
+        UIViewController *topMostViewController = MCKillSwitchAlert.topMostViewController;
+        [topMostViewController presentViewController:alertController animated:YES completion:^{
+            [self.delegate killSwitchAlertDidShow:self];
+        }];
     }];
 }
 
-- (UIViewController *)topMostViewController {
-    UIViewController *topMostViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
-    while (topMostViewController.presentedViewController) {
+- (void)hideAlert {
+    [self hideAlertWithCompletion:nil];
+}
+
+//------------------------------------------------------------------------------
+#pragma mark - Private methods
+//------------------------------------------------------------------------------
+
+- (void)hideAlertWithCompletion:(MCKillSwitchAlertBlock)completion {
+    UIViewController *topMostViewController = MCKillSwitchAlert.topMostViewController;
+    if ([topMostViewController isKindOfClass:MCKillSwitchAlertController.class]
+#if !TARGET_OS_TV
+        || [topMostViewController isKindOfClass:SKStoreProductViewController.class]
+#endif
+        ) {
+        UIViewController *presentingViewController = topMostViewController.presentingViewController;
+        [presentingViewController dismissViewControllerAnimated:YES completion:^{
+            UIViewController *topMostViewController = MCKillSwitchAlert.topMostViewController;
+            if ([topMostViewController isKindOfClass:MCKillSwitchAlertController.class]) {
+                [self hideAlertWithCompletion:completion];
+                
+            } else {
+                // Call the delegate if the alert will be hidden completely, not when the alert is hidden to be shown right afterwards
+                if ([self shouldHideAlertAfterButtonAction]) {
+                    [self.delegate killSwitchAlertDidHide:self];
+                }
+                
+                if (completion) {
+                    completion();
+                }
+            }
+        }];
+        
+    } else {
+        if (completion) {
+            completion();
+        }
+    }
+}
+
++ (UIViewController *)topMostViewController {
+    UIViewController *topMostViewController = UIApplication.sharedApplication.delegate.window.rootViewController;
+    while (topMostViewController.presentedViewController != nil) {
         topMostViewController = topMostViewController.presentedViewController;
     }
     
     return topMostViewController;
 }
 
-- (UIAlertActionStyle)styleForButton:(id<MCKillSwitchInfoButton>)button {
-    switch(button.type) {
++ (UIAlertActionStyle)styleForButton:(id<MCKillSwitchInfoButton>)button {
+    switch (button.type) {
         case MCKillSwitchInfoButtonTypeURL:
             return UIAlertActionStyleDefault;
         case MCKillSwitchInfoButtonTypeCancel:
@@ -105,64 +167,17 @@ typedef void(^MCKillSwitchAlertBlock)(void);
     }
 }
 
-- (void)hideAlert {
-    [self hideAlertWithCompletion:nil];
-}
-
-- (void)hideAlertWithCompletion:(MCKillSwitchAlertBlock)completion {
-    if (self.showing) {
-        [self.alertView dismissViewControllerAnimated:YES completion:^{
-            if (completion) {
-                completion();
-            }
-        }];
-        _alertView = nil;
-        _showing = NO;
-
-        if ([self shouldHideAlertAfterButtonAction]) {
-            // Call the delegate if the alert will be hidden completely, not when the alert is hidden to be shown right afterwards
-            [self.delegate killSwitchAlertDidHide:self];
-        }
-    } else if (completion) {
-        completion();
-    }
-}
-
-- (void)destroyAlertView {
-    _alertView = nil;
-    _showing = NO;
-
-    if ([self shouldHideAlertAfterButtonAction]) {
-        // Call the delegate if the alert will be hidden completely, not when the alert is hidden to be shown right afterwards
-        [self.delegate killSwitchAlertDidHide:self];
-    }
-}
-
-- (BOOL)shouldHideAlertAfterButtonAction
-{
-    return (self.killSwitchInfo.action != MCKillSwitchActionKill);
-}
-
-//------------------------------------------------------------------------------
-#pragma mark - Private methods
-//------------------------------------------------------------------------------
-
-+ (id<MCKillSwitchInfoButton>)cancelButtonForButtons:(NSArray *)buttons
-{
-    id<MCKillSwitchInfoButton> cancelButton = nil;
-    
++ (id<MCKillSwitchInfoButton>)cancelButtonForButtons:(NSArray *)buttons {
     for (id<MCKillSwitchInfoButton> button in buttons) {
         if (button.type == MCKillSwitchInfoButtonTypeCancel) {
-            cancelButton = button;
-            break;
+            return button;
         }
     }
     
-    return cancelButton;
+    return nil;
 }
 
-+ (NSArray *)urlButtonsForButtons:(NSArray *)buttons
-{
++ (NSArray *)urlButtonsForButtons:(NSArray *)buttons {
     NSMutableArray *urlButtons = [NSMutableArray new];
     
     for (id<MCKillSwitchInfoButton> button in buttons) {
@@ -171,125 +186,115 @@ typedef void(^MCKillSwitchAlertBlock)(void);
         }
     }
     
-    return urlButtons.count > 0 ? [[NSArray alloc] initWithArray:urlButtons] : nil;
+    return urlButtons.copy;
 }
 
-+ (NSArray *)orderedButtonsForButtons:(NSArray *)buttons
-{
++ (NSArray *)orderedButtonsForButtons:(NSArray *)buttons {
     NSMutableArray *orderedButtons = [NSMutableArray new];
     
     id<MCKillSwitchInfoButton> cancelButton = [self cancelButtonForButtons:buttons];
-    if (cancelButton) {
+    if ((cancelButton != nil)) {
         [orderedButtons addObject:cancelButton];
     }
     
     NSArray *urlButtons = [self urlButtonsForButtons:buttons];
-    if (urlButtons) {
+    if ((urlButtons.count > 0)) {
         [orderedButtons addObjectsFromArray:urlButtons];
     }
     
-    return orderedButtons.count > 0 ? [[NSArray alloc] initWithArray:orderedButtons] : nil;
+    return orderedButtons.copy;
 }
 
-- (BOOL)openURLForButton:(id<MCKillSwitchInfoButton>)button
-{
-    BOOL didOpenURL = NO;
-    BOOL pathExists = button.urlPath && button.urlPath.length > 0;
+- (BOOL)openUrl:(NSString *)url {
+    BOOL didOpenUrl = NO;
     
-    if (pathExists) {
-        
-        // If the URL begins with "store:", this is an ID to open the store. NOT Supported on tvOS
-        #if !TARGET_OS_TV
-        if ([button.urlPath hasPrefix:STORE_PREFIX]) {
-            [self showStoreViewForUrl:button.urlPath];
+    if (url.length > 0) {
+#if !TARGET_OS_TV
+        // If the URL begins with "store:", this is an ID to open the store
+        if ([url hasPrefix:STORE_PREFIX]) {
+            [self showStoreViewForUrl:url];
             return YES;
         }
-        #endif
+#endif
         
-        NSURL *url = [NSURL URLWithString:button.urlPath];
-        didOpenURL = [[UIApplication sharedApplication] openURL:url];
+        didOpenUrl = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
     }
     
-    return didOpenURL;
+    [self determineAlertDisplayState];
+    return didOpenUrl;
 }
 
 #if !TARGET_OS_TV
-- (void)showStoreViewForUrl:(NSString*)url
-{
-    NSString *storeNumber = [url substringFromIndex:STORE_PREFIX.length];
-    SKStoreProductViewController *storeViewController = [[SKStoreProductViewController alloc] init];
-    
+
+- (void)showStoreViewForUrl:(NSString *)url {
+    SKStoreProductViewController *storeViewController = [SKStoreProductViewController new];
     storeViewController.delegate = self;
     
-    NSDictionary *parameters = @{SKStoreProductParameterITunesItemIdentifier:@([storeNumber integerValue])};
-    
-    UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
-    if (rootViewController) {
-        [rootViewController presentViewController:storeViewController animated:YES completion:nil];
+    UIViewController *topMostViewController = MCKillSwitchAlert.topMostViewController;
+    [topMostViewController presentViewController:storeViewController animated:YES completion:^{
+        NSString *storeNumber = [url substringFromIndex:STORE_PREFIX.length];
         
-        [storeViewController loadProductWithParameters:parameters completionBlock:^(BOOL result, NSError * _Nullable error) {
-            if (result) {
-                [self hideAlert];
+        [storeViewController loadProductWithParameters:@{
+            SKStoreProductParameterITunesItemIdentifier:@(storeNumber.integerValue)
+        } completionBlock:^(BOOL result, NSError * _Nullable error) {
+            if (!result) {
+                [self determineAlertDisplayState];
             }
         }];
-    } else {
-        [self determineAlertDisplayState];
-    }
+    }];
 }
+
 #endif
 
-- (void)performActionForButtonAtIndex:(NSInteger)index
-{
-    NSArray *orderedButtons = [MCKillSwitchAlert orderedButtonsForButtons:self.killSwitchInfo.buttons];
-    
-    if (index >= 0 && index < orderedButtons.count) {
-        id<MCKillSwitchInfoButton> button = orderedButtons[index];
-        
-        switch (button.type) {
-            case MCKillSwitchInfoButtonTypeURL:
-                [self openURLForButton:button];
-                break;
-                
-            case MCKillSwitchInfoButtonTypeCancel:
-                // NOP
-                break;
-        }
+- (void)performActionForButton:(id<MCKillSwitchInfoButton>)button {
+    switch (button.type) {
+        case MCKillSwitchInfoButtonTypeURL:
+            [self openUrl:button.urlPath];
+            break;
+            
+        case MCKillSwitchInfoButtonTypeCancel:
+            [self determineAlertDisplayState];
+            break;
     }
 }
 
-- (void)determineAlertDisplayState
-{
+- (void)determineAlertDisplayState {
     if ([self shouldHideAlertAfterButtonAction]) {
         [self hideAlert];
-        
     } else {
         [self showAlertForKillSwitchInfo:self.killSwitchInfo];
     }
 }
 
 //------------------------------------------------------------------------------
-#pragma mark - SKStoreProductViewControllerDelegate (NOT available on tvOS
+#pragma mark - SKStoreProductViewControllerDelegate
 //------------------------------------------------------------------------------
+
 #if !TARGET_OS_TV
+
 - (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController {
-    UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
-    [rootViewController dismissViewControllerAnimated:YES completion:nil];
-    
-    [self determineAlertDisplayState];
+    UIViewController *presentingViewController = viewController.presentingViewController;
+    if ((presentingViewController != nil)) {
+        [presentingViewController dismissViewControllerAnimated:YES completion:^{
+            [self determineAlertDisplayState];
+        }];
+        
+    } else {
+        [self determineAlertDisplayState];
+    }
 }
+
 #endif
 
 //------------------------------------------------------------------------------
 #pragma mark - MCKillSwitchDelegate
 //------------------------------------------------------------------------------
 
-- (void)killSwitch:(MCKillSwitch *)killSwitch shouldShowKillSwitchInfo:(id<MCKillSwitchInfo>)info
-{
+- (void)killSwitch:(MCKillSwitch *)killSwitch shouldShowKillSwitchInfo:(id<MCKillSwitchInfo>)info {
     [self showAlertForKillSwitchInfo:info];
 }
 
-- (void)killSwitch:(MCKillSwitch *)killSwitch didNotNeedToShowKillSwitchInfo:(id<MCKillSwitchInfo>)info
-{
+- (void)killSwitch:(MCKillSwitch *)killSwitch didNotNeedToShowKillSwitchInfo:(id<MCKillSwitchInfo>)info {
     [self hideAlert];
 }
 
