@@ -27,12 +27,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 
 #import <Foundation/Foundation.h>
-#import <StoreKit/StoreKit.h>
 #import "MCKillSwitch.h"
 
 @protocol MCKillSwitchAlertDelegate;
 
-@interface MCKillSwitchAlert : NSObject <MCKillSwitchDelegate, SKStoreProductViewControllerDelegate>
+@interface MCKillSwitchAlert : NSObject <MCKillSwitchDelegate>
 
 @property (nonatomic, weak) id<MCKillSwitchAlertDelegate> delegate;
 @property (nonatomic, readonly, getter = isShowing) BOOL showing;
