@@ -1,8 +1,8 @@
-#MCKillSwitch
+# MCKillSwitch
 
 MCKillSwitch is the official kill switch to use with Mirego’s backend implementation (see API Specs).
 
-##Using
+## Using
 
 Keep a strong instance of `MCKillSwitchAlert` in your class. The alert will be the delegate of the kill switch.
 
@@ -21,9 +21,9 @@ killSwitch.delegate = _killSwitchAlert;
 
 ```
 
-##Button Types
+## Button Types
 
-###URL
+### URL
 You can specify an URL like this:
 
 Open URL in Safari:
