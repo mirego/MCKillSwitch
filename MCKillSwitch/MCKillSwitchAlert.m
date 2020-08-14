@@ -150,12 +150,30 @@ typedef void(^MCKillSwitchAlertBlock)(void);
 }
 
 + (UIViewController *)topMostViewController {
-    UIViewController *topMostViewController = UIApplication.sharedApplication.delegate.window.rootViewController;
+    UIViewController *topMostViewController = [self rootViewController];
     while (topMostViewController.presentedViewController != nil) {
         topMostViewController = topMostViewController.presentedViewController;
     }
     
     return topMostViewController;
+}
+
++ (UIViewController *)rootViewController {
+    UIViewController *rootViewController;
+    if (@available(iOS 13.0, *)) {
+        UIScene *scene = UIApplication.sharedApplication.connectedScenes.allObjects.firstObject;
+        if ([scene isKindOfClass:[UIWindowScene class]]) {
+            UIWindowScene *windowScene = (UIWindowScene *)scene;
+            id<UIWindowSceneDelegate> windowSceneDelegate = (id <UIWindowSceneDelegate>)windowScene.delegate;
+            rootViewController = windowSceneDelegate.window.rootViewController;
+        }
+    }
+
+    if (rootViewController == nil) {
+        rootViewController = UIApplication.sharedApplication.delegate.window.rootViewController;
+    }
+
+    return rootViewController;
 }
 
 + (UIAlertActionStyle)styleForButton:(id<MCKillSwitchInfoButton>)button {
