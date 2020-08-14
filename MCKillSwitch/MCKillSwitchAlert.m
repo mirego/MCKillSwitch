@@ -160,7 +160,7 @@ typedef void(^MCKillSwitchAlertBlock)(void);
 
 + (UIViewController *)rootViewController {
     UIViewController *rootViewController;
-    if (@available(iOS 13.0, *)) {
+    if (@available(iOS 13.0, tvOS 13.0, *)) {
         UIScene *scene = UIApplication.sharedApplication.connectedScenes.allObjects.firstObject;
         if ([scene isKindOfClass:[UIWindowScene class]]) {
             UIWindowScene *windowScene = (UIWindowScene *)scene;
