@@ -150,6 +150,16 @@ typedef void(^MCKillSwitchAlertBlock)(void);
 }
 
 + (UIViewController *)topMostViewController {
+    if (@available(iOS 13.0, *)) {
+        UIScene *scene = [[UIApplication.sharedApplication.connectedScenes allObjects] firstObject];
+        if ([scene isKindOfClass:[UIWindowScene class]]) {
+            UIWindowScene *windowScene = (UIWindowScene *)scene;
+            UIWindowSceneDelegate *windowSceneDelegate = (UIWindowSceneDelegate *)windowScene.delegate;
+        }
+    } else {
+        // Fallback on earlier versions
+    }
+
     UIViewController *topMostViewController = UIApplication.sharedApplication.delegate.window.rootViewController;
     while (topMostViewController.presentedViewController != nil) {
         topMostViewController = topMostViewController.presentedViewController;
