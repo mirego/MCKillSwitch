@@ -170,7 +170,7 @@ typedef void(^MCKillSwitchAlertBlock)(void);
     }
 
     if (rootViewController == nil) {
-        rootViewController = UIApplication.sharedApplication.delegate.window.rootViewController;
+        rootViewController = UIApplication.sharedApplication.keyWindow.rootViewController;
     }
 
     return rootViewController;
