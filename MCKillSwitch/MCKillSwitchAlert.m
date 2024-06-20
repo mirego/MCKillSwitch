@@ -44,9 +44,6 @@ typedef void(^MCKillSwitchAlertBlock)(void);
 @implementation MCKillSwitchAlertController
 
 - (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
-    @throw [NSException exceptionWithName:NSGenericException
-                                   reason:[NSString stringWithFormat:@"Trying to present a view controller on top of the Kill Switch: %@", viewControllerToPresent]
-                                 userInfo:nil];
 }
 
 @end
