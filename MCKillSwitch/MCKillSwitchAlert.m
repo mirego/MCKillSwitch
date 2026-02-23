@@ -223,23 +223,19 @@ typedef void(^MCKillSwitchAlertBlock)(void);
     return orderedButtons.copy;
 }
 
-- (BOOL)openUrl:(NSString *)url {
-    BOOL didOpenUrl = NO;
-    
+- (void)openUrl:(NSString *)url {
     if (url.length > 0) {
 #if !TARGET_OS_TV
         // If the URL begins with "store:", this is an ID to open the store
         if ([url hasPrefix:STORE_PREFIX]) {
             [self showStoreViewForUrl:url];
-            return YES;
         }
 #endif
-        
-        didOpenUrl = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url] options:@{} completionHandler:nil];
     }
-    
+
     [self determineAlertDisplayState];
-    return didOpenUrl;
 }
 
 #if !TARGET_OS_TV
