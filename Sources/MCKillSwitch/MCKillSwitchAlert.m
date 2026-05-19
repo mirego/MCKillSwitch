@@ -28,6 +28,7 @@
 
 #import "MCKillSwitchAlert.h"
 
+#import <UIKit/UIKit.h>
 #import <StoreKit/StoreKit.h>
 
 #define STORE_PREFIX @"store:"

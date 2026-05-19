@@ -1,1 +1,1 @@
-../../../../../MCKillSwitch/MCKillSwitchAlert.h
+../../../../../Sources/MCKillSwitch/include/MCKillSwitchAlert.h

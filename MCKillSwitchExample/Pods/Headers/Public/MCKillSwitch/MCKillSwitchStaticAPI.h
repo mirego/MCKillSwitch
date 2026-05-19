@@ -1,1 +1,1 @@
-../../../../../MCKillSwitch/APIs/MCKillSwitchStaticAPI.h
+../../../../../Sources/MCKillSwitch/include/MCKillSwitchStaticAPI.h

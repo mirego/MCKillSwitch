@@ -1,1 +1,1 @@
-../../../../../MCKillSwitch/MCKillSwitchInfoButton.h
+../../../../../Sources/MCKillSwitch/include/MCKillSwitchInfoButton.h

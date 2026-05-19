@@ -1,1 +1,1 @@
-../../../../../MCKillSwitch/Infos/MCKillSwitchDictionaryInfoButton.h
+../../../../../Sources/MCKillSwitch/include/MCKillSwitchDictionaryInfoButton.h
