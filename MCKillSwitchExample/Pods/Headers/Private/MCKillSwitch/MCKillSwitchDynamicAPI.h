@@ -1,1 +1,1 @@
-../../../../../MCKillSwitch/APIs/MCKillSwitchDynamicAPI.h
+../../../../../Sources/MCKillSwitch/include/MCKillSwitchDynamicAPI.h

@@ -1,6 +1,6 @@
 {
   "name": "MCKillSwitch",
-  "version": "1.6",
+  "version": "1.8",
   "license": "BSD 3-Clause",
   "summary": "Stop a version of your app from working, prompting the user to upgrade.",
   "homepage": "http://open.mirego.com/",
@@ -9,12 +9,13 @@
   },
   "source": {
     "git": "https://github.com/mirego/MCKillSwitch.git",
-    "tag": "1.6"
+    "tag": "1.8"
   },
-  "source_files": "MCKillSwitch/**/*.{h,m}",
+  "source_files": "Sources/MCKillSwitch/**/*.{h,m}",
+  "public_header_files": "Sources/MCKillSwitch/include/*.h",
   "requires_arc": true,
   "platforms": {
-    "ios": "8.0",
+    "ios": "9.0",
     "tvos": "9.0"
   }
 }

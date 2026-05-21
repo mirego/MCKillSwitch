@@ -42,9 +42,19 @@ Open AppStore directly in the current app:
 
 ## Adding to your project
 
-If you're using [`CocoaPods`](http://cocoapods.org/), there's nothing simpler.
-Add the following to your [`Podfile`](http://docs.cocoapods.org/podfile.html)
-and run `pod install`
+### Swift Package Manager
+
+Add the following dependency to your `Package.swift`:
+
+```swift
+.package(url: "https://github.com/mirego/MCKillSwitch.git", from: "1.8.0")
+```
+
+Or add it via Xcode: **File › Add Package Dependencies…** and enter the repository URL.
+
+### CocoaPods
+
+Add the following to your [`Podfile`](http://docs.cocoapods.org/podfile.html) and run `pod install`:
 
 ```ruby
 pod 'MCKillSwitch', :git => 'https://github.com/mirego/MCKillswitch.git'
